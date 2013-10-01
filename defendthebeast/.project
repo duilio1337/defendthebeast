@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/dtb/rsc/download.png</name>
+			<type>1</type>
+			<location>H:/git/defendthebeast/defendthebeast/src/dtb/rsc/download.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
