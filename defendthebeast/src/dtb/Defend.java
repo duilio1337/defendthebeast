@@ -1,9 +1,10 @@
 package dtb;
-
-public class Defend {
+import jgame.Game;
+import jgame.ImageCache;
+public class Defend extends Game {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		ImageCache.create(Defend.class, "/dtb/rsc/");
 
 	}
 
