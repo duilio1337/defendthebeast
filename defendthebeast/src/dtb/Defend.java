@@ -18,10 +18,10 @@ public class Defend extends Game {
 
 		GRootContainer root = new GRootContainer(Color.BLACK);
 		setRootContainer(root);
-		DefendTitleView dtv = new DefendTitleView();
+		DefendMenuView dmv = new DefendMenuView();
 		DefendGameView dgv = new DefendGameView();
 		GameOverView gov = new GameOverView();
-		root.addView(Views.MENU, dtv);
+		root.addView(Views.MENU, dmv);
 		root.addView(Views.GAME, dgv);
 		root.addView(Views.GAME_OVER, gov);
 
