@@ -10,7 +10,7 @@ public class DefendGameView extends GContainer {
 		
 		setSize(1280, 720);
 		
-		//less
+		
 	}
 
 }
