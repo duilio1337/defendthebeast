@@ -9,7 +9,7 @@ public class DefendMenuView extends GContainer {
 	
 	public DefendMenuView () {
 		
-		super(new GSprite(ImageCache.forClass(Defend.class).get("download.png")));
+		super(new GSprite(ImageCache.forClass(Defend.class).get("skull_zombie.png")));
 		
 	}
 

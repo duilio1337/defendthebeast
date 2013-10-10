@@ -6,9 +6,9 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import dtb.Defend;
 
-public class Zombie extends Enemy{
+public class Enemy1 extends Enemy{
 
-	public Zombie(Image image) {
+	public Enemy1(Image image) {
 		super(ImageCache.forClass(Defend.class).get("skull_zombie.png"));
 	}
 
