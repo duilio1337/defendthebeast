@@ -10,7 +10,6 @@ import jgame.listener.BoundaryRemovalListener;
 public abstract class Enemy extends GSprite {
 	public Enemy(Image image) {
 		super(image);
-		setScale(2);
 		int[] x = new int[] { 7, 33, 58, 85, 110, 136, 162, 188, 213, 239, 264,
 				293, 319, 345, 372, 398, 421, 432, 433, 436, 439, 439, 439,
 				435, 427, 417, 403, 389, 375, 353, 330, 305, 284, 272, 255,
