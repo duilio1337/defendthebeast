@@ -1,16 +1,15 @@
 package dtb;
 
 import jgame.GContainer;
-import jgame.GSprite;
-import jgame.ImageCache;
+import areas.PlayArea;
 
 public class DefendGameView extends GContainer {
-	
+	private PlayArea pa = new PlayArea();
 	public DefendGameView () {
-		
-		super(new GSprite(ImageCache.forClass(Defend.class).get("Level1fix.png")));
-		
+
 		setSize(1280, 720);
+		pa.setAnchorTopLeft();
+		add(pa);
 		
 		
 	}
