@@ -1,6 +1,5 @@
 package dtb;
 
-import dtb.Defend;
 import jgame.GContainer;
 import jgame.GSprite;
 import jgame.ImageCache;
