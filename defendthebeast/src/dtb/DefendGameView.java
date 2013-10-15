@@ -14,7 +14,7 @@ public class DefendGameView extends GContainer {
 		
 		MenuArea ma = new MenuArea();
 		ma.setAnchorTopLeft();
-		ma.setLocation(1280, 720);
+		ma.setLocation(1280/2, 720-22);
 		add(ma);
 		
 		
