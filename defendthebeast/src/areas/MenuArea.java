@@ -14,7 +14,7 @@ public class MenuArea extends GContainer {
 		this.setBackgroundColor(Color.PINK);
 
 		BufferedImage bg = ImageCache.forClass(Defend.class).get(
-				"menubar_bg.png");
+				"menubar.png");
 
 		GSprite bs = new GSprite(bg);
 		setBackgroundSprite(bs);
