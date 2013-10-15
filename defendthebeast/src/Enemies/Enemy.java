@@ -29,7 +29,7 @@ public abstract class Enemy extends GSprite {
 		Polygon p = new Polygon(x, y, 84);
 		PolygonController pc = new PolygonController(p);
 		pc.goToStart(this);
-		pc.setRotateToFollow(false);
+		pc.setRotateToFollow(true);
 		addController(pc);
 		BoundaryRemovalListener brl = new BoundaryRemovalListener();
 		addListener(brl);
