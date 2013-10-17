@@ -1,6 +1,7 @@
 package bullets;
 
 import java.awt.Image;
+import java.util.List;
 
 import jgame.Context;
 import jgame.GObject;
@@ -18,9 +19,10 @@ public class Bullet extends GSprite {
 
 			@Override
 			public void invoke(GObject target, Context context) {
-				// TODO Auto-generated method stub
+				target.removeSelf();
 
 			}
 		};
+		addListener(htl);
 	}
 }
