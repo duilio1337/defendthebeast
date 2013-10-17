@@ -21,7 +21,7 @@ public class PlayArea extends GContainer {
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
 
-		final TimerListener enemyTimer = new TimerListener(30) {
+		final TimerListener enemyTimer = new TimerListener(120) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
