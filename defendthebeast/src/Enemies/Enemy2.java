@@ -6,7 +6,7 @@ import dtb.Defend;
 public class Enemy2 extends Enemy{
 
 	public Enemy2() {
-		super(ImageCache.forClass(Defend.class).get("skull_skeleton.png"));
+		super(ImageCache.forClass(Defend.class).get("Skeleton.png"));
 	}
 
 }
