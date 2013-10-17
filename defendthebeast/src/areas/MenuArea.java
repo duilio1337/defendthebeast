@@ -11,7 +11,7 @@ import dtb.Defend;
 public class MenuArea extends GContainer {
 	public MenuArea() {
 		setSize(182, 22);
-		this.setBackgroundColor(Color.PINK);
+		//this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(Defend.class).get(
 				"menubar.png");
