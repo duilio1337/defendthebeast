@@ -1,6 +1,5 @@
 package areas;
 
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import jgame.GContainer;

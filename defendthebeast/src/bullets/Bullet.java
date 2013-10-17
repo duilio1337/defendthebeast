@@ -1,7 +1,6 @@
 package bullets;
 
 import java.awt.Image;
-import java.util.List;
 
 import jgame.Context;
 import jgame.GObject;

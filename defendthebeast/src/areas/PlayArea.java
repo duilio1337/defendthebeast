@@ -9,7 +9,12 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.TimerListener;
-import Enemies.*;
+import Enemies.Enemy;
+import Enemies.Enemy1;
+import Enemies.Enemy2;
+import Enemies.Enemy3;
+import Enemies.Enemy4;
+import Enemies.Enemy5;
 import dtb.Defend;
 
 public class PlayArea extends GContainer {
