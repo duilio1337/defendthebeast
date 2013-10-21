@@ -22,13 +22,15 @@ public class MenuArea extends GContainer {
 		for (int i = 0; i < 5; i++) {
 		    setTile(i);
 		}
-		}
-		List<Image> tileImages = ImageCache.forClass(Defend.class).getSequential("tiles/t", 1, 5, ".png");
+		
 	}
+	List<Image> tileImages = ImageCache.forClass(Defend.class).getSequential("tiles/t", 1, 5, ".png");
+	
 	private void setTile(int i) {
 		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i)); 
 		tile.setAnchorTopLeft();
 		tile.setScale(1.05);
     	addAtCenter(tile);
     	tile.setX(i * 98);
+	}
 }
