@@ -15,7 +15,7 @@ public class MenuArea extends GContainer {
 		//this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(Defend.class).get(
-				"menubar.png");
+				"menubar4x.png");
 
 		GSprite bs = new GSprite(bg);
 		setBackgroundSprite(bs);
@@ -24,7 +24,7 @@ public class MenuArea extends GContainer {
 		}
 		
 	}
-	List<Image> tileImages = ImageCache.forClass(Defend.class).getSequential("tiles/t", 1, 5, ".png");
+	List<Image> tileImages = ImageCache.forClass(Defend.class).getSequential("wand", 1, 5, ".png");
 	
 	private void setTile(int i) {
 		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i)); 
