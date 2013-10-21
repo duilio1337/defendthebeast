@@ -9,7 +9,6 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 import dtb.DefendGameView;
-import Turrets.Turret;
 
 public class Tile extends GButton {
 	TurretRecipe tr;
@@ -37,7 +36,8 @@ public class Tile extends GButton {
 			@Override
 			public void mouseClicked(Context context) {
 
-				getFirstAncestorOf(DefendGameView.class).initializeTurret(Turret);
+				getFirstAncestorOf(DefendGameView.class).initializeTurret(
+						Turret);
 			}
 
 		});
