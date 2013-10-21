@@ -12,6 +12,7 @@ import dtb.DefendGameView;
 import Turrets.Turret;
 
 public class Tile extends GButton {
+	protected static final Turret Turret = null;
 	TurretRecipe tr;
 
 	public Tile(TurretRecipe recipe, Image image) {
@@ -19,11 +20,11 @@ public class Tile extends GButton {
 
 		setSize(92, 96);
 
-		GSprite sNone = ImageCache.getSprite("select4x.png");
+		//GSprite sNone = ImageCache.getSprite("menubar4x.png");
 		GSprite sHover = ImageCache.getSprite("select4x.png");
 		GSprite sPressed = ImageCache.getSprite("select4x.png");
 
-		setStateSprite(ButtonState.NONE, sNone);
+		//setStateSprite(ButtonState.NONE, sNone);
 		setStateSprite(ButtonState.HOVERED, sHover);
 		setStateSprite(ButtonState.PRESSED, sPressed);
 
@@ -36,9 +37,8 @@ public class Tile extends GButton {
 
 			@Override
 			public void mouseClicked(Context context) {
-				
-				Turret turret = tr.createTurret();
-				getFirstAncestorOf(DefendGameView.class).initializeTurret(turret);
+
+				getFirstAncestorOf(DefendGameView.class).initializeTurret(Turret);
 			}
 
 		});
