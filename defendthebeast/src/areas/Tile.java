@@ -9,6 +9,7 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 import dtb.DefendGameView;
+import Turrets.Turret;
 
 public class Tile extends GButton {
 	TurretRecipe tr;
@@ -18,9 +19,9 @@ public class Tile extends GButton {
 
 		setSize(92, 96);
 
-		GSprite sNone = ImageCache.getSprite("tile_none.png");
-		GSprite sHover = ImageCache.getSprite("tile_hover.png");
-		GSprite sPressed = ImageCache.getSprite("tile_pressed.png");
+		GSprite sNone = ImageCache.getSprite("select4x.png");
+		GSprite sHover = ImageCache.getSprite("select4x.png");
+		GSprite sPressed = ImageCache.getSprite("select4x.png");
 
 		setStateSprite(ButtonState.NONE, sNone);
 		setStateSprite(ButtonState.HOVERED, sHover);
@@ -36,8 +37,7 @@ public class Tile extends GButton {
 			@Override
 			public void mouseClicked(Context context) {
 
-				getFirstAncestorOf(DefendGameView.class).initializeTurret(
-						Turret);
+				getFirstAncestorOf(DefendGameView.class).initializeTurret(Turret);
 			}
 
 		});

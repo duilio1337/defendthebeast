@@ -15,7 +15,6 @@ import Enemies.Enemy2;
 import Enemies.Enemy3;
 import Enemies.Enemy4;
 import Enemies.Enemy5;
-import Turrets.Turret;
 import dtb.Defend;
 
 public class PlayArea extends GContainer {
@@ -60,10 +59,4 @@ public class PlayArea extends GContainer {
 		}
 		this.add(e);
 	}
-	public void initializeTurret(final Turret t) {
-	    if (settingTurret) {
-	        return;
-	    }
-	    settingTurret = true; // This is only run when init turret is called
-	    this.pa.addAtCenter(t);
 }
