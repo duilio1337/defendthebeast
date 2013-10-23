@@ -10,8 +10,8 @@ import jgame.ImageCache;
 import dtb.Defend;
 
 public class MenuArea extends GContainer {
-	public MenuArea() {
-		setSize(182, 22);
+	public MenuA	setSize(182, 2rea() {
+	2);
 		//this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(Defend.class).get(
