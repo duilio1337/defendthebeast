@@ -49,8 +49,7 @@ public abstract class Enemy extends GSprite {
 		pc.goToStart(this);
 		pc.setRotateToFollow(true);
 		addController(pc);
-		BoundaryRemovalListener brl = new BoundaryRemovalListener();
-		addListener(brl);
+		
 	}
 
 }

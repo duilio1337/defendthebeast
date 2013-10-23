@@ -9,6 +9,7 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.TimerListener;
+import Enemies.Boss1;
 import Enemies.Enemy;
 import Enemies.Enemy1;
 import Enemies.Enemy2;
@@ -38,24 +39,22 @@ public class PlayArea extends GContainer {
 	}
 
 	private void addRandomEnemy() {
-		int pick = (int) (Math.random() * 5);
+		int pick = (int) (Math.random() * 101);
 		Enemy e = null;
-		switch (pick) {
-		case 0:
+		if(pick<15){
 			e = new Enemy1();
-			break;
-		case 1:
+		}else if(pick<30){
 			e = new Enemy2();
-			break;
-		case 2:
+		}else if(pick<50){
 			e = new Enemy3();
-			break;
-		case 3:
+		}else if(pick<72){
 			e = new Enemy4();
-			break;
-		case 4:
+		}else if(pick<98){
 			e = new Enemy5();
-			break;
+		}else if(pick<100){
+			e = new Boss1();
+		}else{
+			e = new Enemy1();
 		}
 		this.add(e);
 	}
