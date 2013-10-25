@@ -6,7 +6,7 @@ import dtb.Defend;
 public class Turret3 extends Turret{
 
 	public Turret3() {
-		super(ImageCache.forClass(Defend.class).get("swordWood.png"));
+		super(ImageCache.forClass(Defend.class).get("Swords/swordWood.png"));
 		// TODO Auto-generated constructor stub
 	}
 
