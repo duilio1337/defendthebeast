@@ -19,6 +19,7 @@ public class MenuArea extends GContainer {
 
 		GSprite bs = new GSprite(bg);
 		setBackgroundSprite(bs);
+		
 		for (int i = 0; i < 5; i++) {
 		    setTile(i);
 		}
@@ -31,6 +32,6 @@ public class MenuArea extends GContainer {
 		tile.setAnchorTopLeft();
 		tile.setScale(1.05);
     	addAtCenter(tile);
-    	tile.setX(i * 98);
+    	tile.setX(i * 66);
 	}
 }

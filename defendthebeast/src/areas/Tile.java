@@ -19,13 +19,13 @@ public class Tile extends GButton {
 
 		setSize(92, 96);
 
-//		GSprite sNone = ImageCache.getSprite("Tiles/menubar4x.png");
-//		GSprite sHover = ImageCache.getSprite("Tiles/select4x.png");
-//		GSprite sPressed = ImageCache.getSprite("Tiles/select4x.png");
-//
-//		setStateSprite(ButtonState.NONE, sNone);
-//		setStateSprite(ButtonState.HOVERED, sHover);
-//		setStateSprite(ButtonState.PRESSED, sPressed);
+		GSprite sNone = ImageCache.getSprite("Tiles/menubarnew.png");
+		GSprite sHover = ImageCache.getSprite("Tiles/selectnew.png");
+		GSprite sPressed = ImageCache.getSprite("Tiles/selectnew.png");
+
+		setStateSprite(ButtonState.NONE, sNone);
+		setStateSprite(ButtonState.HOVERED, sHover);
+		setStateSprite(ButtonState.PRESSED, sPressed);
 
 		GSprite sIcon = new GSprite(image);
 
