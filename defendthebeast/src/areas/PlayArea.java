@@ -19,11 +19,13 @@ import Enemies.Enemy5;
 import dtb.Defend;
 
 public class PlayArea extends GContainer {
+	
+	public String level = "Levels/Level1.png";
+	
 	public PlayArea() {
 		setSize(1280, 720);
 		setBackgroundColor(Color.PINK);
-		BufferedImage bg = ImageCache.forClass(Defend.class).get(
-				"Level1.png");
+		BufferedImage bg = ImageCache.forClass(Defend.class).get(level);
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
 
