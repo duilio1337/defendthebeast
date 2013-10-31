@@ -10,6 +10,7 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.TimerListener;
 import Enemies.Boss1;
+import Enemies.Boss2;
 import Enemies.Enemy;
 import Enemies.Enemy1;
 import Enemies.Enemy2;
@@ -41,20 +42,22 @@ public class PlayArea extends GContainer {
 	}
 
 	private void addRandomEnemy() {
-		int pick = (int) (Math.random() * 101);
+		int pick = (int) (Math.random() * 1001);
 		Enemy e = null;
-		if(pick<15){
+		if(pick<200){
 			e = new Enemy1();
-		}else if(pick<30){
+		}else if(pick<400){
 			e = new Enemy2();
-		}else if(pick<50){
+		}else if(pick<600){
 			e = new Enemy3();
-		}else if(pick<72){
+		}else if(pick<750){
 			e = new Enemy4();
-		}else if(pick<98){
+		}else if(pick<950){
 			e = new Enemy5();
-		}else if(pick<100){
+		}else if(pick<980){
 			e = new Boss1();
+		}else if(pick<1000){
+			e = new Boss2();
 		}else{
 			e = new Enemy1();
 		}

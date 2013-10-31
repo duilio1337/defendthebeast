@@ -6,7 +6,8 @@ import jgame.ImageCache;
 import dtb.Defend;
 
 public class Turret1 extends Turret {
-
+	
+	private boolean placed = false;
 	public Turret1() {
 		super(ImageCache.forClass(Defend.class).get("Swords/swordWood.png"));
 		// TODO Auto-generated constructor stub
@@ -30,5 +31,12 @@ public class Turret1 extends Turret {
     public Bullet createBullet(){
     	return new Bullet1();
     }
+    public boolean isPlaced() {
+        return placed;
+}
+
+    public void setPlaced(boolean placed) {
+        this.placed = placed;
+}
 
 }
