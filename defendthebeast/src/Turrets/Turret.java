@@ -3,6 +3,7 @@ package Turrets;
 import java.awt.Image;
 import java.util.List;
 
+import bullets.Bullet;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
@@ -47,5 +48,14 @@ public abstract class Turret extends GSprite {
 		public void setPlaced(boolean placed) {
 			this.placed = placed;
 		}
+		public abstract double getFireRange();
+
+        public abstract int getFireDelay();
+
+        public abstract int getFireCoolDown();
+
+        public abstract double getBulletSpeed();
+
+        public abstract Bullet createBullet();
 	}
 
