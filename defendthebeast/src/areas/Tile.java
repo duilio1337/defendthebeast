@@ -17,7 +17,7 @@ public class Tile extends GButton {
 	public Tile(TurretRecipe recipe, Image image) {
 		this.tr = recipe;
 
-		setSize(92, 96);
+		setSize(66, 66);
 
 		GSprite sNone = ImageCache.getSprite("Tiles/menubarnew.png");
 		GSprite sHover = ImageCache.getSprite("Tiles/selectnew.png");
@@ -29,7 +29,7 @@ public class Tile extends GButton {
 
 		GSprite sIcon = new GSprite(image);
 
-		sIcon.setScale(0.8);
+		sIcon.setScale(0.7);
 		addAtCenter(sIcon);
 
 		addListener(new ButtonListener() {

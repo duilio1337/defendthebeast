@@ -29,5 +29,8 @@ public class MenuArea extends GContainer {
     	
     	// tile num times tile width plus half screen width minus number of tiles times tile width devided by 2
     	tile.setX(i * 66 + (640 - ((5 * 66) / 2)));
+    	
+    	// half screen height minus half tile height minus 20
+    	tile.setY(720 / 2 - 66 / 2 - 20 );
 	}
 }
