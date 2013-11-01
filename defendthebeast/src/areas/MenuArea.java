@@ -24,7 +24,7 @@ public class MenuArea extends GContainer {
 	private void setTile(int i) {
 		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i)); 
 		tile.setAnchorTopLeft();
-		tile.setScale(1.05);
+		tile.setScale(1);
     	addAtCenter(tile);
     	
     	// tile num times tile width plus half screen width minus number of tiles times tile width devided by 2
