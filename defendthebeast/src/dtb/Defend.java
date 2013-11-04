@@ -24,7 +24,7 @@ public class Defend extends Game {
 		//root.addView(Views.MENU, dmv);
 		root.addView(Views.GAME, dgv);
 		root.addView(Views.GAME_OVER, gov);
-
+		System.out.println("asdf");
 	}
 
 	/**
