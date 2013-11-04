@@ -29,21 +29,22 @@ public class DefendGameView extends GContainer {
 		if (settingTurret) {
 			return;
 		}
+		settingTurret = true;
 		final MouseLocationController mlc = new MouseLocationController();
 		t.addController(mlc);
+		 this.pa.addAtCenter(t);
 		final LocalClickListener lcl = new LocalClickListener() {
 
 			@Override
 			public void invoke(GObject target, Context context) {
 				for (GObject child : pa.getObjects()) {
-					if (child != t && child instanceof Turret
-							&& child.hitTest(t)) {
+					if (child != t && child instanceof Turret && child.hitTest(t)) {
 						return;
 					}
 				}
 				target.removeController(mlc);
 				target.removeListener(this);
-				settingTurret = true;
+				settingTurret = false;
 				t.setPlaced(true);
 			}
 
