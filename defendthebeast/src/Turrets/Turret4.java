@@ -1,8 +1,8 @@
 package Turrets;
 
+import jgame.ImageCache;
 import bullets.Bullet;
 import bullets.Bullet1;
-import jgame.ImageCache;
 import dtb.Defend;
 
 public class Turret4 extends Turret{

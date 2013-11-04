@@ -3,12 +3,12 @@ package Turrets;
 import java.awt.Image;
 import java.util.List;
 
-import bullets.Bullet;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.listener.FrameListener;
 import Enemies.Enemy;
+import bullets.Bullet;
 
 public abstract class Turret extends GSprite {
 	private boolean placed = false;

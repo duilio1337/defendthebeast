@@ -8,8 +8,8 @@ import jgame.GButton;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
-import dtb.DefendGameView;
 import Turrets.Turret;
+import dtb.DefendGameView;
 
 public class Tile extends GButton {
 	TurretRecipe tr;
