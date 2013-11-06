@@ -8,8 +8,13 @@ import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
 
 public abstract class Enemy extends GSprite {
-	public Enemy(Image image) {
+	private double maxHealth;
+	private double currentHealth;
+
+	public Enemy(Image image, double maxHealth) {
 		super(image);
+		this.maxHealth = maxHealth;
+		currentHealth = this.maxHealth;
 		int[] x = new int[] { 11, 37, 62, 87, 112, 138, 163, 189, 214, 239,
 				264, 290, 316, 325, 324, 322, 320, 318, 317, 317, 319, 322,
 				322, 323, 323, 321, 318, 343, 368, 393, 418, 443, 468, 494,
@@ -50,7 +55,20 @@ public abstract class Enemy extends GSprite {
 		pc.setRotateToFollow(true);
 		addController(pc);
 		addListener(new BoundaryRemovalListener());
-		
+
+	}
+
+	public abstract double getSlowness();
+
+	public double getCurrentHealth() {
+		return currentHealth;
+	}
+
+	public void setCurrentHealth(double currentHealth) {
+		this.currentHealth = currentHealth;
+		if (currentHealth <= 0) {
+			this.removeSelf();
+		}
 	}
 
 }
