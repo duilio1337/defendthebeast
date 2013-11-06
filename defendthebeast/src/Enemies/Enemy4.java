@@ -6,7 +6,13 @@ import dtb.Defend;
 public class Enemy4 extends Enemy {
 
 	public Enemy4() {
-		super(ImageCache.forClass(Defend.class).get("Enemies/Blaze.png"));
+		super(ImageCache.forClass(Defend.class).get("Enemies/Blaze.png"),20);
+	}
+
+	@Override
+	public double getSlowness() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

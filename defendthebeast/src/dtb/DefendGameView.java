@@ -32,7 +32,7 @@ public class DefendGameView extends GContainer {
 		settingTurret = true;
 		final MouseLocationController mlc = new MouseLocationController();
 		t.addController(mlc);
-		 this.pa.addAtCenter(t);
+		this.pa.addAtCenter(t);
 		final LocalClickListener lcl = new LocalClickListener() {
 
 			@Override
