@@ -43,7 +43,7 @@ public abstract class Turret extends GSprite {
 				timer--;
 				if (closest != null) {
 					target.face(closest);
-					target.setRotation(target.getRotation() + 45);
+					target.setRotation(target.getRotation());
 					if (timer < 0
 							&& (closest.distanceTo(target) < getFireRange())
 							&& fire) {
