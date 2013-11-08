@@ -51,31 +51,22 @@ public class DefendMenuView extends GContainer {
 
  private GButton createButton(final int buttonIndex, String buttonText) {
          
-         MovementTween mt = new MovementTween(24, Interpolation.EASE_IN,  400, 0);
-         MovementTween mtb = new MovementTween(6, Interpolation.EASE_OUT, -40,
-                         0);
-         //RotationTween rt = new RotationTween(12, 0, 360);
-         //ScaleTween st = new ScaleTween(10, 1, 5);
-         //ScaleTween st2 = new ScaleTween(10, 5, 1);
+         MovementTween mt = new MovementTween(24, Interpolation.EASE, 400, 0);
+         MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
          mt.chain(mtb);
-         //rt.with(st);
-         //st.chain(st2);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          );
          final GButton btn = new GButton();
          btn.addController(mt);
-         btn.setStateSprite(ButtonState.NONE,
-                         createButtonSprite("Tiles/menubarnew.png"));
-         btn.setStateSprite(ButtonState.HOVERED,
-                         createButtonSprite("Tiles/selectnew.png"));
-         btn.setStateSprite(ButtonState.PRESSED,
-                         createButtonSprite("Tiles/selectnew.png"));
-         btn.setSize(250, 50);
+         btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
+         btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
+         btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/selectnew.png"));
+         btn.setSize(250, 55);
          GMessage gm = new GMessage(buttonText);
          
          gm.setSize(btn.getWidth(), btn.getHeight());
          gm.setAlignmentX(0.5);
          gm.setAlignmentY(0.5);
          gm.setFontSize(28);
-         gm.setColor(Color.BLUE);
+         gm.setColor(Color.BLACK);
          btn.addAtCenter(gm);
          
          DelayListener dl = new DelayListener(buttonIndex * 10) {
