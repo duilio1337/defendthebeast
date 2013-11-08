@@ -1,8 +1,10 @@
 package Enemies;
 
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 
+import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
@@ -10,11 +12,18 @@ import jgame.listener.BoundaryRemovalListener;
 public abstract class Enemy extends GSprite {
 	private double maxHealth;
 	private double currentHealth;
+	private HealthBar hb = new HealthBar();
 
 	public Enemy(Image image, double maxHealth) {
 		super(image);
 		this.maxHealth = maxHealth;
 		currentHealth = this.maxHealth;
+
+		hb.setWidth(getWidth());
+		addAtCenter(hb);
+		hb.setY(this.getHeight() - hb.getHeight() / 2);
+		hb.setHealthPercentage(1);
+
 		int[] x = new int[] { 11, 37, 62, 87, 112, 138, 163, 189, 214, 239,
 				264, 290, 316, 325, 324, 322, 320, 318, 317, 317, 319, 322,
 				322, 323, 323, 321, 318, 343, 368, 393, 418, 443, 468, 494,
@@ -69,6 +78,12 @@ public abstract class Enemy extends GSprite {
 		if (currentHealth <= 0) {
 			this.removeSelf();
 		}
+	}
+
+	public void preparePaint(Graphics2D g) {
+		super.preparePaint(g);
+		GObject.antialias(g);
+		goodImageTransforms(g);
 	}
 
 }
