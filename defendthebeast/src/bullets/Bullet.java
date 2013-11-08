@@ -11,7 +11,7 @@ import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.HitTestListener;
 import Enemies.Enemy;
 
-public abstract class Bullet extends GSprite {
+public class Bullet extends GSprite {
 
 	private double bd;
 	private Point initialPosition = new Point();

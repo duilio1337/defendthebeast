@@ -15,7 +15,6 @@ import bullets.Bullet;
 public abstract class Turret extends GSprite {
 	private boolean placed = false;
 	private int timer = 0;
-	private boolean fire = true;
 
 	public Turret(Image image) {
 		super(image);
@@ -43,8 +42,7 @@ public abstract class Turret extends GSprite {
 					target.face(closest);
 					target.setRotation(target.getRotation());
 					if (timer < 0
-							&& (closest.distanceTo(target) < getFireRange())
-							&& fire) {
+							&& (closest.distanceTo(target) < getFireRange())) {
 						fireBullet();
 						timer = getFireDelay();
 					}
@@ -74,7 +72,7 @@ public abstract class Turret extends GSprite {
 
 			@Override
 			public void invoke(GObject target, Context context) {
-				cmc.setDamping(1);
+				cmc.setDamping(1.1);
 				b.addController(cmc);
 
 			}
