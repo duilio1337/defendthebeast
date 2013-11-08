@@ -15,6 +15,9 @@ import bullets.Bullet;
 public abstract class Turret extends GSprite {
 	private boolean placed = false;
 	private int timer = 0;
+	private boolean fire = true;
+	private int fireCoolDown = getFireCoolDown();
+	private int bulletsFired = 0;
 
 	public Turret(Image image) {
 		super(image);
@@ -40,11 +43,25 @@ public abstract class Turret extends GSprite {
 				timer--;
 				if (closest != null) {
 					target.face(closest);
-					target.setRotation(target.getRotation());
+					target.setRotation(target.getRotation() + 45);
 					if (timer < 0
-							&& (closest.distanceTo(target) < getFireRange())) {
+							&& (closest.distanceTo(target) < getFireRange())
+							&& fire) {
 						fireBullet();
+						bulletsFired++;
 						timer = getFireDelay();
+					}
+					if (bulletsFired >= 1) {
+						fire = false;
+						bulletsFired = 0;
+					}
+
+				}
+				if (!fire) {
+					fireCoolDown--;
+					if (fireCoolDown < 0) {
+						fireCoolDown = getFireCoolDown();
+						fire = true;
 					}
 				}
 
