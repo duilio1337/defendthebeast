@@ -2,7 +2,7 @@ package Turrets;
 
 import jgame.ImageCache;
 import bullets.Bullet;
-import bullets.Bullet1;
+import bullets.Bullet3;
 import dtb.Defend;
 
 public class Turret3 extends Turret{
@@ -28,7 +28,7 @@ public class Turret3 extends Turret{
     }
 
     public Bullet createBullet(){
-    	return new Bullet1();
+    	return new Bullet3();
     }
 
 }
