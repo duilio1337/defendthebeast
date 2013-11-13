@@ -42,14 +42,14 @@ public class DefendMenuView extends GContainer {
                          context.setCurrentGameView(Views.GAME);
                  }
           };
-          ButtonListener blInstructions = new ButtonListener() {
+         ButtonListener blInstructions = new ButtonListener() {
         	  @Override
         	  public void mouseClicked(Context context) {
         		  super.mouseClicked(context);
         		  context.setCurrentGameView(Views.INSTRUCTIONS);
         	  }
          };
-          ButtonListener blQuit = new ButtonListener() {
+         ButtonListener blQuit = new ButtonListener() {
         	  @Override
         	  public void mouseClicked(Context context) {
         		  super.mouseClicked(context);
