@@ -58,7 +58,7 @@ public class DefendMenuView extends GContainer {
          btn.addController(mt);
          btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
          btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
-         btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/selectnew.png"));
+         btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
          btn.setSize(250, 55);
          GMessage gm = new GMessage(buttonText);
          
