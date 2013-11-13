@@ -16,14 +16,12 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
-import jgame.controller.RotationTween;
-import jgame.controller.ScaleTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
 
 public class DefendMenuView extends GContainer {
 	 public DefendMenuView() {
-         setSize(900, 700);
+         setSize(1280, 720);
          this.setBackgroundColor(Color.BLACK);
          this.setBackgroundSprite(ImageCache.getSprite("other/MenuScreen.png"));
          //Instead of new GButton();
@@ -34,18 +32,33 @@ public class DefendMenuView extends GContainer {
          mbInstructions.setLocation(-100, 300);
 //         add(mbInstructions);
          GButton mbQuit = this.createButton(2, "Quit");
-         mbPlay.setLocation(-100, 200);
+         mbQuit.setLocation(-100, 400);
 
-         ButtonListener bl = new ButtonListener() {
+         ButtonListener blPlay = new ButtonListener() {
                  // goto Source --> Override and Implement
                  @Override
                  public void mouseClicked(Context context) {
                          super.mouseClicked(context);
                          context.setCurrentGameView(Views.GAME);
                  }
-
+          };
+          ButtonListener blInstructions = new ButtonListener() {
+        	  @Override
+        	  public void mouseClicked(Context context) {
+        		  super.mouseClicked(context);
+        		  context.setCurrentGameView(Views.INSTRUCTIONS);
+        	  }
          };
-         mbPlay.addListener(bl);
+          ButtonListener blQuit = new ButtonListener() {
+        	  @Override
+        	  public void mouseClicked(Context context) {
+        		  super.mouseClicked(context);
+        		  System.exit(0);
+        	  }
+         };
+         mbPlay.addListener(blPlay);
+         mbInstructions.addListener(blInstructions);
+         mbQuit.addListener(blQuit);
 
  }
 
