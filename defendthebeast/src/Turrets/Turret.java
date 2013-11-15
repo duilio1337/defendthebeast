@@ -90,7 +90,11 @@ public abstract class Turret extends GSprite {
 	public abstract double getBulletSpeed();
 
 	public abstract Bullet createBullet();
-
+	
+	public double getCurrentHealth(){
+		return currentHealth;
+	}
+	
 	public void fireBullet() {
 		final Bullet b = createBullet();
 		b.setRotation(this.getRotation());
@@ -119,4 +123,13 @@ public abstract class Turret extends GSprite {
 	public void setPlaced(boolean placed) {
 		this.placed = placed;
 	}
+	public void setCurrentHealth(double currentHealth) {
+		this.currentHealth = currentHealth;
+		hb.setHealthPercentage(this.currentHealth / maxHealth);
+		if (currentHealth <= 0) {
+			this.removeSelf();
+		}
+	}
+
+	
 }
