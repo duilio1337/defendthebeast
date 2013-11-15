@@ -1,4 +1,4 @@
-package Enemies;
+package Mechanics;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
