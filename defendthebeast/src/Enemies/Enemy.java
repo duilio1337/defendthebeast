@@ -75,6 +75,7 @@ public abstract class Enemy extends GSprite {
 
 	public void setCurrentHealth(double currentHealth) {
 		this.currentHealth = currentHealth;
+		hb.setHealthPercentage(this.currentHealth / maxHealth);
 		if (currentHealth <= 0) {
 			this.removeSelf();
 		}

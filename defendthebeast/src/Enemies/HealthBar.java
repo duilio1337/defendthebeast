@@ -10,7 +10,7 @@ public class HealthBar extends GObject {
 	private double healthPercentage = 1;
 
 	public HealthBar() {
-		this.setSize(90, 15);
+		this.setSize(90, 10);
 
 	}
 
@@ -18,7 +18,7 @@ public class HealthBar extends GObject {
 	public void paint(Graphics2D g) {
 
 		super.paint(g);
-		g.setColor(Color.PINK);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, getIntWidth(), getIntHeight());
 
 		float hbHue = (float) Math.pow(healthPercentage, 2) / 3f;

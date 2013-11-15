@@ -21,9 +21,11 @@ public class Defend extends Game {
 		DefendMenuView dmv = new DefendMenuView();
 		DefendGameView dgv = new DefendGameView();
 		GameOverView gov = new GameOverView();
+		DefendInstView dig = new DefendInstView();
 		root.addView(Views.MENU, dmv);
 		root.addView(Views.GAME, dgv);
 		root.addView(Views.GAME_OVER, gov);
+		root.addView(Views.INSTRUCTIONS, dig);
 	}
 
 	/**

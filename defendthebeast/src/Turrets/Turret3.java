@@ -2,13 +2,13 @@ package Turrets;
 
 import jgame.ImageCache;
 import bullets.Bullet;
-import bullets.Bullet1;
+import bullets.Bullet3;
 import dtb.Defend;
 
 public class Turret3 extends Turret{
 
 	public Turret3() {
-		super(ImageCache.forClass(Defend.class).get("Wands/wand3.png"));
+		super(ImageCache.forClass(Defend.class).get("Wands/wand3turret.png"));
 		// TODO Auto-generated constructor stub
 	}
 	public double getFireRange(){
@@ -28,7 +28,7 @@ public class Turret3 extends Turret{
     }
 
     public Bullet createBullet(){
-    	return new Bullet1();
+    	return new Bullet3();
     }
 
 }
