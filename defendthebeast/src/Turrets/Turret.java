@@ -10,6 +10,7 @@ import jgame.controller.ConstantMovementController;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import Enemies.Enemy;
+import Enemies.HealthBar;
 import bullets.Bullet;
 
 public abstract class Turret extends GSprite {
@@ -18,9 +19,14 @@ public abstract class Turret extends GSprite {
 	private boolean fire = true;
 	private int fireCoolDown = getFireCoolDown();
 	private int bulletsFired = 0;
+	private double maxHealth;
+	private double currentHealth;
+	private HealthBar hb = new HealthBar();
 
-	public Turret(Image image) {
+	public Turret(Image image, double maxHealth) {
 		super(image);
+		this.maxHealth = maxHealth;
+		currentHealth = this.maxHealth;
 		this.addListener(new FrameListener() {
 
 			@Override
@@ -79,7 +85,11 @@ public abstract class Turret extends GSprite {
 	public abstract double getBulletSpeed();
 
 	public abstract Bullet createBullet();
-
+	
+	public double getCurrentHealth(){
+		return currentHealth;
+	}
+	
 	public void fireBullet() {
 		final Bullet b = createBullet();
 		b.setRotation(this.getRotation());
@@ -108,4 +118,13 @@ public abstract class Turret extends GSprite {
 	public void setPlaced(boolean placed) {
 		this.placed = placed;
 	}
+	public void setCurrentHealth(double currentHealth) {
+		this.currentHealth = currentHealth;
+		hb.setHealthPercentage(this.currentHealth / maxHealth);
+		if (currentHealth <= 0) {
+			this.removeSelf();
+		}
+	}
+
+	
 }
