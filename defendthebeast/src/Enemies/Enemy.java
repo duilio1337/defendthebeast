@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 
+import Mechanics.HealthBar;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;

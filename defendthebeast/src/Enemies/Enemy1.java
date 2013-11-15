@@ -12,7 +12,7 @@ public class Enemy1 extends Enemy{
 	@Override
 	public double getSlowness() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Integer.MAX_VALUE;
 	}
 
 }
