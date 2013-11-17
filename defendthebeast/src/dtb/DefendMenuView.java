@@ -59,7 +59,6 @@ public class DefendMenuView extends GContainer {
          mbPlay.addListener(blPlay);
          mbInstructions.addListener(blInstructions);
          mbQuit.addListener(blQuit);
-
  }
 
  private GButton createButton(final int buttonIndex, String buttonText) {
