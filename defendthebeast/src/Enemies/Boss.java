@@ -19,7 +19,7 @@ import Turrets.Turret;
 
 
 public abstract class Boss extends Enemy{
-	private boolean placed = false;
+	private boolean spawned = false;
 	private int timer = 0;
 	private boolean fire = true;
 	private int fireCoolDown = getFireCoolDown();
@@ -29,6 +29,53 @@ public abstract class Boss extends Enemy{
 		super(image, health);
 		BoundaryRemovalListener brl = new BoundaryRemovalListener();
 		addListener(brl);
+		this.addListener(new FrameListener() {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+
+				if (!spawned) {
+					return;
+				}
+				List<Turret> turrets = context.getInstancesOfClass(Turret.class);
+				double minimumDistance = Integer.MAX_VALUE;
+				Turret closest = null;
+
+				for (Turret t : turrets) {
+					double d = t.distanceTo(target);
+					if (d < minimumDistance) {
+						minimumDistance = d;
+						closest = t;
+					}
+				}
+				timer--;
+				if (closest != null) {
+					target.face(closest);
+					target.setRotation(target.getRotation());
+					if (timer < 0
+							&& (closest.distanceTo(target) < getFireRange())
+							&& fire) {
+						fireBullet();
+						bulletsFired++;
+						timer = getFireDelay();
+					}
+					if (bulletsFired >= 1) {
+						fire = false;
+						bulletsFired = 0;
+					}
+
+				}
+				if (!fire) {
+					fireCoolDown--;
+					if (fireCoolDown < 0) {
+						fireCoolDown = getFireCoolDown();
+						fire = true;
+					}
+				}
+
+			}
+
+		});
 	}
 	public abstract double getFireRange();
 
@@ -61,12 +108,12 @@ public abstract class Boss extends Enemy{
 
 	}
 
-	public boolean isPlaced() {
-		return placed;
+	public boolean isSpawned() {
+		return spawned;
 	}
 
-	public void setPlaced(boolean placed) {
-		this.placed = placed;
+	public void setSpawned(boolean spawned) {
+		this.spawned = spawned;
 	}
 	
 
