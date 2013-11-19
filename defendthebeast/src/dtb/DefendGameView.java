@@ -39,7 +39,7 @@ public class DefendGameView extends GContainer {
 		add(ma);
 		
 		GButton mbMM = this.createButton(0, "Main Menu");
-        mbMM.setLocation(-100, 100);
+        mbMM.setLocation(-100, 700);
         
         ButtonListener blMM = new ButtonListener() {
       	  @Override
@@ -103,7 +103,7 @@ public class DefendGameView extends GContainer {
                  
                  @Override
                  public void invoke(GObject target, Context context) {
-                         addAt(btn, -100, buttonIndex * 100+200);
+                         addAt(btn, -100, 675);
                  }
          };
          addListener(dl);
