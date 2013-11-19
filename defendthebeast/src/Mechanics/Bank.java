@@ -4,7 +4,7 @@ public class Bank {
 	private int totalMoney;
 
 	public Bank(int money) {
-		setInitialMoney(money);
+		setMoney(money);
 	}
 
 	public int getMoney() {
@@ -15,7 +15,7 @@ public class Bank {
 		totalMoney += money;
 	}
 
-	public void setInitialMoney(int money) {
+	public void setMoney(int money) {
 		totalMoney = money;
 	}
 
