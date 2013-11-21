@@ -27,6 +27,7 @@ import areas.PlayArea;
 public class DefendGameView extends GContainer {
 	private PlayArea pa = new PlayArea();
 	private boolean settingTurret = false;
+	private Bank bank;
 
 	public DefendGameView() {
 
@@ -50,7 +51,7 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		mbMM.addListener(blMM);
-		Bank bank = new Bank(500);
+		bank = new Bank(500);
 		
 		GSprite bankTile = createSprite(bank.toString());
 		addAt(bankTile, 1200, 40);
@@ -144,5 +145,8 @@ public class DefendGameView extends GContainer {
 		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
 		gs.setNineSliceCenter(nineSliceCenter);
 		return gs;
+	}
+	public Bank getBank(){
+		return bank;
 	}
 }
