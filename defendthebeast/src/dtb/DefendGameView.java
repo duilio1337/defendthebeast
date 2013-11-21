@@ -53,7 +53,7 @@ public class DefendGameView extends GContainer {
 		Bank bank = new Bank(500);
 		
 		GSprite bankTile = createSprite(bank.toString());
-		this.addAt(bankTile, 1240, 40);
+		addAt(bankTile, 1200, 40);
 	}
 
 	public static GSprite createSprite(String string) {
@@ -62,10 +62,10 @@ public class DefendGameView extends GContainer {
 
 		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
 		gs.setNineSliceCenter(nineSliceCenter);
-
+		gs.setSize(100, 55);
+		
 		GMessage gm = new GMessage(string);
 
-		gm.setSize(gs.getWidth(), gs.getHeight());
 		gm.setAlignmentX(0.5);
 		gm.setAlignmentY(0.5);
 		gm.setFontSize(28);
