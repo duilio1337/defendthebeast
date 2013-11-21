@@ -61,6 +61,6 @@ public class PlayArea extends GContainer {
 		}else{
 			e = new Enemy1();
 		}
-		this.add(e);
+		this.add(new Boss1());
 	}
 }

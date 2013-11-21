@@ -1,5 +1,6 @@
 package Enemies;
 
+import bullets.BossBullet1;
 import bullets.Bullet;
 import jgame.ImageCache;
 import dtb.Defend;
@@ -7,42 +8,24 @@ import dtb.Defend;
 public class Boss1 extends Boss {
 
 	public Boss1() {
-		super(ImageCache.forClass(Defend.class).get("Bosses/URGhast.png"),500);
+		super(ImageCache.forClass(Defend.class).get("Bosses/URGhast.png"),5000);
 	}
 
 	@Override
-	public double getSlowness() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public double getSlowness() { return 10; }
 
 	@Override
-	public double getFireRange() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public double getFireRange() { return 10; }
 
 	@Override
-	public int getFireDelay() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int getFireDelay() { return 10; }
 
 	@Override
-	public int getFireCoolDown() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int getFireCoolDown() { return 10; }
 
 	@Override
-	public double getBulletSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public double getBulletSpeed() { return 10; }
 
 	@Override
-	public Bullet createBullet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Bullet createBullet() { return new BossBullet1(); }
 }
