@@ -21,7 +21,7 @@ public abstract class Boss extends Enemy{
 	private int bulletsFired = 0;
 	
 	public Boss(Image image, double health) {
-		super(image, health);
+		super(image, health, 0);
 		BoundaryRemovalListener brl = new BoundaryRemovalListener();
 		addListener(brl);
 		this.addListener(new FrameListener() {

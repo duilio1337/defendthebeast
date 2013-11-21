@@ -13,12 +13,14 @@ import jgame.listener.BoundaryRemovalListener;
 public abstract class Enemy extends GSprite {
 	private double maxHealth;
 	private double currentHealth;
+	private int killPoints;
 	private HealthBar hb = new HealthBar();
 
-	public Enemy(Image image, double maxHealth) {
+	public Enemy(Image image, double maxHealth, int killPoints) {
 		super(image);
 		this.maxHealth = maxHealth;
 		currentHealth = this.maxHealth;
+		this.killPoints = killPoints;
 
 		hb.setWidth(getWidth());
 		addAtCenter(hb);
