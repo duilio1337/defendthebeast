@@ -98,8 +98,7 @@ public abstract class Turret extends GSprite {
 	public void fireBullet() {
 		final Bullet b = createBullet();
 		b.setRotation(this.getRotation());
-		final ConstantMovementController cmc = ConstantMovementController
-				.createPolar(getBulletSpeed(), getRotation());
+		final ConstantMovementController cmc = ConstantMovementController.createPolar(getBulletSpeed(), getRotation());
 		DelayListener dl = new DelayListener(5) {
 
 			@Override
