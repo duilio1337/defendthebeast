@@ -12,19 +12,19 @@ public class Boss1 extends Boss {
 	}
 
 	@Override
-	public double getSlowness() { return 10; }
+	public double getSlowness() { return 100; }
 
 	@Override
-	public double getFireRange() { return 10; }
+	public double getFireRange() { return 100; }
 
 	@Override
-	public int getFireDelay() { return 10; }
+	public int getFireDelay() { return 100; }
 
 	@Override
-	public int getFireCoolDown() { return 10; }
+	public int getFireCoolDown() { return 100; }
 
 	@Override
-	public double getBulletSpeed() { return 10; }
+	public double getBulletSpeed() { return 100; }
 
 	@Override
 	public Bullet createBullet() { return new BossBullet1(); }

@@ -2,19 +2,14 @@ package Enemies;
 
 import java.awt.Image;
 import java.util.List;
-
 import jgame.Context;
 import jgame.GObject;
-import jgame.Context;
-import jgame.GObject;
-import jgame.GSprite;
 import jgame.controller.ConstantMovementController;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import Enemies.Enemy;
 import bullets.Bullet;
 import jgame.listener.BoundaryRemovalListener;
-import jgame.listener.FrameListener;
 import Turrets.Turret;
 
 
@@ -50,12 +45,10 @@ public abstract class Boss extends Enemy{
 				}
 				timer--;
 				if (closest != null) {
-					target.face(closest);
-					target.setRotation(target.getRotation());
-					if (timer < 0
-							&& (closest.distanceTo(target) < getFireRange())
-							&& fire) {
-						fireBullet();
+//					target.face(closest);
+//					target.setRotation(target.getRotation());
+					if (timer < 0 && (closest.distanceTo(target) < getFireRange()) && fire) {
+						fireBullet(target);
 						bulletsFired++;
 						timer = getFireDelay();
 					}
@@ -87,11 +80,10 @@ public abstract class Boss extends Enemy{
 
 	public abstract Bullet createBullet();
 
-	public void fireBullet() {
+	public void fireBullet(GObject target) {
 		final Bullet b = createBullet();
-		b.setRotation(this.getRotation());
-		final ConstantMovementController cmc = ConstantMovementController
-				.createPolar(getBulletSpeed(), getRotation());
+		b.setRotation(angleTo(target));
+		final ConstantMovementController cmc = ConstantMovementController.createPolar(getBulletSpeed(), angleTo(target));
 		DelayListener dl = new DelayListener(5) {
 
 			@Override
@@ -103,9 +95,8 @@ public abstract class Boss extends Enemy{
 		};
 		b.addListener(dl);
 		snapAnchor(b);
-		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
+		b.moveAtAngle(getWidth() / 2 + 20, angleTo(target));
 		this.addSibling(b);
-
 	}
 
 	public boolean isSpawned() {
