@@ -19,6 +19,7 @@ import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
 import jgame.listener.LocalClickListener;
+import Mechanics.Bank;
 import Turrets.Turret;
 import areas.MenuArea;
 import areas.PlayArea;
@@ -37,18 +38,20 @@ public class DefendGameView extends GContainer {
 		ma.setAnchorCenter();
 		ma.setLocation(1280 / 2, 720 - 22);
 		add(ma);
-		
+
 		GButton mbMM = this.createButton(0, "Main Menu");
-        mbMM.setLocation(-100, 700);
-        
-        ButtonListener blMM = new ButtonListener() {
-      	  @Override
-      	  public void mouseClicked(Context context) {
-      		  super.mouseClicked(context);
-      		  context.setCurrentGameView(Views.MENU);
-      	  }
-       };
-       mbMM.addListener(blMM);
+		mbMM.setLocation(-100, 700);
+
+		ButtonListener blMM = new ButtonListener() {
+			@Override
+			public void mouseClicked(Context context) {
+				super.mouseClicked(context);
+				context.setCurrentGameView(Views.MENU);
+			}
+		};
+		mbMM.addListener(blMM);
+		Bank bank = new Bank(Integer.MAX_VALUE);
+		createTile(0, bank.toString());
 	}
 
 	public void initializeTurret(final Turret t) {
@@ -64,7 +67,8 @@ public class DefendGameView extends GContainer {
 			@Override
 			public void invoke(GObject target, Context context) {
 				for (GObject child : pa.getObjects()) {
-					if (child != t && child instanceof Turret && child.hitTest(t)) {
+					if (child != t && child instanceof Turret
+							&& child.hitTest(t)) {
 						return;
 					}
 				}
@@ -78,45 +82,76 @@ public class DefendGameView extends GContainer {
 		t.addListener(lcl);
 
 	}
-	
- private GButton createButton(final int buttonIndex, String buttonText) {
-         
-         MovementTween mt = new MovementTween(24, Interpolation.EASE, 400, 0);
-         MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
-         mt.chain(mtb);
-         final GButton btn = new GButton();
-         btn.addController(mt);
-         btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
-         btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
-         btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
-         btn.setSize(250, 55);
-         GMessage gm = new GMessage(buttonText);
-         
-         gm.setSize(btn.getWidth(), btn.getHeight());
-         gm.setAlignmentX(0.5);
-         gm.setAlignmentY(0.5);
-         gm.setFontSize(28);
-         gm.setColor(Color.BLACK);
-         btn.addAtCenter(gm);
-         
-         DelayListener dl = new DelayListener(buttonIndex * 10) {
-                 
-                 @Override
-                 public void invoke(GObject target, Context context) {
-                         addAt(btn, -100, 675);
-                 }
-         };
-         addListener(dl);
-         return btn;
- }
 
-public static GSprite createButtonSprite(String fn) {
-    BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
-    GSprite gs = new GSprite(img);
+	private GButton createButton(final int buttonIndex, String buttonText) {
 
-    Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
-    gs.setNineSliceCenter(nineSliceCenter);
-    return gs;
+		MovementTween mt = new MovementTween(24, Interpolation.EASE, 400, 0);
+		MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
+		mt.chain(mtb);
+		final GButton btn = new GButton();
+		btn.addController(mt);
+		btn.setStateSprite(ButtonState.NONE,
+				createButtonSprite("Tiles/menubarnew.png"));
+		btn.setStateSprite(ButtonState.HOVERED,
+				createButtonSprite("Tiles/selectnew.png"));
+		btn.setStateSprite(ButtonState.PRESSED,
+				createButtonSprite("Tiles/pressedbarnew.png"));
+		btn.setSize(250, 55);
+		GMessage gm = new GMessage(buttonText);
+
+		gm.setSize(btn.getWidth(), btn.getHeight());
+		gm.setAlignmentX(0.5);
+		gm.setAlignmentY(0.5);
+		gm.setFontSize(28);
+		gm.setColor(Color.BLACK);
+		btn.addAtCenter(gm);
+
+		DelayListener dl = new DelayListener(buttonIndex * 10) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				addAt(btn, -100, 675);
+			}
+		};
+		addListener(dl);
+		return btn;
+	}
+
+	private GButton createTile(final int buttonIndex, String buttonText) {
+		MovementTween mt = new MovementTween(24, Interpolation.EASE, -400, 0);
+		MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);
+		mt.chain(mtb);
+		final GButton btn = new GButton();
+		btn.addController(mt);
+		btn.setStateSprite(ButtonState.NONE,
+				createButtonSprite("Tiles/menubarnew.png"));
+		btn.setSize(250, 55);
+		GMessage gm = new GMessage(buttonText);
+
+		gm.setSize(btn.getWidth(), btn.getHeight());
+		gm.setAlignmentX(0.5);
+		gm.setAlignmentY(0.5);
+		gm.setFontSize(28);
+		gm.setColor(Color.BLACK);
+		btn.addAtCenter(gm);
+
+		DelayListener dl = new DelayListener(buttonIndex * 10) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				addAt(btn, 1380, 675);
+			}
+		};
+		addListener(dl);
+		return btn;
+	}
+
+	public static GSprite createButtonSprite(String fn) {
+		BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
+		GSprite gs = new GSprite(img);
+
+		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
+		gs.setNineSliceCenter(nineSliceCenter);
+		return gs;
 	}
 }
-

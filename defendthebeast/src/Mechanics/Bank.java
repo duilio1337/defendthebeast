@@ -18,5 +18,9 @@ public class Bank {
 	public void setMoney(int money) {
 		totalMoney = money;
 	}
-
+	
+	public String toString(){
+		return getMoney() + "";
+		
+	}
 }
