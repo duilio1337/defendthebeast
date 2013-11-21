@@ -50,8 +50,28 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		mbMM.addListener(blMM);
-		Bank bank = new Bank(Integer.MAX_VALUE);
-		createTile(0, bank.toString());
+		Bank bank = new Bank(500);
+		
+		GSprite bankTile = createSprite(bank.toString());
+		this.addAt(bankTile, 1240, 40);
+	}
+
+	public static GSprite createSprite(String string) {
+		BufferedImage img = ImageCache.forClass(Defend.class).get("Tiles/selectnew.png");
+		GSprite gs = new GSprite(img);
+
+		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
+		gs.setNineSliceCenter(nineSliceCenter);
+
+		GMessage gm = new GMessage(string);
+
+		gm.setSize(gs.getWidth(), gs.getHeight());
+		gm.setAlignmentX(0.5);
+		gm.setAlignmentY(0.5);
+		gm.setFontSize(28);
+		gm.setColor(Color.BLACK);
+		gs.addAtCenter(gm);
+		return gs;
 	}
 
 	public void initializeTurret(final Turret t) {
@@ -111,35 +131,6 @@ public class DefendGameView extends GContainer {
 			@Override
 			public void invoke(GObject target, Context context) {
 				addAt(btn, -100, 675);
-			}
-		};
-		addListener(dl);
-		return btn;
-	}
-
-	private GButton createTile(final int buttonIndex, String buttonText) {
-		MovementTween mt = new MovementTween(24, Interpolation.EASE, -400, 0);
-		MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);
-		mt.chain(mtb);
-		final GButton btn = new GButton();
-		btn.addController(mt);
-		btn.setStateSprite(ButtonState.NONE,
-				createButtonSprite("Tiles/menubarnew.png"));
-		btn.setSize(250, 55);
-		GMessage gm = new GMessage(buttonText);
-
-		gm.setSize(btn.getWidth(), btn.getHeight());
-		gm.setAlignmentX(0.5);
-		gm.setAlignmentY(0.5);
-		gm.setFontSize(28);
-		gm.setColor(Color.BLACK);
-		btn.addAtCenter(gm);
-
-		DelayListener dl = new DelayListener(buttonIndex * 10) {
-
-			@Override
-			public void invoke(GObject target, Context context) {
-				addAt(btn, 1380, 675);
 			}
 		};
 		addListener(dl);
