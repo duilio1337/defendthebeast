@@ -198,6 +198,10 @@ public class DefendGameView extends GContainer {
 				bool = true;
 			}
 			break;
+			
+		default:
+			bool = false;
+			break;
 		}
 		return bool;
 	}
