@@ -22,6 +22,11 @@ import jgame.listener.FrameListener;
 import jgame.listener.LocalClickListener;
 import Mechanics.Bank;
 import Turrets.Turret;
+import Turrets.Turret1;
+import Turrets.Turret2;
+import Turrets.Turret3;
+import Turrets.Turret4;
+import Turrets.Turret5;
 import areas.MenuArea;
 import areas.PlayArea;
 
@@ -154,5 +159,46 @@ public class DefendGameView extends GContainer {
 		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
 		gs.setNineSliceCenter(nineSliceCenter);
 		return gs;
+	}
+	
+	public boolean turretCost(int turNum) {
+		boolean bool = false;
+		switch(turNum){
+		case 1:
+			if(Turret1.getCost() <= Bank.getMoney()) {
+				Bank.takeMoney(Turret1.getCost());
+				bool = true;
+			}
+			break;
+			
+		case 2:
+			if(Turret2.getCost() <= Bank.getMoney()) {
+				Bank.takeMoney(Turret2.getCost());
+				bool = true;
+			}
+			break;
+			
+		case 3:
+			if(Turret3.getCost() <= Bank.getMoney()) {
+				Bank.takeMoney(Turret3.getCost());
+				bool = true;
+			}
+			break;
+			
+		case 4:
+			if(Turret4.getCost() <= Bank.getMoney()) {
+				Bank.takeMoney(Turret4.getCost());
+				bool = true;
+			}
+			break;
+			
+		case 5:
+			if(Turret5.getCost() <= Bank.getMoney()) {
+				Bank.takeMoney(Turret5.getCost());
+				bool = true;
+			}
+			break;
+		}
+		return bool;
 	}
 }

@@ -8,6 +8,8 @@ import jgame.ImageCache;
 import dtb.Defend;
 
 public class MenuArea extends GContainer {
+	private int turNum;
+	
 	public MenuArea() {
 	
 		//this.setBackgroundColor(Color.BLACK);
@@ -15,14 +17,15 @@ public class MenuArea extends GContainer {
 		setSize(1280, 720);
 		
 		for (int i = 0; i < 5; i++) {
-		    setTile(i);
+		    turNum = i + 1;
+			setTile(i);
 		}
 		
 	}
 	List<Image> tileImages = ImageCache.forClass(Defend.class).getSequential("Wands/wand", 1, 5, ".png");
 	
 	private void setTile(int i) {
-		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i)); 
+		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i), turNum); 
 		tile.setAnchorTopLeft();
 		tile.setScale(1);
     	addAtCenter(tile);

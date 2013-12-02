@@ -14,9 +14,9 @@ import dtb.DefendGameView;
 public class Tile extends GButton {
 	TurretRecipe tr;
 
-	public Tile(TurretRecipe recipe, Image image) {
+	public Tile(TurretRecipe recipe, Image image, final int turNum) {
 		this.tr = recipe;
-
+		
 		setSize(66, 66);
 
 		GSprite sNone = ImageCache.getSprite("Tiles/menubarnew.png");
@@ -37,9 +37,12 @@ public class Tile extends GButton {
 			@Override
 			public void mouseClicked(Context context) {
 				
-				Turret turret = tr.createTurret();
-				
-				getFirstAncestorOf(DefendGameView.class).initializeTurret(turret);
+				if(getFirstAncestorOf(DefendGameView.class).turretCost(turNum)) {
+					
+					Turret turret = tr.createTurret();
+					
+					getFirstAncestorOf(DefendGameView.class).initializeTurret(turret);
+				}
 			}
 
 		});

@@ -31,4 +31,8 @@ public class Turret1 extends Turret {
 	public Bullet createBullet() {
 		return new Bullet1();
 	}
+	
+	public static int getCost() {
+		return 10;
+	}
 }
