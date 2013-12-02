@@ -18,6 +18,7 @@ import jgame.controller.MouseLocationController;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
+import jgame.listener.FrameListener;
 import jgame.listener.LocalClickListener;
 import Mechanics.Bank;
 import Turrets.Turret;
@@ -28,6 +29,7 @@ public class DefendGameView extends GContainer {
 	private PlayArea pa = new PlayArea();
 	private boolean settingTurret = false;
 	private Bank bank;
+	private static GMessage gm = new GMessage();
 
 	public DefendGameView() {
 
@@ -51,21 +53,28 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		mbMM.addListener(blMM);
+		
 		bank = new Bank(500);
 		
-		GSprite bankTile = createSprite(bank.toString());
+		GSprite bankTile = createSprite();
 		addAt(bankTile, 1200, 40);
+		
+		FrameListener fl = new FrameListener() {
+			@Override
+			public void invoke(GObject target ,Context context) {
+				gm.setText(bank.toString());
+			}
+		};
+		addListener(fl);
 	}
 
-	public static GSprite createSprite(String string) {
+	public static GSprite createSprite() {
 		BufferedImage img = ImageCache.forClass(Defend.class).get("Tiles/selectnew.png");
 		GSprite gs = new GSprite(img);
 
 		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
 		gs.setNineSliceCenter(nineSliceCenter);
 		gs.setSize(100, 55);
-		
-		GMessage gm = new GMessage(string);
 
 		gm.setAlignmentX(0.5);
 		gm.setAlignmentY(0.5);
