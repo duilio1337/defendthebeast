@@ -161,7 +161,7 @@ public class DefendGameView extends GContainer {
 		return gs;
 	}
 	
-	public boolean turretCost(int turNum) {
+	public boolean turretAfford(int turNum) {
 		boolean bool = false;
 		switch(turNum){
 		case 1:
