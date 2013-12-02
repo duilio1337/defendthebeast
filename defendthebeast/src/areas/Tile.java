@@ -36,10 +36,10 @@ public class Tile extends GButton {
 
 			@Override
 			public void mouseClicked(Context context) {
+				
 				Turret turret = tr.createTurret();
-
-				getFirstAncestorOf(DefendGameView.class).initializeTurret(
-						turret);
+				
+				getFirstAncestorOf(DefendGameView.class).initializeTurret(turret);
 			}
 
 		});

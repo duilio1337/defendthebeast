@@ -1,21 +1,25 @@
 package Mechanics;
 
 public class Bank {
-	private int totalMoney;
+	private static int totalMoney;
 
 	public Bank(int money) {
 		setMoney(money);
 	}
 
-	public int getMoney() {
+	public static int getMoney() {
 		return totalMoney;
 	}
 
-	public void addMoney(int money) {
+	public static void addMoney(int money) {
 		totalMoney += money;
 	}
+	
+	public static void takeMoney(int money) {
+		totalMoney -= money;
+	}
 
-	public void setMoney(int money) {
+	public static void setMoney(int money) {
 		totalMoney = money;
 	}
 	

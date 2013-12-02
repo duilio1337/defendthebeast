@@ -146,7 +146,4 @@ public class DefendGameView extends GContainer {
 		gs.setNineSliceCenter(nineSliceCenter);
 		return gs;
 	}
-	public Bank getBank(){
-		return bank;
-	}
 }

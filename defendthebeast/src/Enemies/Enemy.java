@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 
+import Mechanics.Bank;
 import Mechanics.HealthBar;
 import jgame.GObject;
 import jgame.GSprite;
@@ -80,6 +81,7 @@ public abstract class Enemy extends GSprite {
 		this.currentHealth = currentHealth;
 		hb.setHealthPercentage(this.currentHealth / maxHealth);
 		if (currentHealth <= 0) {
+			Bank.addMoney(killPoints);
 			this.removeSelf();
 		}
 	}
