@@ -17,9 +17,6 @@ import Enemies.Enemy;
 import Turrets.Turret;
 
 public class Bullet3 extends Bullet {
-	
-	private double bd;
-	private Point initialPosition = new Point();
 	public Bullet3() {
 		super(randImg(), 200, "Enemy");
 	}
