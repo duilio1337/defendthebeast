@@ -55,7 +55,7 @@ public class DefendInstView extends GContainer {
          gm.setAlignmentX(0.5);
          gm.setAlignmentY(0.5);
          gm.setFontSize(28);
-         gm.setColor(Color.BLACK);
+         gm.setColor(Color.WHITE);
          btn.addAtCenter(gm);
          
          DelayListener dl = new DelayListener(buttonIndex * 10) {

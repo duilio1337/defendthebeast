@@ -66,6 +66,7 @@ public abstract class Enemy extends GSprite {
 		PolygonController pc = new PolygonController(p);
 		pc.goToStart(this);
 		pc.setRotateToFollow(true);
+		pc.setMaxSpeed(getSlowness());
 		addController(pc);
 		addListener(new BoundaryRemovalListener());
 

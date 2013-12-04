@@ -6,7 +6,7 @@ import dtb.Defend;
 public class Bullet5 extends Bullet {
 
 	public Bullet5() {
-		super(ImageCache.forClass(Defend.class).get("Bullets/arrow_fix.png"), 99, "Enemy");
+		super(ImageCache.forClass(Defend.class).get("Bullets/arrow_fix.png"), 500, "Enemy");
 		// TODO Auto-generated constructor stub
 	}
 

@@ -32,7 +32,7 @@ public class Turret4 extends Turret{
     }
     
     public static int getCost() {
-		return 40;
+		return 400;
 	}
 
 }
