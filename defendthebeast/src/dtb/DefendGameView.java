@@ -84,8 +84,7 @@ public class DefendGameView extends GContainer {
 		gm.setAlignmentX(0.5);
 		gm.setAlignmentY(0.5);
 		gm.setFontSize(28);
-		gm.setColor(Color.WHITE);
-		gm.setColor(Color.PINK);
+		gm.setColor(Color.BLACK);
 		gs.addAtCenter(gm);
 		return gs;
 	}
@@ -139,7 +138,7 @@ public class DefendGameView extends GContainer {
 		gm.setAlignmentX(0.5);
 		gm.setAlignmentY(0.5);
 		gm.setFontSize(28);
-		gm.setColor(Color.WHITE);
+		gm.setColor(Color.BLACK);
 		btn.addAtCenter(gm);
 
 		DelayListener dl = new DelayListener(buttonIndex * 10) {

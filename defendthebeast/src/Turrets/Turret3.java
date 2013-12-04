@@ -12,7 +12,7 @@ public class Turret3 extends Turret{
 		// TODO Auto-generated constructor stub
 	}
 	public double getFireRange(){
-		return 1000;
+		return 250;
 	}
 
     public int getFireDelay(){
