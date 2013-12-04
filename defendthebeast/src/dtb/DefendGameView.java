@@ -85,6 +85,7 @@ public class DefendGameView extends GContainer {
 		gm.setAlignmentY(0.5);
 		gm.setFontSize(28);
 		gm.setColor(Color.WHITE);
+		gm.setColor(Color.PINK);
 		gs.addAtCenter(gm);
 		return gs;
 	}
