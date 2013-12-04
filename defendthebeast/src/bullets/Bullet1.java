@@ -1,13 +1,27 @@
 package bullets;
 
+import java.awt.Image;
+
 import jgame.ImageCache;
 import dtb.Defend;
 
 public class Bullet1 extends Bullet {
 
 	public Bullet1() {
-		super(ImageCache.forClass(Defend.class).get("Bullets/arrow_fix.png"), 10, "Enemy");
+		super(randImg(), 10, "Enemy");
 		// TODO Auto-generated constructor stub
+	}
+	private static Image randImg(){
+		String Img;
+		double a = (Math.random()*3);
+		if(a<1){
+			Img = "Bullets/flame1.png";
+		}else if(a<2){
+			Img = "Bullets/flame2.png";
+		}else{
+			Img = "Bullets/flame3.png";
+		}
+		return ImageCache.forClass(Defend.class).get(Img);
 	}
 
 }
