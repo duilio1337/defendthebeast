@@ -10,6 +10,7 @@ import jgame.controller.ConstantMovementController;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import Enemies.Enemy;
+import Mechanics.Bank;
 import Mechanics.HealthBar;
 import bullets.Bullet;
 
@@ -19,15 +20,15 @@ public abstract class Turret extends GSprite {
 	private boolean fire = true;
 	private int fireCoolDown = getFireCoolDown();
 	private int bulletsFired = 0;
-	private double maxHealth;
-	private double currentHealth;
+	private double maxDurablity;
+	private double currentDurablity;
 	private HealthBar hb = new HealthBar();
 
-	public Turret(Image image, double maxHealth) {
+	public Turret(Image image) {
 		super(image);
 		
-		this.maxHealth = maxHealth;
-		currentHealth = this.maxHealth;
+		this.maxDurablity = 10000;
+		currentDurablity = this.maxDurablity;
 		hb.setWidth(getWidth());
 		addAtCenter(hb);
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
@@ -86,13 +87,17 @@ public abstract class Turret extends GSprite {
 	public abstract int getFireDelay();
 
 	public abstract int getFireCoolDown();
+	
+	public abstract int getFireCost();
 
 	public abstract double getBulletSpeed();
 
 	public abstract Bullet createBullet();
 	
+	public abstract int getTurretCost();
+	
 	public double getCurrentHealth(){
-		return currentHealth;
+		return currentDurablity;
 	}
 	
 	public void fireBullet() {
@@ -112,6 +117,7 @@ public abstract class Turret extends GSprite {
 		snapAnchor(b);
 		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
 		this.addSibling(b);
+		takeDurablity();
 
 	}
 
@@ -122,13 +128,14 @@ public abstract class Turret extends GSprite {
 	public void setPlaced(boolean placed) {
 		this.placed = placed;
 	}
-	public void setCurrentHealth(double currentHealth) {
-		this.currentHealth = currentHealth;
-		hb.setHealthPercentage(this.currentHealth / maxHealth);
-		if (currentHealth <= 0) {
+	
+	public void takeDurablity() {
+		this.currentDurablity -= getFireCost();
+		hb.setHealthPercentage(this.currentDurablity / maxDurablity);
+		if (currentDurablity <= 0) {
 			this.removeSelf();
+			Bank.addMoney(getTurretCost() / 2);
 		}
 	}
-
 	
 }

@@ -8,7 +8,7 @@ import dtb.Defend;
 public class Turret3 extends Turret{
 
 	public Turret3() {
-		super(ImageCache.forClass(Defend.class).get("Wands/wand3turret.png"), 250);
+		super(ImageCache.forClass(Defend.class).get("Wands/wand3turret.png"));
 		// TODO Auto-generated constructor stub
 	}
 	public double getFireRange(){
@@ -22,6 +22,10 @@ public class Turret3 extends Turret{
     public int getFireCoolDown(){
     	return 10;
     }
+    
+    public int getFireCost() {
+		return 10;
+	}
 
     public double getBulletSpeed(){
     	return Integer.MAX_VALUE;
@@ -33,6 +37,10 @@ public class Turret3 extends Turret{
     
     public static int getCost() {
 		return 300;
+	}
+    
+	public int getTurretCost() {
+		return 100;
 	}
 
 }

@@ -8,7 +8,7 @@ import dtb.Defend;
 public class Turret2 extends Turret{
 
 	public Turret2() {
-		super(ImageCache.forClass(Defend.class).get("Wands/wand2turret.png"), 500);
+		super(ImageCache.forClass(Defend.class).get("Wands/wand2turret.png"));
 	}
 	public double getFireRange(){
 		return 300;
@@ -21,6 +21,10 @@ public class Turret2 extends Turret{
     public int getFireCoolDown(){
     	return 10;
     }
+    
+    public int getFireCost() {
+		return 10;
+	}
 
     public double getBulletSpeed(){
     	return 10;
@@ -32,6 +36,10 @@ public class Turret2 extends Turret{
     
     public static int getCost() {
 		return 200;
+	}
+    
+	public int getTurretCost() {
+		return 100;
 	}
 
 }

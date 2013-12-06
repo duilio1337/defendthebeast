@@ -10,7 +10,6 @@ import jgame.GSprite;
 import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.HitTestListener;
 import Enemies.Enemy;
-import Turrets.Turret;
 
 public class Bullet extends GSprite {
 
@@ -35,21 +34,7 @@ public class Bullet extends GSprite {
 				}
 			};
 			addListener(htl);
-		}else if(target.equals("Turret")){
-			HitTestListener ht2 = new HitTestListener(Turret.class) {
-
-				@Override
-				public void invoke(GObject target, Context context) {
-					List<Turret> turrets = context.hitTestClass(Turret.class);
-					for (Turret turret : turrets) {
-						turret.setCurrentHealth(turret.getCurrentHealth() - bd);
-					}
-					target.removeSelf();
-				}
-			};
-			addListener(ht2);
 		}
-			
 	}
 
 	public double getBd() {
