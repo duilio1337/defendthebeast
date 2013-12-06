@@ -123,7 +123,6 @@ public class DefendGameView extends GContainer {
 
 		};
 		t.addListener(lcl);
-		newHUDMessage("TESTING");
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {
@@ -214,32 +213,21 @@ public class DefendGameView extends GContainer {
 		return bool;
 	}
 	
-	public void newHUDMessage(String text) {
+	public void newHUDMessage(String text, int time) {
 		final GMessage messageHUD = new GMessage();
 	
 		messageHUD.setAlignmentX(0.5);
 		messageHUD.setAlignmentY(0.5);
 		messageHUD.setFontSize(28);
 		messageHUD.setColor(Color.WHITE);
-		messageHUD.setAlpha(0.0);
+		messageHUD.setAlpha(1);
 		messageHUD.setText(text);
 		addAtCenter(messageHUD);
 		
-		for(double i = 0.0; i < 1.0; i += 0.01) {
-			
-				messageHUD.setAlpha(i);
-		}
-		
-		DelayListener dl = new DelayListener(120) {
+		DelayListener dl = new DelayListener(time) {
 			@Override
 			public void invoke(GObject target, Context context) {
-				for(double i = 1.0; i > 0.0; i -= 0.01) {
-					if(i <= 0.0) {
-						messageHUD.removeSelf();
-					}else{
-					messageHUD.setAlpha(i);
-					}
-				}
+				messageHUD.removeSelf();
 			}
 		};
 		addListener(dl);

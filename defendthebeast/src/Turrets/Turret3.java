@@ -7,6 +7,8 @@ import dtb.Defend;
 
 public class Turret3 extends Turret{
 
+	private static int turretCost = 300;
+	
 	public Turret3() {
 		super(ImageCache.forClass(Defend.class).get("Wands/wand3turret.png"));
 		// TODO Auto-generated constructor stub
@@ -36,11 +38,11 @@ public class Turret3 extends Turret{
     }
     
     public static int getCost() {
-		return 300;
+		return turretCost;
 	}
     
 	public int getTurretCost() {
-		return 100;
+		return turretCost;
 	}
 
 }

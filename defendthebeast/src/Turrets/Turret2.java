@@ -7,6 +7,8 @@ import dtb.Defend;
 
 public class Turret2 extends Turret{
 
+	private static int turretCost = 200;
+	
 	public Turret2() {
 		super(ImageCache.forClass(Defend.class).get("Wands/wand2turret.png"));
 	}
@@ -35,11 +37,11 @@ public class Turret2 extends Turret{
     }
     
     public static int getCost() {
-		return 200;
+		return turretCost;
 	}
     
 	public int getTurretCost() {
-		return 100;
+		return turretCost;
 	}
 
 }
