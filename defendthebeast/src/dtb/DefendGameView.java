@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -21,6 +20,7 @@ import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import jgame.listener.LocalClickListener;
 import Mechanics.Bank;
+import Turrets.RangeRing;
 import Turrets.Turret;
 import Turrets.Turret1;
 import Turrets.Turret2;
@@ -29,6 +29,7 @@ import Turrets.Turret4;
 import Turrets.Turret5;
 import areas.MenuArea;
 import areas.PlayArea;
+import dtb.Defend.Views;
 
 public class DefendGameView extends GContainer {
 	private PlayArea pa = new PlayArea();
@@ -58,15 +59,15 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		mbMM.addListener(blMM);
-		
+
 		bank = new Bank(500);
-		
+
 		GSprite bankTile = createSprite();
 		addAt(bankTile, 1200, 40);
-		
+
 		FrameListener fl = new FrameListener() {
 			@Override
-			public void invoke(GObject target ,Context context) {
+			public void invoke(GObject target, Context context) {
 				gm.setText(bank.toString());
 			}
 		};
@@ -74,7 +75,8 @@ public class DefendGameView extends GContainer {
 	}
 
 	public static GSprite createSprite() {
-		BufferedImage img = ImageCache.forClass(Defend.class).get("Tiles/selectnew.png");
+		BufferedImage img = ImageCache.forClass(Defend.class).get(
+				"Tiles/selectnew.png");
 		GSprite gs = new GSprite(img);
 
 		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
@@ -94,9 +96,12 @@ public class DefendGameView extends GContainer {
 			return;
 		}
 		settingTurret = true;
+		final RangeRing rr = new RangeRing(t.getFireRange());
 		final MouseLocationController mlc = new MouseLocationController();
 		t.addController(mlc);
 		this.pa.addAtCenter(t);
+		this.pa.addAtCenter(rr);
+		rr.addController(mlc);
 		final LocalClickListener lcl = new LocalClickListener() {
 
 			@Override
@@ -109,6 +114,8 @@ public class DefendGameView extends GContainer {
 				}
 				target.removeController(mlc);
 				target.removeListener(this);
+				rr.removeController(mlc);
+				rr.removeSelf();
 				settingTurret = false;
 				t.setPlaced(true);
 			}
@@ -160,45 +167,45 @@ public class DefendGameView extends GContainer {
 		gs.setNineSliceCenter(nineSliceCenter);
 		return gs;
 	}
-	
+
 	public boolean turretAfford(int turNum) {
 		boolean bool = false;
-		switch(turNum){
+		switch (turNum) {
 		case 1:
-			if(Turret1.getCost() <= Bank.getMoney()) {
+			if (Turret1.getCost() <= Bank.getMoney()) {
 				Bank.takeMoney(Turret1.getCost());
 				bool = true;
 			}
 			break;
-			
+
 		case 2:
-			if(Turret2.getCost() <= Bank.getMoney()) {
+			if (Turret2.getCost() <= Bank.getMoney()) {
 				Bank.takeMoney(Turret2.getCost());
 				bool = true;
 			}
 			break;
-			
+
 		case 3:
-			if(Turret3.getCost() <= Bank.getMoney()) {
+			if (Turret3.getCost() <= Bank.getMoney()) {
 				Bank.takeMoney(Turret3.getCost());
 				bool = true;
 			}
 			break;
-			
+
 		case 4:
-			if(Turret4.getCost() <= Bank.getMoney()) {
+			if (Turret4.getCost() <= Bank.getMoney()) {
 				Bank.takeMoney(Turret4.getCost());
 				bool = true;
 			}
 			break;
-			
+
 		case 5:
-			if(Turret5.getCost() <= Bank.getMoney()) {
+			if (Turret5.getCost() <= Bank.getMoney()) {
 				Bank.takeMoney(Turret5.getCost());
 				bool = true;
 			}
 			break;
-			
+
 		default:
 			bool = false;
 			break;

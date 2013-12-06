@@ -11,7 +11,7 @@ public class Turret2 extends Turret{
 		super(ImageCache.forClass(Defend.class).get("Wands/wand2turret.png"), 500);
 	}
 	public double getFireRange(){
-		return 1000;
+		return 300;
 	}
 
     public int getFireDelay(){

@@ -13,7 +13,7 @@ public class Turret1 extends Turret {
 	}
 
 	public double getFireRange() {
-		return 1000;
+		return 200;
 	}
 
 	public int getFireDelay() {
