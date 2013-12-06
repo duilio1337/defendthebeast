@@ -24,7 +24,7 @@ public class Turret5 extends Turret{
     }
     
     public int getFireCost() {
-		return 10;
+		return 100;
 	}
 
     public double getBulletSpeed(){
