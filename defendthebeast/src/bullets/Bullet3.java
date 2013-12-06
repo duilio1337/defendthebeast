@@ -1,20 +1,9 @@
 package bullets;
 
-import jgame.Context;
-import jgame.GObject;
 import jgame.ImageCache;
-import jgame.listener.BoundaryRemovalListener;
-import jgame.listener.ButtonListener;
-import jgame.listener.DelayListener;
-import jgame.listener.HitTestListener;
 import dtb.Defend;
 
 import java.awt.Image;
-import java.awt.Point;
-import java.util.List;
-
-import Enemies.Enemy;
-import Turrets.Turret;
 
 public class Bullet3 extends Bullet {
 	public Bullet3() {
