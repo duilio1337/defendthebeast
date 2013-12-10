@@ -5,17 +5,18 @@ import java.awt.Color;
 import jgame.GRootContainer;
 import jgame.Game;
 import jgame.ImageCache;
+import jgame.SoundManager;
 
 public class Defend extends Game {
 
 	public static void main(String[] args) {
 		ImageCache.create(Defend.class, "/dtb/rsc/");
+		SoundManager.create(Defend.class, "/dtb/rsc/Sounds/");
 		Defend d1 = new Defend();
 		d1.startGame();
 	}
 
 	public Defend() {
-
 		GRootContainer root = new GRootContainer(Color.BLACK);
 		setRootContainer(root);
 		DefendMenuView dmv = new DefendMenuView();

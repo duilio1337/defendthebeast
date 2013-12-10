@@ -39,8 +39,19 @@ public class Turret1 extends Turret {
 
 	}
 	
+
 	public String getSound(){
-		return "fireloop.wav";
+		String Snd;
+		double a = (Math.random()*3);
+		if(a<1){
+			Snd = "flame1.wav";
+		}else if(a<2){
+			Snd = "flame2.wav";
+		}else{
+			Snd = "flame3.wav";
+		}
+		return Snd;
+
 	}
 	
 	public double getFireRange() {

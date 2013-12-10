@@ -3,9 +3,11 @@ package Turrets;
 import java.awt.Image;
 import java.util.List;
 
+import dtb.Defend;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
+import jgame.SoundManager;
 import jgame.controller.ConstantMovementController;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
@@ -61,6 +63,7 @@ public abstract class Turret extends GSprite {
 							&& fire) {
 						fireBullet();
 						bulletsFired++;
+						SoundManager.forClass(Defend.class).play(getSound());
 						timer = getFireDelay();
 					}
 					if (bulletsFired >= 1) {
@@ -95,15 +98,21 @@ public abstract class Turret extends GSprite {
 	public abstract Bullet createBullet();
 	
 	public abstract int getTurretCost();
+
+	public abstract String getSound();
+	
 	
 	public double getCurrentHealth(){
 		return currentDurablity;
 	}
 	
 	public void fireBullet() {
+		fireBullet(0,0);
+	}
+	public void fireBullet(double angleDifference, double speedModifier) {
 		final Bullet b = createBullet();
 		b.setRotation(this.getRotation());
-		final ConstantMovementController cmc = ConstantMovementController.createPolar(getBulletSpeed(), getRotation());
+		final ConstantMovementController cmc = ConstantMovementController.createPolar(getBulletSpeed()+speedModifier, getRotation()+ angleDifference);
 		DelayListener dl = new DelayListener(5) {
 
 			@Override
@@ -115,7 +124,7 @@ public abstract class Turret extends GSprite {
 		};
 		b.addListener(dl);
 		snapAnchor(b);
-		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
+		b.moveAtAngle(getWidth() / 2 + 20, getRotation()+ angleDifference);
 		this.addSibling(b);
 		takeDurablity();
 

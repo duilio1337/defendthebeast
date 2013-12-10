@@ -2,7 +2,6 @@ package bullets;
 
 import jgame.ImageCache;
 import dtb.Defend;
-
 import java.awt.Image;
 
 public class Bullet3 extends Bullet {

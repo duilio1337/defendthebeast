@@ -8,7 +8,7 @@ import dtb.Defend;
 public class Bullet1 extends Bullet {
 
 	public Bullet1() {
-		super(randImg(), 10, "Enemy");
+		super(randImg(), 2, "Enemy");
 		// TODO Auto-generated constructor stub
 	}
 	private static Image randImg(){

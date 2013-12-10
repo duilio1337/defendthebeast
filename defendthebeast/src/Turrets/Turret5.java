@@ -13,6 +13,11 @@ public class Turret5 extends Turret{
 		super(ImageCache.forClass(Defend.class).get("Wands/wand5turret.png"));
 		// TODO Auto-generated constructor stub
 	}
+	
+	public String getSound(){
+		return "fireball1.wav";
+	}
+	
 	public double getFireRange(){
 		return 300;
 	}

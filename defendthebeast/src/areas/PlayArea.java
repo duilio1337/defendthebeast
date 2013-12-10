@@ -42,7 +42,7 @@ public class PlayArea extends GContainer {
 	}
 
 	private void addRandomEnemy() {
-		int pick = (int) (Math.random() * 1001);
+		int pick = (int) (Math.random() * 1000);
 		Enemy e = null;
 		if(pick<200){
 			e = new Enemy1();
@@ -50,16 +50,14 @@ public class PlayArea extends GContainer {
 			e = new Enemy2();
 		}else if(pick<600){
 			e = new Enemy3();
-		}else if(pick<750){
+		}else if(pick<800){
 			e = new Enemy4();
-		}else if(pick<950){
+		}else if(pick<900){
 			e = new Enemy5();
-		}else if(pick<980){
+		}else if(pick<933){
 			e = new Boss1();
-		}else if(pick<1000){
-			e = new Boss2();
 		}else{
-			e = new Enemy1();
+			e = new Boss2();
 		}
 		this.add(e);
 	}
