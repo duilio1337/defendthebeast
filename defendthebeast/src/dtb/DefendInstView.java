@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -17,12 +16,14 @@ import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
+import dtb.Defend.Views;
 
 public class DefendInstView extends GContainer {
 	public DefendInstView() {
 		setSize(1280, 720);
         this.setBackgroundColor(Color.BLACK);
         this.setBackgroundSprite(ImageCache.getSprite("other/MenuScreen.png"));
+        
 		
 		GButton mbMM = this.createButton(0, "Main Menu");
         mbMM.setLocation(-100, 100);
