@@ -45,8 +45,6 @@ public class DefendGameView extends GContainer {
 		pa.setAnchorTopLeft();
 		add(pa);
 		
-		SoundManager.forClass(Defend.class).loopForever("RTD8B.ogg");
-
 		MenuArea ma = new MenuArea();
 		ma.setAnchorCenter();
 		ma.setLocation(1280 / 2, 720 - 22);
