@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import dtb.Defend.Views;
+import jgame.SoundManager;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -42,7 +44,7 @@ public class DefendGameView extends GContainer {
 		setSize(1280, 720);
 		pa.setAnchorTopLeft();
 		add(pa);
-
+		
 		MenuArea ma = new MenuArea();
 		ma.setAnchorCenter();
 		ma.setLocation(1280 / 2, 720 - 22);
