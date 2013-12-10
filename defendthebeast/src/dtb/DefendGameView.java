@@ -220,7 +220,7 @@ public class DefendGameView extends GContainer {
 		messageHUD.setAlignmentY(0.5);
 		messageHUD.setFontSize(28);
 		messageHUD.setColor(Color.WHITE);
-		messageHUD.setAlpha(1);
+		messageHUD.setAlpha(0);
 		messageHUD.setText(text);
 		addAtCenter(messageHUD);
 		

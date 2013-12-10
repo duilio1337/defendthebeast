@@ -35,6 +35,9 @@ public class DefendInstView extends GContainer {
       	  }
        };
        mbMM.addListener(blMM);
+       
+       GSprite inst = instPnl();
+       add(inst);
 }
 
 
@@ -77,4 +80,17 @@ public static GSprite createButtonSprite(String fn) {
     gs.setNineSliceCenter(nineSliceCenter);
     return gs;
 	}
+
+private GSprite instPnl() {
+	BufferedImage img = ImageCache.forClass(Defend.class).get("other/inst.png");
+    GSprite gs = new GSprite(img);
+    gs.setLocation(2280, 360);
+    
+    MovementTween mt = new MovementTween(24, Interpolation.EASE, -1400, 0);
+    MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);
+    mt.chain(mtb);
+    gs.addController(mt);
+    
+    return gs;
+}
 }
