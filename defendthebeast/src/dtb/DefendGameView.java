@@ -220,9 +220,9 @@ public class DefendGameView extends GContainer {
 		messageHUD.setAlignmentY(0.5);
 		messageHUD.setFontSize(28);
 		messageHUD.setColor(Color.WHITE);
-		messageHUD.setAlpha(0);
+		messageHUD.setAlpha(1);
 		messageHUD.setText(text);
-		addAtCenter(messageHUD);
+		addAt(messageHUD, 1280/2, 600);
 		
 		DelayListener dl = new DelayListener(time) {
 			@Override

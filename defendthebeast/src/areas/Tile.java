@@ -39,7 +39,6 @@ public class Tile extends GButton {
 				
 				if(getFirstAncestorOf(DefendGameView.class).turretAfford(turNum)) {
 					Turret turret = tr.createTurret();
-					
 					getFirstAncestorOf(DefendGameView.class).initializeTurret(turret);
 				}else{
 					getFirstAncestorOf(DefendGameView.class).newHUDMessage("Insufficient funds", 60);
