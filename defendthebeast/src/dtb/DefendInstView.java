@@ -22,7 +22,7 @@ public class DefendInstView extends GContainer {
 	public DefendInstView() {
 		setSize(1280, 720);
         this.setBackgroundColor(Color.BLACK);
-        BufferedImage bg = ImageCache.forClass(Defend.class).get("other/MenuScreen.png");
+        BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
         
@@ -85,7 +85,7 @@ public static GSprite createButtonSprite(String fn) {
 	}
 
 private GSprite instPnl() {
-	BufferedImage img = ImageCache.forClass(Defend.class).get("other/inst.png");
+	BufferedImage img = ImageCache.forClass(Defend.class).get("Other/inst.png");
     GSprite gs = new GSprite(img);
     gs.setLocation(2280, 360);
     

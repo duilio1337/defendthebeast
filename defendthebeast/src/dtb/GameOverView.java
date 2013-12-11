@@ -18,7 +18,7 @@ public class GameOverView extends GContainer {
 	public GameOverView() {
 		setSize(1280, 720);
 		
-		BufferedImage bg = ImageCache.forClass(Defend.class).get("other/MenuScreen.png");
+		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
 

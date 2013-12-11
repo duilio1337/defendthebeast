@@ -23,7 +23,7 @@ public class DefendMenuView extends GContainer {
 	 public DefendMenuView() {
          setSize(1280, 720);
          this.setBackgroundColor(Color.BLACK);
-         BufferedImage bg = ImageCache.forClass(Defend.class).get("other/MenuScreen.png");
+         BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
  		 GSprite g = new GSprite(bg);
  		 setBackgroundSprite(g);
          //Instead of new GButton();
