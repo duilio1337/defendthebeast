@@ -1,10 +1,6 @@
 package Turrets;
 
-import jgame.Context;
-import jgame.GObject;
 import jgame.ImageCache;
-import jgame.controller.ConstantMovementController;
-import jgame.listener.DelayListener;
 import bullets.Bullet;
 import bullets.Bullet1;
 import dtb.Defend;
@@ -19,24 +15,11 @@ public class Turret1 extends Turret {
 	}
 	
 	public void fireBullet() {
-		final Bullet b = createBullet();
-		b.setRotation(this.getRotation());
-		int rand=(int)(Math.random()*60)-30;
-		final ConstantMovementController cmc = ConstantMovementController.createPolar(getBulletSpeed(), getRotation()+rand);
-		DelayListener dl = new DelayListener(5) {
-
-			@Override
-			public void invoke(GObject target, Context context) {
-				cmc.setDamping(1.1);
-				b.addController(cmc);
-
-			}
-		};
-		b.addListener(dl);
-		snapAnchor(b);
-		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
-		this.addSibling(b);
-
+        for(int a=1; a<=10; a++){
+                double rand1=(Math.random()*40)-20;
+                double rand2=(Math.random()*20);
+                fireBullet(rand1,Math.abs(rand2));
+        }
 	}
 	
 
