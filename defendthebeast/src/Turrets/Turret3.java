@@ -36,7 +36,7 @@ public class Turret3 extends Turret{
     }
 
     public int getFireCoolDown(){
-    	return 10;
+    	return 100;
     }
     
     public int getFireCost() {

@@ -41,6 +41,10 @@ public class DefendInstView extends GContainer {
        
        GSprite inst = instPnl();
        add(inst);
+       
+       BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
+       GSprite dtbspr = new GSprite(dtb);
+       addAt(dtbspr, 1280/2, 80);
 }
 
 
@@ -87,7 +91,7 @@ public static GSprite createButtonSprite(String fn) {
 private GSprite instPnl() {
 	BufferedImage img = ImageCache.forClass(Defend.class).get("Other/inst.png");
     GSprite gs = new GSprite(img);
-    gs.setLocation(2280, 360);
+    gs.setLocation(2280, 400);
     
     MovementTween mt = new MovementTween(24, Interpolation.EASE, -1400, 0);
     MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);

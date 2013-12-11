@@ -61,6 +61,11 @@ public class DefendMenuView extends GContainer {
          mbPlay.addListener(blPlay);
          mbInstructions.addListener(blInstructions);
          mbQuit.addListener(blQuit);
+         
+         BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
+         GSprite dtbspr = new GSprite(dtb);
+         addAt(dtbspr, 1280/2, 80);
+         
  }
 
  private GButton createButton(final int buttonIndex, String buttonText) {
