@@ -22,7 +22,9 @@ public class DefendInstView extends GContainer {
 	public DefendInstView() {
 		setSize(1280, 720);
         this.setBackgroundColor(Color.BLACK);
-        this.setBackgroundSprite(ImageCache.getSprite("other/MenuScreen.png"));
+        BufferedImage bg = ImageCache.forClass(Defend.class).get("other/MenuScreen.png");
+		GSprite g = new GSprite(bg);
+		setBackgroundSprite(g);
         
 		
 		GButton mbMM = this.createButton(0, "Main Menu");

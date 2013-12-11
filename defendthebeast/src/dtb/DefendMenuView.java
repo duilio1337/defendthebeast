@@ -23,7 +23,9 @@ public class DefendMenuView extends GContainer {
 	 public DefendMenuView() {
          setSize(1280, 720);
          this.setBackgroundColor(Color.BLACK);
-         this.setBackgroundSprite(ImageCache.getSprite("other/MenuScreen.png"));
+         BufferedImage bg = ImageCache.forClass(Defend.class).get("other/MenuScreen.png");
+ 		 GSprite g = new GSprite(bg);
+ 		 setBackgroundSprite(g);
          //Instead of new GButton();
          GButton mbPlay = this.createButton(0, "Play");
          mbPlay.setLocation(-100, 200);

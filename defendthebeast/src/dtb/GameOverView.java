@@ -17,6 +17,10 @@ import dtb.Defend.Views;
 public class GameOverView extends GContainer {
 	public GameOverView() {
 		setSize(1280, 720);
+		
+		BufferedImage bg = ImageCache.forClass(Defend.class).get("other/MenuScreen.png");
+		GSprite g = new GSprite(bg);
+		setBackgroundSprite(g);
 
 		GMessage m = new GMessage("Game Over");
 		m.setAnchorTopLeft();
