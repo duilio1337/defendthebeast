@@ -77,7 +77,7 @@ public class Tile extends GButton {
 				case 5:
 					getFirstAncestorOf(DefendGameView.class).addAt(infocard5, getX()+30, 580);
 					break;
-				}
+				} 
 				
 			}
 		});
