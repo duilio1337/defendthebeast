@@ -5,7 +5,6 @@ import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -31,6 +30,7 @@ import Turrets.Turret4;
 import Turrets.Turret5;
 import areas.MenuArea;
 import areas.PlayArea;
+import dtb.Defend.Views;
 
 public class DefendGameView extends GContainer {
 	private PlayArea pa = new PlayArea();
@@ -43,7 +43,7 @@ public class DefendGameView extends GContainer {
 		setSize(1280, 720);
 		pa.setAnchorTopLeft();
 		add(pa);
-		
+
 		MenuArea ma = new MenuArea();
 		ma.setAnchorCenter();
 		ma.setLocation(1280 / 2, 720 - 22);
@@ -57,6 +57,7 @@ public class DefendGameView extends GContainer {
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
 				context.setCurrentGameView(Views.MENU);
+				//dgv not removing :/
 			}
 		};
 		mbMM.addListener(blMM);
@@ -73,7 +74,7 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		addListener(fl);
-		
+
 	}
 
 	public static GSprite createSprite() {
@@ -258,13 +259,14 @@ public class DefendGameView extends GContainer {
 	
 	public void newHUDMessage(String text, int time, int loc) {
 		final GMessage messageHUD = new GMessage();
-	
+
 		messageHUD.setAlignmentX(0.5);
 		messageHUD.setAlignmentY(0.5);
 		messageHUD.setFontSize(28);
 		messageHUD.setColor(Color.WHITE);
 		messageHUD.setAlpha(1);
 		messageHUD.setText(text);
+
 		switch(loc){
 		case 1:
 			addAt(messageHUD, 1280/2, 100);
