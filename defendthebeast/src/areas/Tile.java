@@ -1,14 +1,12 @@
 package areas;
 
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
 import jgame.GSprite;
 import jgame.ImageCache;
-import jgame.controller.MouseLocationController;
 import jgame.listener.ButtonListener;
 import Turrets.Turret;
 import dtb.Defend;
