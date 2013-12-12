@@ -4,8 +4,10 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 
+import dtb.Defend.Views;
 import Mechanics.Bank;
 import Mechanics.HealthBar;
+import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
@@ -68,7 +70,13 @@ public abstract class Enemy extends GSprite {
 		pc.setRotateToFollow(true);
 		pc.setMaxSpeed(getSlowness());
 		addController(pc);
-		addListener(new BoundaryRemovalListener());
+		addListener(new BoundaryRemovalListener(){
+			@Override
+			public void invoke(GObject target, Context context) {
+				context.setCurrentGameView(Views.GAME_OVER);
+				target.removeSelf();
+			}
+		});
 
 	}
 

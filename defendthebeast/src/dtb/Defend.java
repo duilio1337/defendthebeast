@@ -8,6 +8,8 @@ import jgame.ImageCache;
 import jgame.SoundManager;
 
 public class Defend extends Game {
+	
+	public DefendGameView dgv = new DefendGameView();
 
 	public static void main(String[] args) {
 		ImageCache.create(Defend.class, "/dtb/rsc/");
@@ -20,13 +22,16 @@ public class Defend extends Game {
 		GRootContainer root = new GRootContainer(Color.BLACK);
 		setRootContainer(root);
 		DefendMenuView dmv = new DefendMenuView();
-		DefendGameView dgv = new DefendGameView();
 		GameOverView gov = new GameOverView();
 		DefendInstView dig = new DefendInstView();
 		root.addView(Views.MENU, dmv);
 		root.addView(Views.GAME, dgv);
 		root.addView(Views.GAME_OVER, gov);
 		root.addView(Views.INSTRUCTIONS, dig);
+	}
+	
+	public void newGame(){
+		dgv = new DefendGameView();
 	}
 
 	/**
