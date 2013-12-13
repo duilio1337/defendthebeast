@@ -28,6 +28,8 @@ public class Defend extends Game {
 		root.addView(Views.GAME, dgv);
 		root.addView(Views.GAME_OVER, gov);
 		root.addView(Views.INSTRUCTIONS, dig);
+		
+		setTargetFPS(30);
 	}
 	
 	public void newGame(){
