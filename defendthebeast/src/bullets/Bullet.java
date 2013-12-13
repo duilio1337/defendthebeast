@@ -34,6 +34,18 @@ public class Bullet extends GSprite {
 				}
 			};
 			addListener(htl);
+		}else if(target.equals("EnemyPierce")){
+			HitTestListener htl = new HitTestListener(Enemy.class) {
+
+				@Override
+				public void invoke(GObject target, Context context) {
+					List<Enemy> enemies = context.hitTestClass(Enemy.class);
+					for (Enemy enemy : enemies) {
+						enemy.setCurrentHealth(enemy.getCurrentHealth() - bd);
+					}
+				}
+			};
+			addListener(htl);
 		}
 	}
 

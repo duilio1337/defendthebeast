@@ -15,7 +15,7 @@ public class Turret1 extends Turret {
 	}
 	
 	public void fireBullet() {
-        for(int a=1; a<=10; a++){
+        for(int a=1; a<=15; a++){
                 double rand1=(Math.random()*40)-20;
                 double rand2=(Math.random()*20);
                 fireBullet(rand1,Math.abs(rand2));
@@ -42,7 +42,7 @@ public class Turret1 extends Turret {
 	}
 
 	public int getFireDelay() {
-		return 10;
+		return 5;
 	}
 	
 	public int getFireCost() {
