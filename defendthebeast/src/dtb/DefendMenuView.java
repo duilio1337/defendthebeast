@@ -23,7 +23,16 @@ public class DefendMenuView extends GContainer {
 	 public DefendMenuView() {
          setSize(1280, 720);
          this.setBackgroundColor(Color.BLACK);
-         BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
+	 }
+	 
+	 public void viewShown() {
+		 initDefendMenuView();
+	 }
+	 
+	 public void initDefendMenuView() {
+		 removeAllChildren();
+		 
+		 BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
  		 GSprite g = new GSprite(bg);
  		 setBackgroundSprite(g);
          //Instead of new GButton();
@@ -65,10 +74,9 @@ public class DefendMenuView extends GContainer {
          BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
          GSprite dtbspr = new GSprite(dtb);
          addAt(dtbspr, 1280/2, 80);
-         
- }
-
- private GButton createButton(final int buttonIndex, String buttonText) {
+	 }
+	 
+	 private GButton createButton(final int buttonIndex, String buttonText) {
          
          MovementTween mt = new MovementTween(24, Interpolation.EASE, 400, 0);
          MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
@@ -97,14 +105,14 @@ public class DefendMenuView extends GContainer {
          };
          addListener(dl);
          return btn;
- }
+	 }
 
- public static GSprite createButtonSprite(String fn) {
+	 public static GSprite createButtonSprite(String fn) {
          BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
          GSprite gs = new GSprite(img);
 
          Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
          gs.setNineSliceCenter(nineSliceCenter);
          return gs;
- }
+	 }
 }

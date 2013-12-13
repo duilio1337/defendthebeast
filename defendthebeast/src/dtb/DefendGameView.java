@@ -33,14 +33,26 @@ import areas.PlayArea;
 import dtb.Defend.Views;
 
 public class DefendGameView extends GContainer {
-	private PlayArea pa = new PlayArea();
-	private boolean settingTurret = false;
+	private PlayArea pa;
+	private boolean settingTurret;
 	private Bank bank;
-	private static GMessage gm = new GMessage();
+	private static GMessage gm;
 
 	public DefendGameView() {
-
 		setSize(1280, 720);
+	}
+	
+	public void viewShown() {
+		initDefendGameView();
+	}
+	
+	public void initDefendGameView() {
+		removeAllChildren();
+		
+		pa = new PlayArea();
+		gm = new GMessage();
+		settingTurret = false;
+		
 		pa.setAnchorTopLeft();
 		add(pa);
 
@@ -74,7 +86,6 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		addListener(fl);
-
 	}
 
 	public static GSprite createSprite() {

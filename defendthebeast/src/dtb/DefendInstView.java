@@ -22,7 +22,16 @@ public class DefendInstView extends GContainer {
 	public DefendInstView() {
 		setSize(1280, 720);
         this.setBackgroundColor(Color.BLACK);
-        BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
+        
+	}
+	public void viewShown() {
+		initDefendInstView();
+	}
+	
+	public void initDefendInstView() {
+		removeAllChildren();
+		
+		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
         
@@ -45,10 +54,10 @@ public class DefendInstView extends GContainer {
        BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
        GSprite dtbspr = new GSprite(dtb);
        addAt(dtbspr, 1280/2, 80);
-}
+	}
 
 
- private GButton createButton(final int buttonIndex, String buttonText) {
+	private GButton createButton(final int buttonIndex, String buttonText) {
          
          MovementTween mt = new MovementTween(24, Interpolation.EASE, 400, 0);
          MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
@@ -79,25 +88,25 @@ public class DefendInstView extends GContainer {
          return btn;
  }
 
-public static GSprite createButtonSprite(String fn) {
-    BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
-    GSprite gs = new GSprite(img);
+	public static GSprite createButtonSprite(String fn) {
+		BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
+		GSprite gs = new GSprite(img);
+		
+		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
+		gs.setNineSliceCenter(nineSliceCenter);
+		return gs;
+		}
 
-    Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
-    gs.setNineSliceCenter(nineSliceCenter);
-    return gs;
+	private GSprite instPnl() {
+		BufferedImage img = ImageCache.forClass(Defend.class).get("Other/inst.png");
+		GSprite gs = new GSprite(img);
+		gs.setLocation(2280, 400);
+		
+		MovementTween mt = new MovementTween(24, Interpolation.EASE, -1400, 0);
+		MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);
+		mt.chain(mtb);
+		gs.addController(mt);
+    
+		return gs;
 	}
-
-private GSprite instPnl() {
-	BufferedImage img = ImageCache.forClass(Defend.class).get("Other/inst.png");
-    GSprite gs = new GSprite(img);
-    gs.setLocation(2280, 400);
-    
-    MovementTween mt = new MovementTween(24, Interpolation.EASE, -1400, 0);
-    MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);
-    mt.chain(mtb);
-    gs.addController(mt);
-    
-    return gs;
-}
 }
