@@ -266,7 +266,7 @@ public class DefendGameView extends GContainer {
 			break;
 		}
 		return bool;
-	}
+	} 
 	
 	public void newHUDMessage(String text, int time, int loc) {
 		final GMessage messageHUD = new GMessage();
