@@ -25,10 +25,12 @@ public class Defend extends Game {
 		DefendMenuView dmv = new DefendMenuView();
 		GameOverView gov = new GameOverView();
 		DefendInstView dig = new DefendInstView();
+		DefendPauseView dpv = new DefendPauseView();
 		root.addView(Views.MENU, dmv);
 		root.addView(Views.GAME, dgv);
 		root.addView(Views.GAME_OVER, gov);
 		root.addView(Views.INSTRUCTIONS, dig);
+		root.addView(Views.PAUSE, dpv);
 		
 		setTargetFPS(30);
 	}
@@ -39,7 +41,7 @@ public class Defend extends Game {
 
 	public enum Views {
 		// These are all of the views for this game
-		MENU, GAME, GAME_OVER, INSTRUCTIONS, OTHER;
+		MENU, GAME, GAME_OVER, INSTRUCTIONS, PAUSE;
 	}
 	
 	public static boolean isPaused() {

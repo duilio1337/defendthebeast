@@ -5,6 +5,7 @@ import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -42,7 +43,11 @@ public class DefendGameView extends GContainer {
 	}
 	
 	public void viewShown() {
-		initDefendGameView();
+		if(!Defend.isPaused()) {
+			initDefendGameView();
+		}else{
+			Defend.setPaused(false);
+		}
 	}
 	
 	public void initDefendGameView() {
@@ -67,8 +72,8 @@ public class DefendGameView extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				//context.setCurrentGameView(Views.MENU);
 				Defend.setPaused(true);
+				context.setCurrentGameView(Views.PAUSE);
 			}
 		};
 		mbMM.addListener(blMM);
