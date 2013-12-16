@@ -16,7 +16,7 @@ public class Defend extends Game {
 		ImageCache.create(Defend.class, "/dtb/rsc/");
 		SoundManager.create(Defend.class, "/dtb/rsc/Sounds/");
 		Defend d1 = new Defend();
-		d1.startGame("Defend the Beast A1.0");
+		d1.startGame("Defend the Beast A1.1");
 	}
 
 	public Defend() {
