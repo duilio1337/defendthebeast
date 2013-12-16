@@ -30,7 +30,6 @@ import Turrets.Turret4;
 import Turrets.Turret5;
 import areas.MenuArea;
 import areas.PlayArea;
-import dtb.Defend.Views;
 
 public class DefendGameView extends GContainer {
 	private PlayArea pa;
@@ -61,15 +60,15 @@ public class DefendGameView extends GContainer {
 		ma.setLocation(1280 / 2, 720 - 22);
 		add(ma);
 
-		GButton mbMM = this.createButton(0, "Main Menu");
+		GButton mbMM = this.createButton(0, "Pause");
 		mbMM.setLocation(-100, 700);
 
 		ButtonListener blMM = new ButtonListener() {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				context.setCurrentGameView(Views.MENU);
-				//dgv not removing :/
+				//context.setCurrentGameView(Views.MENU);
+				Defend.setPaused(true);
 			}
 		};
 		mbMM.addListener(blMM);

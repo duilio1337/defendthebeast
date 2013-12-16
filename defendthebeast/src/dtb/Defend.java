@@ -10,6 +10,7 @@ import jgame.SoundManager;
 public class Defend extends Game {
 	
 	public DefendGameView dgv = new DefendGameView();
+	private static boolean paused = false;
 
 	public static void main(String[] args) {
 		ImageCache.create(Defend.class, "/dtb/rsc/");
@@ -36,14 +37,16 @@ public class Defend extends Game {
 		dgv = new DefendGameView();
 	}
 
-	/**
-	 * These are all of the views for this game
-	 * 
-	 * @author eettlin
-	 * 
-	 */
 	public enum Views {
 		// These are all of the views for this game
 		MENU, GAME, GAME_OVER, INSTRUCTIONS, OTHER;
+	}
+	
+	public static boolean isPaused() {
+		return paused;
+	}
+	
+	public static void setPaused(boolean status) {
+		paused = status;
 	}
 }

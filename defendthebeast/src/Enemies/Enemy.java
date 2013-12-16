@@ -18,6 +18,7 @@ public abstract class Enemy extends GSprite {
 	private double currentHealth;
 	private int killPoints;
 	private HealthBar hb = new HealthBar();
+	final PolygonController pc;
 
 	public Enemy(Image image, double maxHealth, int killPoints) {
 		super(image);
@@ -65,7 +66,7 @@ public abstract class Enemy extends GSprite {
 				576, 575, 572, 594, 619, 644, 670, 695, 720, 745, 770, 795,
 				820, 845 };
 		Polygon p = new Polygon(x, y, 196);
-		PolygonController pc = new PolygonController(p);
+		pc = new PolygonController(p);
 		pc.goToStart(this);
 		pc.setRotateToFollow(true);
 		pc.setMaxSpeed(getSlowness());
@@ -77,7 +78,6 @@ public abstract class Enemy extends GSprite {
 				target.removeSelf();
 			}
 		});
-
 	}
 
 	public abstract double getSlowness();
