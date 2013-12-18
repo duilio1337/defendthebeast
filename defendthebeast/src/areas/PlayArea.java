@@ -21,44 +21,143 @@ import dtb.Defend;
 
 public class PlayArea extends GContainer {
 	
-	public String level = "Levels/Level1.png";
+	TimerListener spawnTimer;
+	
+	private int nextWave;
+	
+	int wave1[];
+	int wave2[];
+	int wave3[];
+	int wave4[];
+	int wave5[];
 	
 	public PlayArea() {
 		setSize(1280, 720);
 		setBackgroundColor(Color.PINK);
-		BufferedImage bg = ImageCache.forClass(Defend.class).get(level);
-		GSprite g = new GSprite(bg);
+		GSprite g = new GSprite(ImageCache.getImage("Levels/Level1.png"));
 		setBackgroundSprite(g);
-
-		final TimerListener enemyTimer = new TimerListener(120) {
-
+		
+		wave1 = new int[] {
+			1,1,1,1,1
+		};
+		
+		wave2 = new int[] {
+			2,2,2,2,2
+		};
+		
+		wave3 = new int[] {
+			3,3,3,3,3
+		};
+		
+		wave4 = new int[] {
+			4,4,4,4,4
+		};
+		
+		wave5 = new int[] {
+			5,5,5,5,5,101
+		};
+		
+		startWave(wave1);
+		nextWave = 1;
+	}
+	
+	public void startWave(final int wave[]) {
+		spawnTimer = new TimerListener(120) {
+			int i = 0;
 			@Override
 			public void invoke(GObject target, Context context) {
-				addRandomEnemy();
+				if(wave1.length < i) {
+					addEnemy(wave[i]);
+					i++;
+				}else{
+					endWave();
+					removeListener(spawnTimer);
+				}
 			}
-
 		};
-		addListener(enemyTimer);
+		addListener(spawnTimer);
 	}
-
-	private void addRandomEnemy() {
-		int pick = (int) (Math.random() * 1000);
+	
+	public void endWave() {
+		TimerListener waveTimer = new TimerListener(300) {
+			@Override
+			public void invoke(GObject target, Context context) {
+				nextWave++;
+				if(!(nextWave > 5)) {
+					switch(nextWave) {
+					case 1:
+						startWave(wave1);
+						break;
+					case 2:
+						startWave(wave2);
+						break;
+					case 3:
+						startWave(wave3);
+						break;
+					case 4:
+						startWave(wave4);
+						break;
+					case 5:
+						startWave(wave5);
+						break;
+					default:
+						System.err.println("ERROR: INVALID WAVE NUMBER");
+						System.err.println("Wave Number '" + nextWave + "' is invalid.");
+					}	
+				}else{
+					System.out.println("end of waves");
+				}
+			}
+		};
+		addListener(waveTimer);
+	}
+	
+	public void addEnemy(int eN) {
+		
 		Enemy e = null;
-		if(pick<200){
+		switch(eN) {
+		case 1:
 			e = new Enemy1();
-		}else if(pick<400){
+			break;
+		case 2:
 			e = new Enemy2();
-		}else if(pick<600){
+			break;
+		case 3:
 			e = new Enemy3();
-		}else if(pick<800){
+			break;
+		case 4:
 			e = new Enemy4();
-		}else if(pick<900){
+			break;
+		case 5:
 			e = new Enemy5();
-		}else if(pick<933){
+			break;
+		case 101:
 			e = new Boss1();
-		}else{
+			break;
+		case 102:
 			e = new Boss2();
+			break;
 		}
-		this.add(e);
+		add(e);
 	}
+	
+//	private void addRandomEnemy() {
+//	int pick = (int) (Math.random() * 1000);
+//	Enemy e = null;
+//	if(pick<200){
+//		e = new Enemy1();
+//	}else if(pick<400){
+//		e = new Enemy2();
+//	}else if(pick<600){
+//		e = new Enemy3();
+//	}else if(pick<800){
+//		e = new Enemy4();
+//	}else if(pick<900){
+//		e = new Enemy5();
+//	}else if(pick<933){
+//		e = new Boss1();
+//	}else{
+//		e = new Boss2();
+//	}
+//	this.add(e);
 }
