@@ -1,7 +1,6 @@
 package areas;
 
 import java.awt.Color;
-import java.awt.image.BufferedImage;
 
 import jgame.Context;
 import jgame.GContainer;
@@ -17,11 +16,11 @@ import Enemies.Enemy2;
 import Enemies.Enemy3;
 import Enemies.Enemy4;
 import Enemies.Enemy5;
-import dtb.Defend;
 
 public class PlayArea extends GContainer {
 	
 	TimerListener spawnTimer;
+	TimerListener waveTimer;
 	
 	private int nextWave;
 	
@@ -36,6 +35,8 @@ public class PlayArea extends GContainer {
 		setBackgroundColor(Color.PINK);
 		GSprite g = new GSprite(ImageCache.getImage("Levels/Level1.png"));
 		setBackgroundSprite(g);
+		
+		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
 		
 		wave1 = new int[] {
 			1,1,1,1,1
@@ -66,7 +67,7 @@ public class PlayArea extends GContainer {
 			int i = 0;
 			@Override
 			public void invoke(GObject target, Context context) {
-				if(wave1.length < i) {
+				if(i < wave.length) {
 					addEnemy(wave[i]);
 					i++;
 				}else{
@@ -79,33 +80,40 @@ public class PlayArea extends GContainer {
 	}
 	
 	public void endWave() {
-		TimerListener waveTimer = new TimerListener(300) {
+		waveTimer = new TimerListener(300) {
+			int i = 0;
 			@Override
 			public void invoke(GObject target, Context context) {
-				nextWave++;
-				if(!(nextWave > 5)) {
+				if(i > 0) {
+					nextWave++;
 					switch(nextWave) {
 					case 1:
 						startWave(wave1);
+						removeListener(waveTimer);
 						break;
 					case 2:
 						startWave(wave2);
+						removeListener(waveTimer);
 						break;
 					case 3:
 						startWave(wave3);
+						removeListener(waveTimer);
 						break;
 					case 4:
 						startWave(wave4);
+						removeListener(waveTimer);
 						break;
 					case 5:
 						startWave(wave5);
+						removeListener(waveTimer);
 						break;
 					default:
 						System.err.println("ERROR: INVALID WAVE NUMBER");
 						System.err.println("Wave Number '" + nextWave + "' is invalid.");
-					}	
+					}
+					
 				}else{
-					System.out.println("end of waves");
+					i++;
 				}
 			}
 		};
