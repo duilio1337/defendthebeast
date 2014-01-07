@@ -6,7 +6,7 @@ import java.awt.Image;
 
 public class Bullet3 extends Bullet {
 	public Bullet3() {
-		super(randImg(), 50, "Enemy");
+		super(randImg(), 200, "Enemy");
 	}
 	private static Image randImg(){
 		String Img;
