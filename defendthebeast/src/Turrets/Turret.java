@@ -3,7 +3,6 @@ package Turrets;
 import java.awt.Image;
 import java.util.List;
 
-import dtb.Defend;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
@@ -15,6 +14,7 @@ import Enemies.Enemy;
 import Mechanics.Bank;
 import Mechanics.HealthBar;
 import bullets.Bullet;
+import dtb.Defend;
 
 public abstract class Turret extends GSprite {
 	private boolean placed = false;

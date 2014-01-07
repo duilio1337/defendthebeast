@@ -5,7 +5,6 @@ import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -31,6 +30,7 @@ import Turrets.Turret4;
 import Turrets.Turret5;
 import areas.MenuArea;
 import areas.PlayArea;
+import dtb.Defend.Views;
 
 public class DefendGameView extends GContainer {
 	private PlayArea pa;

@@ -4,14 +4,14 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 
-import dtb.Defend.Views;
-import Mechanics.Bank;
-import Mechanics.HealthBar;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
+import Mechanics.Bank;
+import Mechanics.HealthBar;
+import dtb.Defend.Views;
 
 public abstract class Enemy extends GSprite {
 	private double maxHealth;

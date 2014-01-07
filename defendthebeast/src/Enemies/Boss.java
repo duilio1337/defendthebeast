@@ -1,7 +1,7 @@
 package Enemies;
 
 import java.awt.Image;
-import Enemies.Enemy;
+
 import jgame.listener.BoundaryRemovalListener;
 
 

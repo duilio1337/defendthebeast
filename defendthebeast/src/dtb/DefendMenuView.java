@@ -1,15 +1,12 @@
 package dtb;
-import jgame.GContainer;
-
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dtb.Defend;
-import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
+import jgame.GContainer;
 import jgame.GMessage;
 import jgame.GObject;
 import jgame.GSprite;
@@ -18,6 +15,7 @@ import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
+import dtb.Defend.Views;
 
 public class DefendMenuView extends GContainer {
 	 public DefendMenuView() {

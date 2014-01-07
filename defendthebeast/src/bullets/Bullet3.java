@@ -1,12 +1,13 @@
 package bullets;
 
+import java.awt.Image;
+
 import jgame.ImageCache;
 import dtb.Defend;
-import java.awt.Image;
 
 public class Bullet3 extends Bullet {
 	public Bullet3() {
-		super(randImg(), 200, "Enemy");
+		super(randImg(), 200, Behavior.STANDARD);
 	}
 	private static Image randImg(){
 		String Img;
