@@ -52,6 +52,7 @@ public class DefendPauseView extends GContainer {
        	  @Override
        	  public void mouseClicked(Context context) {
        		  super.mouseClicked(context);
+       		  Defend.setPaused(false);
        		  context.setCurrentGameView(Views.MENU);
        	  }
         };
