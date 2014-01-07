@@ -51,7 +51,7 @@ public class Bullet extends GSprite {
 			};
 			addListener(htl);
 		}
-	}
+	} 
 
 	public double getBd() {
 		return bd;
