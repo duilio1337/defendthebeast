@@ -23,14 +23,13 @@ public class PlayArea extends GContainer {
 	TimerListener waveTimer;
 	
 	protected int nextWave;
+	private int wave1[];
+	private int wave2[];
+	private int wave3[];
+	private int wave4[];
+	private int wave5[];
 	
-	protected int wave1[];
-	protected int wave2[];
-	protected int wave3[];
-	protected int wave4[];
-	protected int wave5[];
-	
-	public PlayArea(String level) {
+	public PlayArea(String level, int waves[][]) {
 		setSize(1280, 720);
 		setBackgroundColor(Color.PINK);
 		GSprite g = new GSprite(ImageCache.getImage(level));
@@ -38,25 +37,11 @@ public class PlayArea extends GContainer {
 		
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
 		
-		wave1 = new int[] {
-			1,1,1,1,1
-		};
-		
-		wave2 = new int[] {
-			2,2,2,2,2
-		};
-		
-		wave3 = new int[] {
-			3,3,3,3,3
-		};
-		
-		wave4 = new int[] {
-			4,4,4,4,4
-		};
-		
-		wave5 = new int[] {
-			5,5,5,5,5,101
-		};
+		this.wave1 = wave1;
+		this.wave2 = wave2;
+		this.wave3 = wave3;
+		this.wave4 = wave4;
+		this.wave5 = wave5;
 		
 		startWave(wave1);
 		nextWave = 1;

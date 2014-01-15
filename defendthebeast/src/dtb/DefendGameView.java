@@ -20,7 +20,7 @@ import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import jgame.listener.LocalClickListener;
-import Levels.PlayAreaOne;
+import Levels.LevelOne;
 import Levels.PlayAreaTwo;
 import Mechanics.Bank;
 import Turrets.RangeRing;
@@ -42,6 +42,7 @@ public class DefendGameView extends GContainer {
 	private String level;
 	private int[] x;
 	private int[] y;
+	private int[][] waves;
 
 	public DefendGameView(String level, int[] x, int[] y) {
 		setSize(1280, 720);
@@ -60,15 +61,9 @@ public class DefendGameView extends GContainer {
 
 	public void initDefendGameView() {
 		removeAllChildren();
-		if (level.equals("Levels/Level1.png")) {
-			pa = new PlayAreaOne();
-			Defend.setLevelOne(true);
-			Defend.setLevelTwo(false);
-		} else if (level.equals("Levels/Level2.png")) {
-			pa = new PlayAreaTwo();
-			Defend.setLevelTwo(true);
-			Defend.setLevelOne(false);
-		}
+		
+		pa = new PlayArea(level, waves);
+			
 		gm = new GMessage();
 		settingTurret = false;
 

@@ -77,9 +77,8 @@ public class Defend extends Game {
 	public DefendGameView dgv2 = new DefendGameView("Levels/Level2.png",
 			getX2(), getY2());
 	private static boolean paused = false;
-	private static boolean level1 = false;
-	private static boolean level2 = false;
-
+	private static int levelnum = 0;
+	
 	public static int[] getY1() {
 		return y1;
 	}
@@ -96,20 +95,12 @@ public class Defend extends Game {
 		this.x1 = x1;
 	}
 
-	public static boolean isLevelOne() {
-		return level1;
+	public static int isLevel() {
+		return levelnum;
 	}
 
-	public static void setLevelOne(boolean status) {
-		level1 = status;
-	}
-
-	public static boolean isLevelTwo() {
-		return level2;
-	}
-
-	public static void setLevelTwo(boolean status) {
-		level2 = status;
+	public static void setLevel(int level) {
+		levelnum = level;
 	}
 
 	public static void main(String[] args) {

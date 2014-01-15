@@ -37,14 +37,9 @@ public abstract class Enemy extends GSprite {
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
 		hb.setHealthPercentage(1);
 
-		if (Defend.isLevelOne()) {
-			x = Defend.getX1();
-			y = Defend.getY1();
-		}
-		else if (Defend.isLevelTwo()) {
-			x = Defend.getX2();
-			y = Defend.getY2();
-		}
+		x = DefendGameView.getX();
+		y = LevelOne.getY();
+		
 		Polygon p = new Polygon(x, y, x.length);
 		pc = new PolygonController(p);
 		pc.goToStart(this);
