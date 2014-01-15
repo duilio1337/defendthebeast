@@ -8,7 +8,7 @@ import dtb.Defend;
 public class Bullet2 extends Bullet {
 
 	public Bullet2() {
-		super(randImg(), 25, "Enemy");
+		super(randImg(), 25, Behavior.STANDARD);
 	}
 	private static Image randImg(){
 		String Img;
