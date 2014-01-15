@@ -50,7 +50,7 @@ public class DefendMenuView extends GContainer {
                  @Override
                  public void mouseClicked(Context context) {
                          super.mouseClicked(context);
-                         context.setCurrentGameView(Views.GAME);
+                         context.setCurrentGameView(Views.LEVELMENU);
                  }
           };
          ButtonListener blInstructions = new ButtonListener() {
