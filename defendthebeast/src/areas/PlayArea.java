@@ -46,7 +46,7 @@ public class PlayArea extends GContainer {
 		this.wave4 = waves[3];
 		this.wave5 = waves[4];
 		
-		startWave(waves[0]);
+		startWave(wave1);
 		nextWave = 1;
 	}
 	
