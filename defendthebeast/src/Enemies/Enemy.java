@@ -4,10 +4,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 
-import dtb.Defend;
-import dtb.Defend.Views;
-import Mechanics.Bank;
-import Mechanics.HealthBar;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
@@ -16,6 +12,7 @@ import jgame.listener.BoundaryRemovalListener;
 import Mechanics.Bank;
 import Mechanics.HealthBar;
 import dtb.Defend.Views;
+import dtb.DefendGameView;
 
 public abstract class Enemy extends GSprite {
 	private double maxHealth;
@@ -23,8 +20,6 @@ public abstract class Enemy extends GSprite {
 	private int killPoints;
 	private HealthBar hb = new HealthBar();
 	final PolygonController pc;
-	private int[] x;
-	private int[] y;
 
 	public Enemy(Image image, double maxHealth, int killPoints) {
 		super(image);
@@ -37,10 +32,9 @@ public abstract class Enemy extends GSprite {
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
 		hb.setHealthPercentage(1);
 
-		x = DefendGameView.getX();
-		y = LevelOne.getY();
 		
-		Polygon p = new Polygon(x, y, x.length);
+		
+		Polygon p = new Polygon(DefendGameView.getWayPointsX(), DefendGameView.getWayPointsY(), DefendGameView.getWayPointsX().length);
 		pc = new PolygonController(p);
 		pc.goToStart(this);
 		pc.setRotateToFollow(true);

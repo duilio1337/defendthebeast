@@ -20,8 +20,6 @@ import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import jgame.listener.LocalClickListener;
-import Levels.LevelOne;
-import Levels.PlayAreaTwo;
 import Mechanics.Bank;
 import Turrets.RangeRing;
 import Turrets.Turret;
@@ -40,15 +38,28 @@ public class DefendGameView extends GContainer {
 	private Bank bank;
 	private static GMessage gm;
 	private String level;
-	private int[] x;
-	private int[] y;
-	private int[][] waves;
+	private static int[] x;
+	private static int[] y;
+	private static int[][] waves;
 
-	public DefendGameView(String level, int[] x, int[] y) {
+	public DefendGameView(String level, int[] x, int[] y, int waves[][]) {
 		setSize(1280, 720);
 		this.level = level;
-		this.x = x;
-		this.y = y;
+		DefendGameView.x = x;
+		DefendGameView.y = y;
+		DefendGameView.waves = waves;
+	}
+	
+	public static int[] getWayPointsX() {
+		return DefendGameView.x;
+	}
+	
+	public static int[] getWayPointsY() {
+		return DefendGameView.y;
+	}
+	
+	public static int[][] getWaves() {
+		return DefendGameView.waves;
 	}
 
 	public void viewShown() {
@@ -62,7 +73,7 @@ public class DefendGameView extends GContainer {
 	public void initDefendGameView() {
 		removeAllChildren();
 		
-		pa = new PlayArea(level, waves);
+		pa = new PlayArea(level);
 			
 		gm = new GMessage();
 		settingTurret = false;
@@ -131,9 +142,7 @@ public class DefendGameView extends GContainer {
 		this.pa.addAtCenter(rr);
 		rr.addController(mlc);
 
-		final int[] x = this.x;
-		final int[] y = this.y;
-		final Polygon path = new Polygon(x, y, x.length);
+		final Polygon path = new Polygon(DefendGameView.x, DefendGameView.y, DefendGameView.x.length);
 
 		final LocalClickListener lcl = new LocalClickListener() {
 

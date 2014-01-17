@@ -1,10 +1,6 @@
 package Levels;
 
-import java.awt.Color;
-
 import dtb.DefendGameView;
-import jgame.GSprite;
-import jgame.ImageCache;
 
 public class LevelOne extends DefendGameView {
 
@@ -41,23 +37,20 @@ public class LevelOne extends DefendGameView {
 			526, 552, 577, 572, 572, 575, 576, 576, 578, 580, 579, 576, 575,
 			573, 573, 576, 576, 575, 572, 594, 619, 644, 670, 695, 720, 745,
 			770, 795, 820, 845 };
+	
+	private static int[][] waves = {
+		{ 2, 1, 2, 1, 2 }, // wave1
+		{ 2, 2, 2, 2, 2 }, // wave2
+		{ 3, 3, 3, 3, 3 }, // wave3
+		{ 4, 4, 4, 4, 4 }, // wave4
+		{ 5, 5, 5, 5, 5, 101 },// wave5
+};
 
 	public LevelOne() {
-		super("Levels/Level1.png");
-		setSize(1280, 720);
-		setBackgroundColor(Color.PINK);
-		GSprite g = new GSprite(ImageCache.getImage("Levels/Level1.png"));
-		setBackgroundSprite(g);
+		super("Levels/Level1.png", x, y, waves);
 
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
-
-		int[][] waves = {
-				{ 1, 1, 1, 1, 1 }, // wave1
-				{ 2, 2, 2, 2, 2 }, // wave2
-				{ 3, 3, 3, 3, 3 }, // wave3
-				{ 4, 4, 4, 4, 4 }, // wave4
-				{ 5, 5, 5, 5, 5, 101 },// wave5
-		};
+		
 
 	}
 }

@@ -44,7 +44,18 @@ public class DefendPauseView extends GContainer {
                 @Override
                 public void mouseClicked(Context context) {
                         super.mouseClicked(context);
-                        context.setCurrentGameView(Views.GAME);
+                        switch(Defend.isLevel()) {
+                        case 1:
+                        	context.setCurrentGameView(Views.LEVEL1);
+                        	break;
+                        case 2:
+                        	context.setCurrentGameView(Views.LEVEL2);
+                        	break;
+                        default:
+                        	System.err.println("ERROR: LEVEL '" + Defend.isLevel() +"' NOT DEFINED IN PAUSE MENU");
+                        	System.err.println("UPDATE YOUR CLASSES FOO!");
+                        }
+                        
                 }
          };
          

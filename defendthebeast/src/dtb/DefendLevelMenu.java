@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dtb.Defend.Views;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
@@ -17,6 +16,7 @@ import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
+import dtb.Defend.Views;
 
 public class DefendLevelMenu extends GContainer {
 
@@ -43,7 +43,8 @@ public class DefendLevelMenu extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				context.setCurrentGameView(Views.GAME);
+				context.setCurrentGameView(Views.LEVEL1);
+				Defend.setLevel(1);
 			}
 		};
 		level1.addListener(bll1);
@@ -54,7 +55,8 @@ public class DefendLevelMenu extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				context.setCurrentGameView(Views.GAME2);
+				context.setCurrentGameView(Views.LEVEL2);
+				Defend.setLevel(2);
 			}
 		};
 		level2.addListener(bll2);
