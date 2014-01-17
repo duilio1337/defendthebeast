@@ -34,7 +34,7 @@ public abstract class Enemy extends GSprite {
 
 		
 		
-		Polygon p = new Polygon(DefendGameView.getWayPointsX(), DefendGameView.getWayPointsY(), DefendGameView.getWayPointsX().length);
+		Polygon p = new Polygon(getFirstAncestorOf(DefendGameView.class).getWayPointsX(), getFirstAncestorOf(DefendGameView.class).getWayPointsY(), getFirstAncestorOf(DefendGameView.class).getWayPointsX().length);
 		pc = new PolygonController(p);
 		pc.goToStart(this);
 		pc.setRotateToFollow(true);

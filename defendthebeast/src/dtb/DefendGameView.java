@@ -38,28 +38,28 @@ public class DefendGameView extends GContainer {
 	private Bank bank;
 	private static GMessage gm;
 	private String level;
-	private static int[] x;
-	private static int[] y;
-	private static int[][] waves;
+	private int[] x;
+	private int[] y;
+	private int[][] waves;
 
 	public DefendGameView(String level, int[] x, int[] y, int waves[][]) {
 		setSize(1280, 720);
 		this.level = level;
-		DefendGameView.x = x;
-		DefendGameView.y = y;
-		DefendGameView.waves = waves;
+		this.x = x;
+		this.y = y;
+		this.waves = waves;
 	}
 	
-	public static int[] getWayPointsX() {
-		return DefendGameView.x;
+	public int[] getWayPointsX() {
+		return x;
 	}
 	
-	public static int[] getWayPointsY() {
-		return DefendGameView.y;
+	public int[] getWayPointsY() {
+		return y;
 	}
 	
-	public static int[][] getWaves() {
-		return DefendGameView.waves;
+	public int[][] getWaves() {
+		return waves;
 	}
 
 	public void viewShown() {
@@ -142,7 +142,7 @@ public class DefendGameView extends GContainer {
 		this.pa.addAtCenter(rr);
 		rr.addController(mlc);
 
-		final Polygon path = new Polygon(DefendGameView.x, DefendGameView.y, DefendGameView.x.length);
+		final Polygon path = new Polygon(x, y, x.length);
 
 		final LocalClickListener lcl = new LocalClickListener() {
 

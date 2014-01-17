@@ -39,7 +39,7 @@ public class PlayArea extends GContainer {
 		
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
 		
-		this.waves = DefendGameView.getWaves();
+		this.waves = getFirstAncestorOf(DefendGameView.class).getWaves();
 		this.wave1 = waves[0];
 		this.wave2 = waves[1];
 		this.wave3 = waves[2];
