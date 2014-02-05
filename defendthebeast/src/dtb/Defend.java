@@ -11,8 +11,8 @@ import Levels.LevelTwo;
 
 public class Defend extends Game {
 
-	public LevelOne l1 = new LevelOne();
-	public LevelTwo l2 = new LevelTwo();
+	public DefendGameView l1 = new LevelOne();
+	public DefendGameView l2 = new LevelTwo();
 	
 	private static boolean paused = false;
 	private static int levelnum = 0;

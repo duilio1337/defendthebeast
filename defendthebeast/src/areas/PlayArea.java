@@ -22,16 +22,16 @@ public class PlayArea extends GContainer {
 	
 	TimerListener spawnTimer;
 	TimerListener waveTimer;
+	TimerListener preTimer;
 	
 	protected int nextWave;
-	private int waves[][];
-	private int wave1[];
-	private int wave2[];
-	private int wave3[];
-	private int wave4[];
-	private int wave5[];
+	private int[] wave1;
+	private int[] wave2;
+	private int[] wave3;
+	private int[] wave4;
+	private int[] wave5;
 	
-	public PlayArea(String level) {
+	public PlayArea(String level, int[][] waves) {
 		setSize(1280, 720);
 		setBackgroundColor(Color.PINK);
 		GSprite g = new GSprite(ImageCache.getImage(level));
@@ -39,15 +39,21 @@ public class PlayArea extends GContainer {
 		
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
 		
-		this.waves = getFirstAncestorOf(DefendGameView.class).getWaves();
 		this.wave1 = waves[0];
 		this.wave2 = waves[1];
 		this.wave3 = waves[2];
 		this.wave4 = waves[3];
 		this.wave5 = waves[4];
 		
-		startWave(wave1);
-		nextWave = 1;
+		preTimer = new TimerListener(120) {
+			@Override
+			public void invoke(GObject target, Context context) {
+				startWave(wave1);
+				nextWave = 1;
+				removeListener(preTimer);
+			}
+		};
+		addListener(preTimer);
 	}
 	
 	public void startWave(final int wave[]) {

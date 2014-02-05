@@ -42,8 +42,9 @@ public class DefendGameView extends GContainer {
 	private int[] y;
 	private int[][] waves;
 
-	public DefendGameView(String level, int[] x, int[] y, int waves[][]) {
+	public DefendGameView(String level, int[] x, int[] y, int[][] waves) {
 		setSize(1280, 720);
+		
 		this.level = level;
 		this.x = x;
 		this.y = y;
@@ -51,29 +52,25 @@ public class DefendGameView extends GContainer {
 	}
 	
 	public int[] getWayPointsX() {
-		return x;
+		return this.x;
 	}
 	
 	public int[] getWayPointsY() {
-		return y;
-	}
-	
-	public int[][] getWaves() {
-		return waves;
+		return this.y;
 	}
 
 	public void viewShown() {
 		if (!Defend.isPaused()) {
 			initDefendGameView();
 		} else {
-			Defend.setPaused(false);
+			Defend.setPaused(false); 
 		}
 	}
 
 	public void initDefendGameView() {
 		removeAllChildren();
 		
-		pa = new PlayArea(level);
+		pa = new PlayArea(level, waves);
 			
 		gm = new GMessage();
 		settingTurret = false;

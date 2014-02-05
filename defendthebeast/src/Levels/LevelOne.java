@@ -38,7 +38,7 @@ public class LevelOne extends DefendGameView {
 			573, 573, 576, 576, 575, 572, 594, 619, 644, 670, 695, 720, 745,
 			770, 795, 820, 845 };
 	
-	private static int[][] waves = {
+	private static int[][] waves = new int[][] {
 		{ 2, 1, 2, 1, 2 }, // wave1
 		{ 2, 2, 2, 2, 2 }, // wave2
 		{ 3, 3, 3, 3, 3 }, // wave3
