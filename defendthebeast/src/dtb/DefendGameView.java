@@ -70,7 +70,7 @@ public class DefendGameView extends GContainer {
 	public void initDefendGameView() {
 		removeAllChildren();
 		
-		pa = new PlayArea(level, waves);
+		pa = new PlayArea(level, waves, x, y);
 			
 		gm = new GMessage();
 		settingTurret = false;

@@ -2,7 +2,7 @@ package Levels;
 
 import dtb.DefendGameView;
 
-public class LevelTwo extends DefendGameView {
+public class Level2 extends DefendGameView {
 
 	private static int[] x = new int[] { 491, 496, 498, 494, 492, 492, 491,
 		488, 488, 488, 487, 484, 480, 480, 486, 486, 483, 483, 485, 485,
@@ -43,7 +43,7 @@ public class LevelTwo extends DefendGameView {
 		{ 5, 5, 5, 5, 5, 101 },// wave5
 };
 
-	public LevelTwo() {
+	public Level2() {
 		super("Levels/Level2.png", x, y, waves);
 
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2

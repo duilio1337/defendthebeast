@@ -16,7 +16,6 @@ import Enemies.Enemy2;
 import Enemies.Enemy3;
 import Enemies.Enemy4;
 import Enemies.Enemy5;
-import dtb.DefendGameView;
 
 public class PlayArea extends GContainer {
 	
@@ -30,8 +29,10 @@ public class PlayArea extends GContainer {
 	private int[] wave3;
 	private int[] wave4;
 	private int[] wave5;
+	private int[] x;
+	private int[] y;
 	
-	public PlayArea(String level, int[][] waves) {
+	public PlayArea(String level, int[][] waves, int[] x, int[] y) {
 		setSize(1280, 720);
 		setBackgroundColor(Color.PINK);
 		GSprite g = new GSprite(ImageCache.getImage(level));
@@ -44,6 +45,9 @@ public class PlayArea extends GContainer {
 		this.wave3 = waves[2];
 		this.wave4 = waves[3];
 		this.wave5 = waves[4];
+		
+		this.x = x;
+		this.y = y;
 		
 		preTimer = new TimerListener(120) {
 			@Override
@@ -120,25 +124,25 @@ public class PlayArea extends GContainer {
 		Enemy e = null;
 		switch(eN) {
 		case 1:
-			e = new Enemy1();
+			e = new Enemy1(x, y);
 			break;
 		case 2:
-			e = new Enemy2();
+			e = new Enemy2(x, y);
 			break;
 		case 3:
-			e = new Enemy3();
+			e = new Enemy3(x, y);
 			break;
 		case 4:
-			e = new Enemy4();
+			e = new Enemy4(x, y);
 			break;
 		case 5:
-			e = new Enemy5();
+			e = new Enemy5(x, y);
 			break;
 		case 101:
-			e = new Boss1();
+			e = new Boss1(x, y);
 			break;
 		case 102:
-			e = new Boss2();
+			e = new Boss2(x, y);
 			break;
 		}
 		add(e);

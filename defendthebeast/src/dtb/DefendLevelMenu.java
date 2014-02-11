@@ -60,6 +60,18 @@ public class DefendLevelMenu extends GContainer {
 			}
 		};
 		level2.addListener(bll2);
+		
+		GButton level3 = this.createButton(2, "Level 3");
+		level1.setLocation(-100, 100);
+		ButtonListener bll3 = new ButtonListener() {
+			@Override
+			public void mouseClicked(Context context) {
+				super.mouseClicked(context);
+				context.setCurrentGameView(Views.LEVEL3);
+				Defend.setLevel(3);
+			}
+		};
+		level3.addListener(bll3);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {

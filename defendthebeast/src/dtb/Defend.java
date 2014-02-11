@@ -6,13 +6,15 @@ import jgame.GRootContainer;
 import jgame.Game;
 import jgame.ImageCache;
 import jgame.SoundManager;
-import Levels.LevelOne;
-import Levels.LevelTwo;
+import Levels.Level1;
+import Levels.Level2;
+import Levels.Level3;
 
 public class Defend extends Game {
 
-	public DefendGameView l1 = new LevelOne();
-	public DefendGameView l2 = new LevelTwo();
+	public DefendGameView l1 = new Level1();
+	public DefendGameView l2 = new Level2();
+	public DefendGameView l3 = new Level3();
 	
 	private static boolean paused = false;
 	private static int levelnum = 0;
@@ -43,6 +45,7 @@ public class Defend extends Game {
 		root.addView(Views.MENU, dmv);
 		root.addView(Views.LEVEL1, l1);
 		root.addView(Views.LEVEL2, l2);
+		root.addView(Views.LEVEL3, l3);
 		root.addView(Views.GAME_OVER, gov);
 		root.addView(Views.INSTRUCTIONS, dig);
 		root.addView(Views.LEVELMENU, dlm);
@@ -53,7 +56,7 @@ public class Defend extends Game {
 
 	public enum Views {
 		// These are all of the views for this game
-		MENU, LEVEL1, LEVEL2, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE;
+		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE;
 	}
 
 	public static boolean isPaused() {
