@@ -11,6 +11,7 @@ import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
 import Mechanics.Bank;
 import Mechanics.HealthBar;
+import dtb.Defend;
 import dtb.Defend.Views;
 
 public abstract class Enemy extends GSprite {
