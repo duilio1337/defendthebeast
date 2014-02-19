@@ -42,11 +42,13 @@ public class Defend extends Game {
 		DefendInstView dig = new DefendInstView();
 		DefendPauseView dpv = new DefendPauseView();
 		DefendLevelMenu dlm = new DefendLevelMenu();
+		GameWinView gwv = new GameWinView();
 		root.addView(Views.MENU, dmv);
 		root.addView(Views.LEVEL1, l1);
 		root.addView(Views.LEVEL2, l2);
 		root.addView(Views.LEVEL3, l3);
 		root.addView(Views.GAME_OVER, gov);
+		root.addView(Views.WIN, gwv);
 		root.addView(Views.INSTRUCTIONS, dig);
 		root.addView(Views.LEVELMENU, dlm);
 		root.addView(Views.PAUSE, dpv);
@@ -56,7 +58,7 @@ public class Defend extends Game {
 
 	public enum Views {
 		// These are all of the views for this game
-		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE;
+		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE, WIN;
 	}
 
 	public static boolean isPaused() {
