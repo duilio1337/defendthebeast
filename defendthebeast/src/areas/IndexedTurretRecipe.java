@@ -14,7 +14,7 @@ public class IndexedTurretRecipe implements TurretRecipe {
 		super();
 		this.index = index;
 	}
-	
+
 	@Override
 	public Turret createTurret() {
 		switch (index) {

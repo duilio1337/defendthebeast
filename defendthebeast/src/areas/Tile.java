@@ -14,7 +14,7 @@ import dtb.DefendGameView;
 
 public class Tile extends GButton {
 	TurretRecipe tr;
-	
+
 	GSprite infocard1 = new GSprite(ImageCache.forClass(Defend.class).get("Other/info-card1.png"));
 	GSprite infocard2 = new GSprite(ImageCache.forClass(Defend.class).get("Other/info-card2.png"));
 	GSprite infocard3 = new GSprite(ImageCache.forClass(Defend.class).get("Other/info-card3.png"));
@@ -23,10 +23,10 @@ public class Tile extends GButton {
 
 	public Tile(TurretRecipe recipe, Image image, final int turNum) {
 		this.tr = recipe;
-		
+
 		setSize(66, 66);
-		
-		
+
+
 
 		GSprite sNone = ImageCache.getSprite("Tiles/menubarnew.png");
 		GSprite sHover = ImageCache.getSprite("Tiles/selectnew.png");
@@ -45,7 +45,7 @@ public class Tile extends GButton {
 
 			@Override
 			public void mouseClicked(Context context) {
-				
+
 				if(getFirstAncestorOf(DefendGameView.class).turretAfford(turNum)) {
 					Turret turret = tr.createTurret();
 					getFirstAncestorOf(DefendGameView.class).initializeTurret(turret);
@@ -55,7 +55,7 @@ public class Tile extends GButton {
 			}
 
 		});
-		
+
 		addListener(new ButtonListener() {
 			@Override
 			public void mouseOver(Context context) {
@@ -76,10 +76,10 @@ public class Tile extends GButton {
 					getFirstAncestorOf(DefendGameView.class).addAt(infocard5, getX()+30, 580);
 					break;
 				}
-				
+
 			}
 		});
-		
+
 		addListener(new ButtonListener() {
 			@Override
 			public void mouseOut(Context context) {

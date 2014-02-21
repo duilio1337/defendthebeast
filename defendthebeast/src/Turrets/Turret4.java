@@ -8,12 +8,13 @@ import dtb.Defend;
 public class Turret4 extends Turret{
 
 	private static int turretCost = 400;
-	
+
 	public Turret4() {
 		super(ImageCache.forClass(Defend.class).get("Wands/wand4turret.png"));
 		// TODO Auto-generated constructor stub
 	}
-	
+
+	@Override
 	public String getSound(){
 		String Snd;
 		double a = (Math.random()*3);
@@ -26,35 +27,42 @@ public class Turret4 extends Turret{
 		}
 		return Snd;
 	}
-	
+
+	@Override
 	public double getFireRange(){
 		return 500;
 	}
 
-    public int getFireDelay(){
-    	return 10;
-    }
-
-    public int getFireCoolDown(){
-    	return 10;
-    }
-    
-    public int getFireCost() {
+	@Override
+	public int getFireDelay(){
 		return 10;
 	}
 
-    public double getBulletSpeed(){
-    	return 10;
-    }
+	@Override
+	public int getFireCoolDown(){
+		return 10;
+	}
 
-    public Bullet createBullet(){
-    	return new Bullet4();
-    }
-    
-    public static int getCost() {
+	@Override
+	public int getFireCost() {
+		return 10;
+	}
+
+	@Override
+	public double getBulletSpeed(){
+		return 10;
+	}
+
+	@Override
+	public Bullet createBullet(){
+		return new Bullet4();
+	}
+
+	public static int getCost() {
 		return turretCost;
 	}
-    
+
+	@Override
 	public int getTurretCost() {
 		return turretCost;
 	}

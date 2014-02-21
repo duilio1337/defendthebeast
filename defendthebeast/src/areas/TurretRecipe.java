@@ -5,6 +5,6 @@ import Turrets.Turret;
 
 public interface TurretRecipe {
 
-        public Turret createTurret();
-        
+	public Turret createTurret();
+
 }

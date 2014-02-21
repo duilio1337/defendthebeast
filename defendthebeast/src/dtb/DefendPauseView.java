@@ -19,100 +19,101 @@ import jgame.listener.DelayListener;
 import dtb.Defend.Views;
 
 public class DefendPauseView extends GContainer {
-	
+
 	public DefendPauseView() {
 		setSize(1280, 720);
-        this.setBackgroundColor(Color.BLACK);
+		this.setBackgroundColor(Color.BLACK);
 	}
-	
+
+	@Override
 	public void viewShown() {
-		 initDefendMenuView();
-	 }
-	
+		initDefendMenuView();
+	}
+
 	public void initDefendMenuView() {
 		removeAllChildren();
-		
+
 		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
-        GButton mbResume = this.createButton(0, "Resume");
-        mbResume.setLocation(-100, 500);
-        GButton mbMainMenu = createButton(1, "Main Menu");
-        mbMainMenu.setLocation(-100, 600);
-        ButtonListener blPlay = new ButtonListener() {
-                // goto Source --> Override and Implement
-                @Override
-                public void mouseClicked(Context context) {
-                        super.mouseClicked(context);
-                        switch(Defend.isLevel()) {
-                        case 1:
-                        	context.setCurrentGameView(Views.LEVEL1);
-                        	break;
-                        case 2:
-                        	context.setCurrentGameView(Views.LEVEL2);
-                        	break;
-                        default:
-                        	System.err.println("ERROR: LEVEL '" + Defend.isLevel() +"' NOT DEFINED IN PAUSE MENU");
-                        	System.err.println("UPDATE YOUR CLASSES FOO!");
-                        }
-                        
-                }
-         };
-         
-        ButtonListener blInstructions = new ButtonListener() {
-       	  @Override
-       	  public void mouseClicked(Context context) {
-       		  super.mouseClicked(context);
-       		  Defend.setPaused(false);
-       		  context.setCurrentGameView(Views.MENU);
-       	  }
-        };
-        
-        mbResume.addListener(blPlay);
-        mbMainMenu.addListener(blInstructions);
-        
-        BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
-        GSprite dtbspr = new GSprite(dtb);
-        addAt(dtbspr, 1280/2, 80);
-	}
-	
-	private GButton createButton(final int buttonIndex, String buttonText) {
-        
-        MovementTween mt = new MovementTween(24, Interpolation.EASE, 800, 0);
-        MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
-        mt.chain(mtb);
-        final GButton btn = new GButton();
-        btn.addController(mt);
-        btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
-        btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
-        btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
-        btn.setSize(250, 55);
-        GMessage gm = new GMessage(buttonText);
-        
-        gm.setSize(btn.getWidth(), btn.getHeight());
-        gm.setAlignmentX(0.5);
-        gm.setAlignmentY(0.5);
-        gm.setFontSize(28);
-        gm.setColor(Color.WHITE);
-        btn.addAtCenter(gm);
-        
-        DelayListener dl = new DelayListener(buttonIndex * 10) {
-                
-                @Override
-                public void invoke(GObject target, Context context) {
-                        add(btn);
-                }
-        };
-        addListener(dl);
-        return btn;
-	}
-	
-	public static GSprite createButtonSprite(String fn) {
-        BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
-        GSprite gs = new GSprite(img);
+		GButton mbResume = this.createButton(0, "Resume");
+		mbResume.setLocation(-100, 500);
+		GButton mbMainMenu = createButton(1, "Main Menu");
+		mbMainMenu.setLocation(-100, 600);
+		ButtonListener blPlay = new ButtonListener() {
+			// goto Source --> Override and Implement
+			@Override
+			public void mouseClicked(Context context) {
+				super.mouseClicked(context);
+				switch(Defend.isLevel()) {
+				case 1:
+					context.setCurrentGameView(Views.LEVEL1);
+					break;
+				case 2:
+					context.setCurrentGameView(Views.LEVEL2);
+					break;
+				default:
+					System.err.println("ERROR: LEVEL '" + Defend.isLevel() +"' NOT DEFINED IN PAUSE MENU");
+					System.err.println("UPDATE YOUR CLASSES FOO!");
+				}
 
-        Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
-        gs.setNineSliceCenter(nineSliceCenter);
-        return gs;
+			}
+		};
+
+		ButtonListener blInstructions = new ButtonListener() {
+			@Override
+			public void mouseClicked(Context context) {
+				super.mouseClicked(context);
+				Defend.setPaused(false);
+				context.setCurrentGameView(Views.MENU);
+			}
+		};
+
+		mbResume.addListener(blPlay);
+		mbMainMenu.addListener(blInstructions);
+
+		BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
+		GSprite dtbspr = new GSprite(dtb);
+		addAt(dtbspr, 1280/2, 80);
+	}
+
+	private GButton createButton(final int buttonIndex, String buttonText) {
+
+		MovementTween mt = new MovementTween(24, Interpolation.EASE, 800, 0);
+		MovementTween mtb = new MovementTween(6, Interpolation.EASE, -40, 0);
+		mt.chain(mtb);
+		final GButton btn = new GButton();
+		btn.addController(mt);
+		btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
+		btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
+		btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
+		btn.setSize(250, 55);
+		GMessage gm = new GMessage(buttonText);
+
+		gm.setSize(btn.getWidth(), btn.getHeight());
+		gm.setAlignmentX(0.5);
+		gm.setAlignmentY(0.5);
+		gm.setFontSize(28);
+		gm.setColor(Color.WHITE);
+		btn.addAtCenter(gm);
+
+		DelayListener dl = new DelayListener(buttonIndex * 10) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				add(btn);
+			}
+		};
+		addListener(dl);
+		return btn;
+	}
+
+	public static GSprite createButtonSprite(String fn) {
+		BufferedImage img = ImageCache.forClass(Defend.class).get(fn);
+		GSprite gs = new GSprite(img);
+
+		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
+		gs.setNineSliceCenter(nineSliceCenter);
+		return gs;
 	}
 }

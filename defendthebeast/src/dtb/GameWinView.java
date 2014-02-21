@@ -1,7 +1,6 @@
 package dtb;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
@@ -20,27 +19,33 @@ import dtb.Defend.Views;
 public class GameWinView extends GContainer {
 	public GameWinView() {
 		setSize(1280, 720);
-		
+
 		final GSprite g = new GSprite(ImageCache.getImage("Other/win_background.png"));
 		g.setAnchorCenter();
 		addAtCenter(g);
-		
+
 		GSprite doge = new GSprite(ImageCache.getSequentialImages("Other/doge/doge", 0, 35, ".png"));
 		addAtCenter(doge);
-		
+
 		GMessage m = new GMessage("much winner");
 		m.setAnchorTopLeft();
 		m.setColor(new Color(1.0f, 1.0f, 1.0f, 0.5f));
 		m.setFontSize(100);
-		
-		GMessage m2 = new GMessage("so defend");
+
+		GMessage m2 = new GMessage("such defend");
 		m2.setAnchorCenter();
 		m2.setColor(new Color(1.0f, 1.0f, 1.0f, 0.5f));
 		m2.setFontSize(70);
 
+		GMessage m3 = new GMessage("wows");
+		m3.setAnchorCenter();
+		m3.setColor(new Color(1.0f, 1.0f, 1.0f, 0.5f));
+		m3.setFontSize(70);
+
 		GButton b = createButton(0, "Main Menu");
 		addAtCenter(b);
 		b.addListener(new ButtonListener() {
+			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
 				context.setCurrentGameView(Views.MENU);
@@ -49,7 +54,8 @@ public class GameWinView extends GContainer {
 
 		addAt(m, 1280/3.5, 600);
 		addAt(m2, 1280/2, 100);
-		
+		addAt(m3, 1280/0.5, 200);
+
 		FrameListener fl = new FrameListener() {
 			@Override
 			public void invoke(GObject target, Context context) {

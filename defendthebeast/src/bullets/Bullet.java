@@ -15,16 +15,16 @@ public class Bullet extends GSprite {
 
 	private double bd;
 	private Point initialPosition = new Point();
-	
+
 	public enum Behavior {
-        STANDARD, PIERCING;
-    }
-	
+		STANDARD, PIERCING;
+	}
+
 	public Bullet(Image image, double bulletDamage, Behavior target) {
 		super(image);
 		bd = bulletDamage;
 		addListener(new BoundaryRemovalListener());
-		
+
 		if(target == Behavior.STANDARD){
 			HitTestListener htl = new HitTestListener(Enemy.class) {
 
@@ -51,7 +51,7 @@ public class Bullet extends GSprite {
 			};
 			addListener(htl);
 		}
-	} 
+	}
 
 	public double getBd() {
 		return bd;

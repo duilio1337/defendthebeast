@@ -15,17 +15,10 @@ public class Defend extends Game {
 	public DefendGameView l1 = new Level1();
 	public DefendGameView l2 = new Level2();
 	public DefendGameView l3 = new Level3();
-	
+
 	private static boolean paused = false;
 	private static int levelnum = 0;
-
-	public static int isLevel() {
-		return levelnum;
-	}
-
-	public static void setLevel(int level) {
-		levelnum = level;
-	}
+	private static int levelunlocked = 1;
 
 	public static void main(String[] args) {
 		ImageCache.create(Defend.class, "/dtb/rsc/");
@@ -67,6 +60,22 @@ public class Defend extends Game {
 
 	public static void setPaused(boolean status) {
 		paused = status;
+	}
+
+	public static int isLevel() {
+		return levelnum;
+	}
+
+	public static void setLevel(int level) {
+		levelnum = level;
+	}
+
+	public static int isLevelUnlocked() {
+		return levelunlocked;
+	}
+
+	public static void setLevelUnlocked(int level) {
+		levelunlocked = level;
 	}
 
 }

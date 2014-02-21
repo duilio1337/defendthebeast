@@ -1,4 +1,4 @@
-package Turrets;
+package Mechanics;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -17,10 +17,10 @@ public class RangeRing extends GObject {
 		g.setColor(new Color(1.0f, 1.0f, 1.0f, 0.5f));
 		g.fillOval(0, 0, getIntWidth(), getIntHeight());
 	}
-		
+
 	@Override
-	 public void preparePaint(Graphics2D g) {
-		 super.preparePaint(g);
-         antialias(g);
-	 }
+	public void preparePaint(Graphics2D g) {
+		super.preparePaint(g);
+		antialias(g);
+	}
 }

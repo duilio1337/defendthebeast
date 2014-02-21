@@ -11,7 +11,6 @@ import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
 import Mechanics.Bank;
 import Mechanics.HealthBar;
-import dtb.Defend;
 import dtb.Defend.Views;
 
 public abstract class Enemy extends GSprite {
@@ -20,20 +19,20 @@ public abstract class Enemy extends GSprite {
 	private int killPoints;
 	private HealthBar hb = new HealthBar();
 	final PolygonController pc;
-	
+
 	public Enemy(Image image, double maxHealth, int killPoints, int[] x, int[] y) {
 		super(image);
 		this.maxHealth = maxHealth;
 		currentHealth = this.maxHealth;
 		this.killPoints = killPoints;
-		
+
 		hb.setWidth(getWidth());
 		addAtCenter(hb);
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
 		hb.setHealthPercentage(1);
 
-		
-		
+
+
 		Polygon p = new Polygon(x, y, x.length);
 		pc = new PolygonController(p);
 		pc.goToStart(this);
@@ -64,6 +63,7 @@ public abstract class Enemy extends GSprite {
 		}
 	}
 
+	@Override
 	public void preparePaint(Graphics2D g) {
 		super.preparePaint(g);
 		GObject.antialias(g);

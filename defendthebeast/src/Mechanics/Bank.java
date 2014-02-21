@@ -14,7 +14,7 @@ public class Bank {
 	public static void addMoney(int money) {
 		totalMoney += money;
 	}
-	
+
 	public static void takeMoney(int money) {
 		totalMoney -= money;
 	}
@@ -22,9 +22,10 @@ public class Bank {
 	public static void setMoney(int money) {
 		totalMoney = money;
 	}
-	
+
+	@Override
 	public String toString(){
 		return getMoney() + "";
-		
+
 	}
 }

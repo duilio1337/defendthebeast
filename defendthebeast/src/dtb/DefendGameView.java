@@ -21,7 +21,7 @@ import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import jgame.listener.LocalClickListener;
 import Mechanics.Bank;
-import Turrets.RangeRing;
+import Mechanics.RangeRing;
 import Turrets.Turret;
 import Turrets.Turret1;
 import Turrets.Turret2;
@@ -44,34 +44,35 @@ public class DefendGameView extends GContainer {
 
 	public DefendGameView(String level, int[] x, int[] y, int[][] waves) {
 		setSize(1280, 720);
-		
+
 		this.level = level;
 		this.x = x;
 		this.y = y;
 		this.waves = waves;
 	}
-	
+
 	public int[] getWayPointsX() {
 		return this.x;
 	}
-	
+
 	public int[] getWayPointsY() {
 		return this.y;
 	}
 
+	@Override
 	public void viewShown() {
 		if (!Defend.isPaused()) {
 			initDefendGameView();
 		} else {
-			Defend.setPaused(false); 
+			Defend.setPaused(false);
 		}
 	}
 
 	public void initDefendGameView() {
 		removeAllChildren();
-		
+
 		pa = new PlayArea(level, waves, x, y);
-			
+
 		gm = new GMessage();
 		settingTurret = false;
 

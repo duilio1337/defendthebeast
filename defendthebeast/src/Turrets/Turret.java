@@ -28,7 +28,7 @@ public abstract class Turret extends GSprite {
 
 	public Turret(Image image) {
 		super(image);
-		
+
 		this.maxDurablity = 10000;
 		currentDurablity = this.maxDurablity;
 		hb.setWidth(getWidth());
@@ -90,22 +90,22 @@ public abstract class Turret extends GSprite {
 	public abstract int getFireDelay();
 
 	public abstract int getFireCoolDown();
-	
+
 	public abstract int getFireCost();
 
 	public abstract double getBulletSpeed();
 
 	public abstract Bullet createBullet();
-	
+
 	public abstract int getTurretCost();
 
 	public abstract String getSound();
-	
-	
+
+
 	public double getCurrentHealth(){
 		return currentDurablity;
 	}
-	
+
 	public void fireBullet() {
 		fireBullet(0,0);
 	}
@@ -137,7 +137,7 @@ public abstract class Turret extends GSprite {
 	public void setPlaced(boolean placed) {
 		this.placed = placed;
 	}
-	
+
 	public void takeDurablity() {
 		this.currentDurablity -= getFireCost();
 		hb.setHealthPercentage(this.currentDurablity / maxDurablity);
@@ -146,5 +146,5 @@ public abstract class Turret extends GSprite {
 			Bank.addMoney(getTurretCost() / 2);
 		}
 	}
-	
+
 }

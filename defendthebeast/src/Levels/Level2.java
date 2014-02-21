@@ -34,20 +34,20 @@ public class Level2 extends DefendGameView {
 		396, 396, 396, 400, 426, 458, 484, 496, 507, 513, 518, 524, 529,
 		534, 541, 558, 571, 583, 591, 598, 608, 621, 636, 649, 668, 690,
 		707 };
-	
+
 	private static int[][] waves = {
 		{ 1, 1, 1, 1, 1 }, // wave1
 		{ 2, 2, 2, 2, 2 }, // wave2
 		{ 3, 3, 3, 3, 3 }, // wave3
 		{ 4, 4, 4, 4, 4 }, // wave4
 		{ 5, 5, 5, 5, 5, 101 },// wave5
-};
+	};
 
 	public Level2() {
 		super("Levels/Level2.png", x, y, waves);
 
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
-		
+
 
 	}
 }

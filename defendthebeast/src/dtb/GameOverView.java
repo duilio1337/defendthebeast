@@ -17,7 +17,7 @@ import dtb.Defend.Views;
 public class GameOverView extends GContainer {
 	public GameOverView() {
 		setSize(1280, 720);
-		
+
 		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
@@ -26,7 +26,7 @@ public class GameOverView extends GContainer {
 		m.setAnchorTopLeft();
 		m.setColor(new Color(1.0f, 1.0f, 1.0f, 0.5f));
 		m.setFontSize(100);
-		
+
 		GMessage m2 = new GMessage("Try Harder Next Time ._.");
 		m2.setAnchorTopLeft();
 		m2.setColor(Color.WHITE);
@@ -35,6 +35,7 @@ public class GameOverView extends GContainer {
 		GButton b = createButton(0, "Main Menu");
 		addAtCenter(b);
 		b.addListener(new ButtonListener() {
+			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
 				context.setCurrentGameView(Views.MENU);
