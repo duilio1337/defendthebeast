@@ -54,7 +54,7 @@ public class GameWinView extends GContainer {
 
 		addAt(m, 1280/3.5, 600);
 		addAt(m2, 1280/2, 100);
-		addAt(m3, 1280/0.5, 200);
+		addAt(m3, 1280/2, 200);
 
 		FrameListener fl = new FrameListener() {
 			@Override
