@@ -10,12 +10,13 @@ public class Bullet2 extends Bullet {
 	public Bullet2() {
 		super(randImg(), 25, Behavior.STANDARD);
 	}
-	private static Image randImg(){
+
+	private static Image randImg() {
 		String Img;
-		double a = (Math.random()*2);
-		if(a<1){
+		double a = (Math.random() * 2);
+		if (a < 1) {
 			Img = "Bullets/iceshard1.png";
-		}else{
+		} else {
 			Img = "Bullets/iceshard2.png";
 		}
 		return ImageCache.forClass(Defend.class).get(Img);

@@ -8,7 +8,7 @@ import jgame.GObject;
 public class RangeRing extends GObject {
 
 	public RangeRing(double radius) {
-		this.setSize(radius*2, radius*2);
+		this.setSize(radius * 2, radius * 2);
 	}
 
 	@Override

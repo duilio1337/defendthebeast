@@ -24,6 +24,7 @@ public class DefendInstView extends GContainer {
 		this.setBackgroundColor(Color.BLACK);
 
 	}
+
 	@Override
 	public void viewShown() {
 		initDefendInstView();
@@ -32,10 +33,10 @@ public class DefendInstView extends GContainer {
 	public void initDefendInstView() {
 		removeAllChildren();
 
-		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
+		BufferedImage bg = ImageCache.forClass(Defend.class).get(
+				"Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
-
 
 		GButton mbMM = this.createButton(0, "Main Menu");
 		mbMM.setLocation(-100, 100);
@@ -52,11 +53,11 @@ public class DefendInstView extends GContainer {
 		GSprite inst = instPnl();
 		add(inst);
 
-		BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
+		BufferedImage dtb = ImageCache.forClass(Defend.class).get(
+				"Other/dtb.png");
 		GSprite dtbspr = new GSprite(dtb);
-		addAt(dtbspr, 1280/2, 80);
+		addAt(dtbspr, 1280 / 2, 80);
 	}
-
 
 	private GButton createButton(final int buttonIndex, String buttonText) {
 
@@ -65,9 +66,12 @@ public class DefendInstView extends GContainer {
 		mt.chain(mtb);
 		final GButton btn = new GButton();
 		btn.addController(mt);
-		btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
-		btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
-		btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
+		btn.setStateSprite(ButtonState.NONE,
+				createButtonSprite("Tiles/menubarnew.png"));
+		btn.setStateSprite(ButtonState.HOVERED,
+				createButtonSprite("Tiles/selectnew.png"));
+		btn.setStateSprite(ButtonState.PRESSED,
+				createButtonSprite("Tiles/pressedbarnew.png"));
 		btn.setSize(250, 55);
 		GMessage gm = new GMessage(buttonText);
 
@@ -82,7 +86,7 @@ public class DefendInstView extends GContainer {
 
 			@Override
 			public void invoke(GObject target, Context context) {
-				addAt(btn, -100, buttonIndex * 100+200);
+				addAt(btn, -100, buttonIndex * 100 + 200);
 			}
 		};
 		addListener(dl);
@@ -99,7 +103,8 @@ public class DefendInstView extends GContainer {
 	}
 
 	private GSprite instPnl() {
-		BufferedImage img = ImageCache.forClass(Defend.class).get("Other/inst.png");
+		BufferedImage img = ImageCache.forClass(Defend.class).get(
+				"Other/inst.png");
 		GSprite gs = new GSprite(img);
 		gs.setLocation(2280, 400);
 

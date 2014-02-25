@@ -5,7 +5,7 @@ import bullets.Bullet;
 import bullets.Bullet4;
 import dtb.Defend;
 
-public class Turret4 extends Turret{
+public class Turret4 extends Turret {
 
 	private static int turretCost = 400;
 
@@ -15,31 +15,31 @@ public class Turret4 extends Turret{
 	}
 
 	@Override
-	public String getSound(){
+	public String getSound() {
 		String Snd;
-		double a = (Math.random()*3);
-		if(a<1){
+		double a = (Math.random() * 3);
+		if (a < 1) {
 			Snd = "light1.wav";
-		}else if(a<2){
+		} else if (a < 2) {
 			Snd = "light1.wav";
-		}else{
+		} else {
 			Snd = "light1.wav";
 		}
 		return Snd;
 	}
 
 	@Override
-	public double getFireRange(){
+	public double getFireRange() {
 		return 500;
 	}
 
 	@Override
-	public int getFireDelay(){
+	public int getFireDelay() {
 		return 10;
 	}
 
 	@Override
-	public int getFireCoolDown(){
+	public int getFireCoolDown() {
 		return 10;
 	}
 
@@ -49,12 +49,12 @@ public class Turret4 extends Turret{
 	}
 
 	@Override
-	public double getBulletSpeed(){
+	public double getBulletSpeed() {
 		return 10;
 	}
 
 	@Override
-	public Bullet createBullet(){
+	public Bullet createBullet() {
 		return new Bullet4();
 	}
 

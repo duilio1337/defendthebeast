@@ -5,7 +5,7 @@ import bullets.Bullet;
 import bullets.Bullet3;
 import dtb.Defend;
 
-public class Turret3 extends Turret{
+public class Turret3 extends Turret {
 
 	private static int turretCost = 300;
 
@@ -13,33 +13,32 @@ public class Turret3 extends Turret{
 		super(ImageCache.forClass(Defend.class).get("Wands/wand3turret.png"));
 		// TODO Auto-generated constructor stub
 
-
 	}
 
 	@Override
-	public String getSound(){
+	public String getSound() {
 		String Snd;
-		double a = (Math.random()*2);
-		if(a<1){
+		double a = (Math.random() * 2);
+		if (a < 1) {
 			Snd = "shock1.wav";
-		}else{
+		} else {
 			Snd = "shock2.wav";
 		}
 		return Snd;
 	}
 
 	@Override
-	public double getFireRange(){
+	public double getFireRange() {
 		return 350;
 	}
 
 	@Override
-	public int getFireDelay(){
+	public int getFireDelay() {
 		return 10;
 	}
 
 	@Override
-	public int getFireCoolDown(){
+	public int getFireCoolDown() {
 		return 100;
 	}
 
@@ -49,12 +48,12 @@ public class Turret3 extends Turret{
 	}
 
 	@Override
-	public double getBulletSpeed(){
+	public double getBulletSpeed() {
 		return Integer.MAX_VALUE;
 	}
 
 	@Override
-	public Bullet createBullet(){
+	public Bullet createBullet() {
 		return new Bullet3();
 	}
 

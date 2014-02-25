@@ -31,8 +31,6 @@ public abstract class Enemy extends GSprite {
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
 		hb.setHealthPercentage(1);
 
-
-
 		Polygon p = new Polygon(x, y, x.length);
 		pc = new PolygonController(p);
 		pc.goToStart(this);

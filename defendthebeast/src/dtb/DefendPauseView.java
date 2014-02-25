@@ -33,7 +33,8 @@ public class DefendPauseView extends GContainer {
 	public void initDefendMenuView() {
 		removeAllChildren();
 
-		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
+		BufferedImage bg = ImageCache.forClass(Defend.class).get(
+				"Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
 		GButton mbResume = this.createButton(0, "Resume");
@@ -45,7 +46,7 @@ public class DefendPauseView extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				switch(Defend.isLevel()) {
+				switch (Defend.isLevel()) {
 				case 1:
 					context.setCurrentGameView(Views.LEVEL1);
 					break;
@@ -53,7 +54,8 @@ public class DefendPauseView extends GContainer {
 					context.setCurrentGameView(Views.LEVEL2);
 					break;
 				default:
-					System.err.println("ERROR: LEVEL '" + Defend.isLevel() +"' NOT DEFINED IN PAUSE MENU");
+					System.err.println("ERROR: LEVEL '" + Defend.isLevel()
+							+ "' NOT DEFINED IN PAUSE MENU");
 					System.err.println("UPDATE YOUR CLASSES FOO!");
 				}
 
@@ -72,9 +74,10 @@ public class DefendPauseView extends GContainer {
 		mbResume.addListener(blPlay);
 		mbMainMenu.addListener(blInstructions);
 
-		BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
+		BufferedImage dtb = ImageCache.forClass(Defend.class).get(
+				"Other/dtb.png");
 		GSprite dtbspr = new GSprite(dtb);
-		addAt(dtbspr, 1280/2, 80);
+		addAt(dtbspr, 1280 / 2, 80);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {
@@ -84,9 +87,12 @@ public class DefendPauseView extends GContainer {
 		mt.chain(mtb);
 		final GButton btn = new GButton();
 		btn.addController(mt);
-		btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
-		btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
-		btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
+		btn.setStateSprite(ButtonState.NONE,
+				createButtonSprite("Tiles/menubarnew.png"));
+		btn.setStateSprite(ButtonState.HOVERED,
+				createButtonSprite("Tiles/selectnew.png"));
+		btn.setStateSprite(ButtonState.PRESSED,
+				createButtonSprite("Tiles/pressedbarnew.png"));
 		btn.setSize(250, 55);
 		GMessage gm = new GMessage(buttonText);
 
