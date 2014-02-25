@@ -25,7 +25,7 @@ public class Bullet extends GSprite {
 		bd = bulletDamage;
 		addListener(new BoundaryRemovalListener());
 
-		if(target == Behavior.STANDARD){
+		if (target == Behavior.STANDARD) {
 			HitTestListener htl = new HitTestListener(Enemy.class) {
 
 				@Override
@@ -38,7 +38,7 @@ public class Bullet extends GSprite {
 				}
 			};
 			addListener(htl);
-		}else if(target == Behavior.PIERCING){
+		} else if (target == Behavior.PIERCING) {
 			HitTestListener htl = new HitTestListener(Enemy.class) {
 
 				@Override

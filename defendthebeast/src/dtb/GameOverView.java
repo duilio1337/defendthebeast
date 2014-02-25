@@ -18,7 +18,8 @@ public class GameOverView extends GContainer {
 	public GameOverView() {
 		setSize(1280, 720);
 
-		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
+		BufferedImage bg = ImageCache.forClass(Defend.class).get(
+				"Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
 
@@ -42,8 +43,8 @@ public class GameOverView extends GContainer {
 			}
 		});
 
-		addAt(m, 1280/3.5, 200);
-		addAt(m2, 1280/4.75, 600);
+		addAt(m, 1280 / 3.5, 200);
+		addAt(m2, 1280 / 4.75, 600);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {

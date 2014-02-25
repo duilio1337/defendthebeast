@@ -20,11 +20,13 @@ public class GameWinView extends GContainer {
 	public GameWinView() {
 		setSize(1280, 720);
 
-		final GSprite g = new GSprite(ImageCache.getImage("Other/win_background.png"));
+		final GSprite g = new GSprite(
+				ImageCache.getImage("Other/win_background.png"));
 		g.setAnchorCenter();
 		addAtCenter(g);
 
-		GSprite doge = new GSprite(ImageCache.getSequentialImages("Other/doge/doge", 0, 35, ".png"));
+		GSprite doge = new GSprite(ImageCache.getSequentialImages(
+				"Other/doge/doge", 0, 42, ".png"));
 		addAtCenter(doge);
 
 		GMessage m = new GMessage("much winner");
@@ -52,14 +54,14 @@ public class GameWinView extends GContainer {
 			}
 		});
 
-		addAt(m, 1280/3.5, 600);
-		addAt(m2, 1280/2, 100);
-		addAt(m3, 1280/2, 200);
+		addAt(m, 1280 / 3.5, 600);
+		addAt(m2, 1280 / 2, 100);
+		addAt(m3, 250, 200);
 
 		FrameListener fl = new FrameListener() {
 			@Override
 			public void invoke(GObject target, Context context) {
-				g.setRotation(g.getRotation()+0.2);
+				g.setRotation(g.getRotation() + 0.2);
 			}
 		};
 		addListener(fl);

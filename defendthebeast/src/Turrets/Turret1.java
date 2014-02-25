@@ -16,23 +16,22 @@ public class Turret1 extends Turret {
 
 	@Override
 	public void fireBullet() {
-		for(int a=1; a<=15; a++){
-			double rand1=(Math.random()*40)-20;
-			double rand2=(Math.random()*20);
-			fireBullet(rand1,Math.abs(rand2));
+		for (int a = 1; a <= 15; a++) {
+			double rand1 = (Math.random() * 40) - 20;
+			double rand2 = (Math.random() * 20);
+			fireBullet(rand1, Math.abs(rand2));
 		}
 	}
 
-
 	@Override
-	public String getSound(){
+	public String getSound() {
 		String Snd;
-		double a = (Math.random()*3);
-		if(a<1){
+		double a = (Math.random() * 3);
+		if (a < 1) {
 			Snd = "flame1.wav";
-		}else if(a<2){
+		} else if (a < 2) {
 			Snd = "flame2.wav";
-		}else{
+		} else {
 			Snd = "flame3.wav";
 		}
 		return Snd;

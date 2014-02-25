@@ -1,4 +1,5 @@
 package dtb;
+
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -31,16 +32,17 @@ public class DefendMenuView extends GContainer {
 	public void initDefendMenuView() {
 		removeAllChildren();
 
-		BufferedImage bg = ImageCache.forClass(Defend.class).get("Other/MenuScreen.png");
+		BufferedImage bg = ImageCache.forClass(Defend.class).get(
+				"Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
-		//Instead of new GButton();
+		// Instead of new GButton();
 		GButton mbPlay = this.createButton(0, "Play");
 		mbPlay.setLocation(-100, 200);
-		//         add(mbPlay);
+		// add(mbPlay);
 		GButton mbInstructions = createButton(1, "Instructions");
 		mbInstructions.setLocation(-100, 300);
-		//         add(mbInstructions);
+		// add(mbInstructions);
 		GButton mbQuit = this.createButton(2, "Quit");
 		mbQuit.setLocation(-100, 400);
 
@@ -70,9 +72,10 @@ public class DefendMenuView extends GContainer {
 		mbInstructions.addListener(blInstructions);
 		mbQuit.addListener(blQuit);
 
-		BufferedImage dtb = ImageCache.forClass(Defend.class).get("Other/dtb.png");
+		BufferedImage dtb = ImageCache.forClass(Defend.class).get(
+				"Other/dtb.png");
 		GSprite dtbspr = new GSprite(dtb);
-		addAt(dtbspr, 1280/2, 80);
+		addAt(dtbspr, 1280 / 2, 80);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {
@@ -82,9 +85,12 @@ public class DefendMenuView extends GContainer {
 		mt.chain(mtb);
 		final GButton btn = new GButton();
 		btn.addController(mt);
-		btn.setStateSprite(ButtonState.NONE, createButtonSprite("Tiles/menubarnew.png"));
-		btn.setStateSprite(ButtonState.HOVERED, createButtonSprite("Tiles/selectnew.png"));
-		btn.setStateSprite(ButtonState.PRESSED, createButtonSprite("Tiles/pressedbarnew.png"));
+		btn.setStateSprite(ButtonState.NONE,
+				createButtonSprite("Tiles/menubarnew.png"));
+		btn.setStateSprite(ButtonState.HOVERED,
+				createButtonSprite("Tiles/selectnew.png"));
+		btn.setStateSprite(ButtonState.PRESSED,
+				createButtonSprite("Tiles/pressedbarnew.png"));
 		btn.setSize(250, 55);
 		GMessage gm = new GMessage(buttonText);
 
@@ -99,7 +105,7 @@ public class DefendMenuView extends GContainer {
 
 			@Override
 			public void invoke(GObject target, Context context) {
-				addAt(btn, -100, buttonIndex * 100+200);
+				addAt(btn, -100, buttonIndex * 100 + 200);
 			}
 		};
 		addListener(dl);
