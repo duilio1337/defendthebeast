@@ -20,14 +20,16 @@ import Enemies.Enemy4;
 import Enemies.Enemy5;
 import dtb.Defend;
 import dtb.Defend.Views;
+import dtb.DefendGameView;
 
 public class PlayArea extends GContainer {
 
 	TimerListener spawnTimer;
 	TimerListener waveTimer;
 	TimerListener preTimer;
+	FrameListener allKilled;
 
-	protected int nextWave;
+	private int nextWave;
 	private int[] wave1;
 	private int[] wave2;
 	private int[] wave3;
@@ -74,7 +76,18 @@ public class PlayArea extends GContainer {
 					addEnemy(wave[i]);
 					i++;
 				} else {
-					endWave();
+					allKilled = new FrameListener() {
+						@Override
+						public void invoke(GObject target, Context context) {
+							List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
+							if(enemies.size() == 0){
+								getFirstAncestorOf(DefendGameView.class).newHUDMessage("Next wave in five seconds", 180, 2);
+								endWave();
+								removeListener(allKilled);
+							}
+						}
+					};
+					addListener(allKilled);
 					removeListener(spawnTimer);
 				}
 			}
@@ -84,57 +97,55 @@ public class PlayArea extends GContainer {
 
 	public void endWave() {
 		waveTimer = new TimerListener(300) {
-			int i = 0;
 
 			@Override
 			public void invoke(GObject target, Context context) {
-				if (i > 0) {
-					nextWave++;
-					switch (nextWave) {
-					case 1:
-						startWave(wave1);
-						removeListener(waveTimer);
-						break;
-					case 2:
-						startWave(wave2);
-						removeListener(waveTimer);
-						break;
-					case 3:
-						startWave(wave3);
-						removeListener(waveTimer);
-						break;
-					case 4:
-						startWave(wave4);
-						removeListener(waveTimer);
-						break;
-					case 5:
-						startWave(wave5);
-						removeListener(waveTimer);
-						break;
-					case 6:
-						removeListener(waveTimer);
-						addListener(new FrameListener() {
-							@Override
-							public void invoke(GObject target, Context context) {
-								List<Enemy> enemies = context
-										.getInstancesOfClass(Enemy.class);
-								if (enemies.size() == 0) {
+				nextWave++;
+				switch (nextWave) {
+				case 1:
+					startWave(wave1);
+					removeListener(waveTimer);
+					break;
+				case 2:
+					startWave(wave2);
+					removeListener(waveTimer);
+					break;
+				case 3:
+					startWave(wave3);
+					removeListener(waveTimer);
+					break;
+				case 4:
+					startWave(wave4);
+					removeListener(waveTimer);
+					break;
+				case 5:
+					startWave(wave5);
+					removeListener(waveTimer);
+					break;
+				case 6:
+					removeListener(waveTimer);
+					addListener(new FrameListener() {
+						@Override
+						public void invoke(GObject target, Context context) {
+							List<Enemy> enemies = context
+									.getInstancesOfClass(Enemy.class);
+							if (enemies.size() == 0) {
+								if (Defend.isLevelUnlocked() <= Defend
+										.isLevel()) {
 									Defend.setLevelUnlocked(Defend.isLevel() + 1);
-									context.setCurrentGameView(Views.WIN);
 								}
+								context.setCurrentGameView(Views.WIN);
 							}
-						});
-						break;
-					default:
-						System.err.println("ERROR: INVALID WAVE NUMBER");
-						System.err.println("Wave Number '" + nextWave
-								+ "' is invalid.");
-						removeListener(waveTimer);
-					}
-
-				} else {
-					i++;
+						}
+					});
+					break;
+				default:
+					System.err.println("ERROR: INVALID WAVE NUMBER");
+					System.err.println("Wave Number '" + nextWave
+							+ "' is invalid.");
+					removeListener(waveTimer);
 				}
+
 			}
 		};
 		addListener(waveTimer);

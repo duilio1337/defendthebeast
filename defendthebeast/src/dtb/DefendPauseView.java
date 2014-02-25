@@ -56,7 +56,7 @@ public class DefendPauseView extends GContainer {
 				default:
 					System.err.println("ERROR: LEVEL '" + Defend.isLevel()
 							+ "' NOT DEFINED IN PAUSE MENU");
-					System.err.println("UPDATE YOUR CLASSES FOO!");
+					System.err.println("UPDATE YOUR CLASS PAUSE FOO!");
 				}
 
 			}

@@ -43,8 +43,8 @@ public class DefendLevelMenu extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				context.setCurrentGameView(Views.LEVEL1);
 				Defend.setLevel(1);
+				context.setCurrentGameView(Views.LEVEL1);
 			}
 		};
 		level1.addListener(bll1);
@@ -56,8 +56,8 @@ public class DefendLevelMenu extends GContainer {
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
 				if (Defend.isLevelUnlocked() > 1) {
-					context.setCurrentGameView(Views.LEVEL2);
 					Defend.setLevel(2);
+					context.setCurrentGameView(Views.LEVEL2);
 				}
 			}
 		};
@@ -73,8 +73,8 @@ public class DefendLevelMenu extends GContainer {
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
 				if (Defend.isLevelUnlocked() > 2) {
-					context.setCurrentGameView(Views.LEVEL3);
 					Defend.setLevel(3);
+					context.setCurrentGameView(Views.LEVEL3);
 				}
 			}
 		};

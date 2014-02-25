@@ -15,6 +15,7 @@ import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 import jgame.listener.FrameListener;
 import dtb.Defend.Views;
+import dtb.Defend;
 
 public class GameWinView extends GContainer {
 	public GameWinView() {
@@ -51,6 +52,30 @@ public class GameWinView extends GContainer {
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
 				context.setCurrentGameView(Views.MENU);
+			}
+		});
+		
+		GButton b2 = createButton(2, "Next Level");
+		addAt(b2, 1280/2, 720/2 + 100);
+		b2.addListener(new ButtonListener() {
+			@Override
+			public void mouseClicked(Context context) {
+				super.mouseClicked(context);
+				switch(Defend.isLevelUnlocked()) {
+					case 1:
+						context.setCurrentGameView(Views.LEVEL1);
+						break;
+					case 2:
+						context.setCurrentGameView(Views.LEVEL2);
+						break;
+					case 3:
+						context.setCurrentGameView(Views.LEVEL3);
+						break;
+					default :
+						System.err.println("ERROR: LEVEL '" + Defend.isLevelUnlocked()
+								+ "' NOT DEFINED IN WIN MENU");
+						System.err.println("UPDATE YOUR CLASS WIN FOO!");
+				}
 			}
 		});
 
