@@ -26,7 +26,7 @@ public class GameWinView extends GContainer {
 		addAtCenter(g);
 
 		GSprite doge = new GSprite(ImageCache.getSequentialImages(
-				"Other/doge/doge", 0, 35, ".png"));
+				"Other/doge/doge", 0, 42, ".png"));
 		addAtCenter(doge);
 
 		GMessage m = new GMessage("much winner");
