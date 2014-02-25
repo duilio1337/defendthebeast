@@ -50,7 +50,7 @@ public class DefendLevelMenu extends GContainer {
 		level1.addListener(bll1);
 
 		GButton level2 = this.createButton(1, "Level 2");
-		level1.setLocation(-100, 100);
+		level2.setLocation(-100, 100);
 		ButtonListener bll2 = new ButtonListener() {
 			@Override
 			public void mouseClicked(Context context) {
@@ -61,10 +61,13 @@ public class DefendLevelMenu extends GContainer {
 				}
 			}
 		};
+		if(Defend.isLevelUnlocked() < 2)
+			level2.setAlpha(0.5);
+		
 		level2.addListener(bll2);
 
 		GButton level3 = this.createButton(2, "Level 3");
-		level1.setLocation(-100, 100);
+		level3.setLocation(-100, 100);
 		ButtonListener bll3 = new ButtonListener() {
 			@Override
 			public void mouseClicked(Context context) {
@@ -75,6 +78,9 @@ public class DefendLevelMenu extends GContainer {
 				}
 			}
 		};
+		if(Defend.isLevelUnlocked() < 3)
+			level3.setAlpha(0.5);
+		
 		level3.addListener(bll3);
 	}
 
