@@ -53,6 +53,9 @@ public class DefendPauseView extends GContainer {
 				case 2:
 					context.setCurrentGameView(Views.LEVEL2);
 					break;
+				case 3:
+					context.setCurrentGameView(Views.LEVEL3);
+					break;
 				default:
 					System.err.println("ERROR: LEVEL '" + Defend.isLevel()
 							+ "' NOT DEFINED IN PAUSE MENU");

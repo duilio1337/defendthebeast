@@ -8,6 +8,7 @@ import jgame.GContainer;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
+import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 import jgame.listener.TimerListener;
 import Enemies.Boss1;
@@ -25,7 +26,7 @@ import dtb.DefendGameView;
 public class PlayArea extends GContainer {
 
 	TimerListener spawnTimer;
-	TimerListener waveTimer;
+	DelayListener waveTimer;
 	TimerListener preTimer;
 	FrameListener allKilled;
 
@@ -96,7 +97,7 @@ public class PlayArea extends GContainer {
 	}
 
 	public void endWave() {
-		waveTimer = new TimerListener(300) {
+		waveTimer = new DelayListener(300) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
