@@ -44,7 +44,7 @@ public class Turret2 extends Turret {
 
 	@Override
 	public int getFireCost() {
-		return 10;
+		return 20;
 	}
 
 	@Override

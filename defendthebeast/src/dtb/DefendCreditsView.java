@@ -18,70 +18,40 @@ import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
 import dtb.Defend.Views;
 
-public class DefendMenuView extends GContainer {
-	public DefendMenuView() {
+public class DefendCreditsView extends GContainer {
+	public DefendCreditsView() {
 		setSize(1280, 720);
 		this.setBackgroundColor(Color.BLACK);
+
 	}
 
 	@Override
 	public void viewShown() {
-		initDefendMenuView();
+		initDefendCreditsView();
 	}
 
-	public void initDefendMenuView() {
+	public void initDefendCreditsView() {
 		removeAllChildren();
 
 		BufferedImage bg = ImageCache.forClass(Defend.class).get(
 				"Other/MenuScreen.png");
 		GSprite g = new GSprite(bg);
 		setBackgroundSprite(g);
-		// Instead of new GButton();
-		GButton mbPlay = this.createButton(0, "Play");
-		mbPlay.setLocation(-100, 200);
-		// add(mbPlay);
-		GButton mbInstructions = createButton(1, "Instructions");
-		mbInstructions.setLocation(-100, 300);
-		// add(mbInstructions);
-		GButton mbCredits = createButton(2, "Credits");
-		mbCredits.setLocation(-100, 300);
-		
-		GButton mbQuit = this.createButton(3, "Quit");
-		mbQuit.setLocation(-100, 400);
 
-		ButtonListener blPlay = new ButtonListener() {
-			// goto Source --> Override and Implement
+		GButton mbMM = this.createButton(0, "Main Menu");
+		mbMM.setLocation(-100, 100);
+
+		ButtonListener blMM = new ButtonListener() {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				context.setCurrentGameView(Views.LEVELMENU);
+				context.setCurrentGameView(Views.MENU);
 			}
 		};
-		ButtonListener blInstructions = new ButtonListener() {
-			@Override
-			public void mouseClicked(Context context) {
-				super.mouseClicked(context);
-				context.setCurrentGameView(Views.INSTRUCTIONS);
-			}
-		};
-		ButtonListener blCredits = new ButtonListener() {
-			@Override
-			public void mouseClicked(Context context) {
-				super.mouseClicked(context);
-				context.setCurrentGameView(Views.CREDITS);
-			}
-		};
-		ButtonListener blQuit = new ButtonListener() {
-			@Override
-			public void mouseClicked(Context context) {
-				super.mouseClicked(context);
-				System.exit(0);
-			}
-		};
-		mbPlay.addListener(blPlay);
-		mbInstructions.addListener(blInstructions);
-		mbQuit.addListener(blQuit);
-		mbCredits.addListener(blCredits);
+		mbMM.addListener(blMM);
+
+		GSprite inst = instPnl();
+		add(inst);
 
 		BufferedImage dtb = ImageCache.forClass(Defend.class).get(
 				"Other/dtb.png");
@@ -129,6 +99,20 @@ public class DefendMenuView extends GContainer {
 
 		Rectangle nineSliceCenter = new Rectangle(15, 15, 6, 6);
 		gs.setNineSliceCenter(nineSliceCenter);
+		return gs;
+	}
+
+	private GSprite instPnl() {
+		BufferedImage img = ImageCache.forClass(Defend.class).get(
+				"Other/credits.png");
+		GSprite gs = new GSprite(img);
+		gs.setLocation(2280, 400);
+
+		MovementTween mt = new MovementTween(24, Interpolation.EASE, -1400, 0);
+		MovementTween mtb = new MovementTween(6, Interpolation.EASE, 40, 0);
+		mt.chain(mtb);
+		gs.addController(mt);
+
 		return gs;
 	}
 }

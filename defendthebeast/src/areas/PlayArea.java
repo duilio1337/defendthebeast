@@ -19,6 +19,7 @@ import Enemies.Enemy2;
 import Enemies.Enemy3;
 import Enemies.Enemy4;
 import Enemies.Enemy5;
+import Mechanics.Bank;
 import dtb.Defend;
 import dtb.Defend.Views;
 import dtb.DefendGameView;
@@ -135,6 +136,7 @@ public class PlayArea extends GContainer {
 										.isLevel()) {
 									Defend.setLevelUnlocked(Defend.isLevel() + 1);
 								}
+								Defend.setCarriedMoney(Bank.getMoney());
 								context.setCurrentGameView(Views.WIN);
 							}
 						}

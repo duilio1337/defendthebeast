@@ -1,5 +1,6 @@
 package Levels;
 
+import dtb.Defend;
 import dtb.DefendGameView;
 
 public class Level1 extends DefendGameView {
@@ -38,15 +39,18 @@ public class Level1 extends DefendGameView {
 			573, 573, 576, 576, 575, 572, 594, 619, 644, 670, 695, 720, 745,
 			770, 795, 820, 845 };
 
-	private static int[][] waves = new int[][] { { 2, 1, 2, 1, 2 }, // wave1
-			{ 2, 2, 2, 2, 2 }, // wave2
-			{ 3, 3, 3, 3, 3 }, // wave3
-			{ 4, 4, 4, 4, 4 }, // wave4
-			{ 5, 5, 5, 5, 5, 101 },// wave5
+	private static int[][] waves = new int[][] { 
+			{ 1, 1 }, // wave1
+			{ 1, 1 ,1 }, // wave2
+			{ 1, 1, 1, 1, 1 }, // wave3
+			{ 1, 1, 1, 1, 1, 1, 1, 1 }, // wave4
+			{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },// wave5
 	};
+	
+	private static int money = 100 + Defend.getCarriedMoney();
 
 	public Level1() {
-		super("Levels/Level1.png", x, y, waves);
+		super("Levels/Level1.png", x, y, waves, money);
 
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
 

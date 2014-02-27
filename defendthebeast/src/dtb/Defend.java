@@ -19,6 +19,7 @@ public class Defend extends Game {
 	private static boolean paused = false;
 	private static int levelnum = 0;
 	private static int levelunlocked = 1;
+	private static int carryovermoney = 0;
 
 	public static void main(String[] args) {
 		ImageCache.create(Defend.class, "/dtb/rsc/");
@@ -36,6 +37,7 @@ public class Defend extends Game {
 		DefendPauseView dpv = new DefendPauseView();
 		DefendLevelMenu dlm = new DefendLevelMenu();
 		GameWinView gwv = new GameWinView();
+		DefendCreditsView dcv = new DefendCreditsView();
 		root.addView(Views.MENU, dmv);
 		root.addView(Views.LEVEL1, l1);
 		root.addView(Views.LEVEL2, l2);
@@ -45,13 +47,14 @@ public class Defend extends Game {
 		root.addView(Views.INSTRUCTIONS, dig);
 		root.addView(Views.LEVELMENU, dlm);
 		root.addView(Views.PAUSE, dpv);
+		root.addView(Views.CREDITS, dcv);
 
 		setTargetFPS(30);
 	}
 
 	public enum Views {
 		// These are all of the views for this game
-		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE, WIN;
+		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE, WIN, CREDITS;
 	}
 
 	public static boolean isPaused() {
@@ -77,5 +80,12 @@ public class Defend extends Game {
 	public static void setLevelUnlocked(int level) {
 		levelunlocked = level;
 	}
-
+	
+	public static int getCarriedMoney() {
+		return carryovermoney;
+	}
+	
+	public static void setCarriedMoney(int money) {
+		carryovermoney = money;
+	}
 }
