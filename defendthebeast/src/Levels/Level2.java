@@ -44,10 +44,8 @@ public class Level2 extends DefendGameView {
 			{ 2, 2, 2, 3, 2, 2, 3, 2 },// wave5
 	};
 	
-	private static int money = 100 + Defend.getCarriedMoney();
-
 	public Level2() {
-		super("Levels/Level2.png", x, y, waves, money);
+		super("Levels/Level2.png", x, y, waves);
 
 		// 1=Enemy1 2=Enemy2.... 101=Boss1 102=Boss2
 

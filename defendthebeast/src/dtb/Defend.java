@@ -19,7 +19,7 @@ public class Defend extends Game {
 	private static boolean paused = false;
 	private static int levelnum = 0;
 	private static int levelunlocked = 1;
-	private static int carryovermoney = 0;
+	private static int carryovermoney = 100;
 
 	public static void main(String[] args) {
 		ImageCache.create(Defend.class, "/dtb/rsc/");

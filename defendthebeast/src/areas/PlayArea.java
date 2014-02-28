@@ -123,9 +123,7 @@ public class PlayArea extends GContainer {
 				case 5:
 					startWave(wave5);
 					removeListener(waveTimer);
-					break;
-				case 6:
-					removeListener(waveTimer);
+					
 					addListener(new FrameListener() {
 						@Override
 						public void invoke(GObject target, Context context) {
@@ -141,6 +139,7 @@ public class PlayArea extends GContainer {
 							}
 						}
 					});
+					
 					break;
 				default:
 					System.err.println("ERROR: INVALID WAVE NUMBER");

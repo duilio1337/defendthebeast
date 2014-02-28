@@ -82,6 +82,9 @@ public class DefendLevelMenu extends GContainer {
 			level3.setAlpha(0.5);
 		
 		level3.addListener(bll3);
+		
+		GSprite dtbspr = new GSprite(ImageCache.getImage("Other/dtb.png"));
+		addAt(dtbspr, 1280 / 2, 80);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {

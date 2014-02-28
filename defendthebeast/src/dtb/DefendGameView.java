@@ -41,16 +41,14 @@ public class DefendGameView extends GContainer {
 	private int[] x;
 	private int[] y;
 	private int[][] waves;
-	private int money;
 
-	public DefendGameView(String level, int[] x, int[] y, int[][] waves, int money) {
+	public DefendGameView(String level, int[] x, int[] y, int[][] waves) {
 		setSize(1280, 720);
 
 		this.level = level;
 		this.x = x;
 		this.y = y;
 		this.waves = waves;
-		this.money = money;
 	}
 
 	public int[] getWayPointsX() {
@@ -99,7 +97,7 @@ public class DefendGameView extends GContainer {
 		};
 		mbMM.addListener(blMM);
 
-		bank = new Bank(money);
+		bank = new Bank(Defend.getCarriedMoney());
 
 		GSprite bankTile = createSprite();
 		addAt(bankTile, 1200, 40);
