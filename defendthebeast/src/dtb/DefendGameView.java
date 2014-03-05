@@ -81,7 +81,7 @@ public class DefendGameView extends GContainer {
 
 		MenuArea ma = new MenuArea();
 		ma.setAnchorCenter();
-		ma.setLocation(1280 / 2, 720 - 22);
+		ma.setLocation(getWidth() / 2, getHeight() - 22);
 		add(ma);
 
 		GButton mbMM = this.createButton(0, "Pause");
@@ -193,7 +193,7 @@ public class DefendGameView extends GContainer {
 		gm.setColor(Color.WHITE);
 		btn.addAtCenter(gm);
 
-		DelayListener dl = new DelayListener(buttonIndex * 10) {
+		DelayListener dl = new DelayListener(buttonIndex * 5) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
@@ -270,13 +270,13 @@ public class DefendGameView extends GContainer {
 
 		switch (loc) {
 		case 1:
-			addAt(messageHUD, 1280 / 2, 100);
+			addAt(messageHUD, getWidth() / 2, 100);
 			break;
 		case 2:
 			addAtCenter(messageHUD);
 			break;
 		case 3:
-			addAt(messageHUD, 1280 / 2, 600);
+			addAt(messageHUD, getWidth() / 2, 600);
 			break;
 		}
 

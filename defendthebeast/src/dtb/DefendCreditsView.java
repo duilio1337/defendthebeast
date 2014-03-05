@@ -82,7 +82,7 @@ public class DefendCreditsView extends GContainer {
 		gm.setColor(Color.WHITE);
 		btn.addAtCenter(gm);
 
-		DelayListener dl = new DelayListener(buttonIndex * 10) {
+		DelayListener dl = new DelayListener(buttonIndex * 5) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
