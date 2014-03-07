@@ -2,7 +2,11 @@ package dtb;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
 
 import jgame.ButtonState;
 import jgame.Context;
@@ -16,6 +20,8 @@ import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
+import jgame.listener.GlobalKeyListener;
+import jgame.listener.Listener;
 import dtb.Defend.Views;
 
 public class DefendMenuView extends GContainer {
@@ -45,7 +51,7 @@ public class DefendMenuView extends GContainer {
 		// add(mbInstructions);
 		GButton mbCredits = createButton(2, "Credits");
 		mbCredits.setLocation(-100, 300);
-		
+
 		GButton mbQuit = this.createButton(3, "Quit");
 		mbQuit.setLocation(-100, 400);
 
@@ -82,6 +88,16 @@ public class DefendMenuView extends GContainer {
 		mbInstructions.addListener(blInstructions);
 		mbQuit.addListener(blQuit);
 		mbCredits.addListener(blCredits);
+
+		GlobalKeyListener esc = new GlobalKeyListener(KeyEvent.VK_ESCAPE) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				System.exit(0);
+			}
+		};
+
+		addListener(esc);
 
 		BufferedImage dtb = ImageCache.forClass(Defend.class).get(
 				"Other/dtb.png");

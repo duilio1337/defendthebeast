@@ -3,6 +3,7 @@ package dtb;
 import java.awt.Color;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import jgame.ButtonState;
@@ -19,6 +20,7 @@ import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
+import jgame.listener.GlobalKeyListener;
 import jgame.listener.LocalClickListener;
 import Mechanics.Bank;
 import Mechanics.RangeRing;
@@ -109,6 +111,17 @@ public class DefendGameView extends GContainer {
 			}
 		};
 		addListener(fl);
+		
+		GlobalKeyListener esc = new GlobalKeyListener(KeyEvent.VK_ESCAPE) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				Defend.setPaused(true);
+				context.setCurrentGameView(Views.PAUSE);
+			}
+		};
+		
+		addListener(esc);
 	}
 
 	public static GSprite createSprite() {

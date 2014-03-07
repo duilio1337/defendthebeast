@@ -2,6 +2,7 @@ package dtb;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import jgame.ButtonState;
@@ -16,6 +17,7 @@ import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
+import jgame.listener.GlobalKeyListener;
 import dtb.Defend.Views;
 
 public class DefendLevelMenu extends GContainer {
@@ -55,7 +57,7 @@ public class DefendLevelMenu extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				if (Defend.isLevelUnlocked() > 1) {
+				if (Defend.isLevelUnlocked() >= 2) {
 					Defend.setLevel(2);
 					context.setCurrentGameView(Views.LEVEL2);
 				}
@@ -72,7 +74,7 @@ public class DefendLevelMenu extends GContainer {
 			@Override
 			public void mouseClicked(Context context) {
 				super.mouseClicked(context);
-				if (Defend.isLevelUnlocked() > 2) {
+				if (Defend.isLevelUnlocked() >= 3) {
 					Defend.setLevel(3);
 					context.setCurrentGameView(Views.LEVEL3);
 				}
@@ -85,6 +87,16 @@ public class DefendLevelMenu extends GContainer {
 		
 		GSprite dtbspr = new GSprite(ImageCache.getImage("Other/dtb.png"));
 		addAt(dtbspr, 1280 / 2, 80);
+		
+		GlobalKeyListener esc = new GlobalKeyListener(KeyEvent.VK_ESCAPE) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				context.setCurrentGameView(Views.MENU);
+			}
+		};
+		
+		addListener(esc);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {

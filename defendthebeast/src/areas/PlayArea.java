@@ -142,7 +142,7 @@ public class PlayArea extends GContainer {
 					
 					break;
 				default:
-					System.err.println("ERROR: INVALID WAVE NUMBER");
+					System.err.println("ERROR: PLAYAREA: INVALID WAVE NUMBER");
 					System.err.println("Wave Number '" + nextWave
 							+ "' is invalid.");
 					removeListener(waveTimer);

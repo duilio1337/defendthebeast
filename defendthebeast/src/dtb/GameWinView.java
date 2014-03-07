@@ -2,6 +2,7 @@ package dtb;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import jgame.ButtonState;
@@ -14,6 +15,7 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 import jgame.listener.FrameListener;
+import jgame.listener.GlobalKeyListener;
 import dtb.Defend.Views;
 import dtb.Defend;
 
@@ -63,17 +65,20 @@ public class GameWinView extends GContainer {
 				super.mouseClicked(context);
 				switch(Defend.isLevelUnlocked()) {
 					case 1:
+						Defend.setLevel(1);
 						context.setCurrentGameView(Views.LEVEL1);
 						break;
 					case 2:
+						Defend.setLevel(2);
 						context.setCurrentGameView(Views.LEVEL2);
 						break;
 					case 3:
+						Defend.setLevel(3);
 						context.setCurrentGameView(Views.LEVEL3);
 						break;
 					default :
 						System.err.println("ERROR: LEVEL '" + Defend.isLevelUnlocked()
-								+ "' NOT DEFINED IN WIN MENU");
+								+ "' NOT DEFINED IN WIN VIEW");
 						System.err.println("UPDATE YOUR CLASS WIN FOO!");
 				}
 			}
@@ -90,6 +95,16 @@ public class GameWinView extends GContainer {
 			}
 		};
 		addListener(fl);
+		
+		GlobalKeyListener esc = new GlobalKeyListener(KeyEvent.VK_ESCAPE) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				context.setCurrentGameView(Views.MENU);
+			}
+		};
+		
+		addListener(esc);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {

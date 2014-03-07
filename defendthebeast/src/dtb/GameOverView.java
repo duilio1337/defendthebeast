@@ -2,6 +2,7 @@ package dtb;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import jgame.ButtonState;
@@ -9,9 +10,11 @@ import jgame.Context;
 import jgame.GButton;
 import jgame.GContainer;
 import jgame.GMessage;
+import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
+import jgame.listener.GlobalKeyListener;
 import dtb.Defend.Views;
 
 public class GameOverView extends GContainer {
@@ -45,6 +48,16 @@ public class GameOverView extends GContainer {
 
 		addAt(m, 1280 / 3.5, 200);
 		addAt(m2, 1280 / 4.75, 600);
+		
+		GlobalKeyListener esc = new GlobalKeyListener(KeyEvent.VK_ESCAPE) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				context.setCurrentGameView(Views.MENU);
+			}
+		};
+		
+		addListener(esc);
 	}
 
 	private GButton createButton(final int buttonIndex, String buttonText) {
