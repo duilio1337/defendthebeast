@@ -12,7 +12,7 @@ import jgame.GMessage;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
-import dtb.Defend.Views;
+import dtb.DefendApplet.Views;
 
 public class GameOverView extends GContainer {
 	public GameOverView() {

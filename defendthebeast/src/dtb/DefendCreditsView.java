@@ -16,7 +16,7 @@ import jgame.controller.Interpolation;
 import jgame.controller.MovementTween;
 import jgame.listener.ButtonListener;
 import jgame.listener.DelayListener;
-import dtb.Defend.Views;
+import dtb.DefendApplet.Views;
 
 public class DefendCreditsView extends GContainer {
 	public DefendCreditsView() {

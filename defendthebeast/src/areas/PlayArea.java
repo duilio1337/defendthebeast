@@ -21,7 +21,7 @@ import Enemies.Enemy4;
 import Enemies.Enemy5;
 import Mechanics.Bank;
 import dtb.Defend;
-import dtb.Defend.Views;
+import dtb.DefendApplet.Views;
 import dtb.DefendGameView;
 
 public class PlayArea extends GContainer {

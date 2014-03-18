@@ -11,7 +11,7 @@ import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
 import Mechanics.Bank;
 import Mechanics.HealthBar;
-import dtb.Defend.Views;
+import dtb.DefendApplet.Views;
 
 public abstract class Enemy extends GSprite {
 	private double maxHealth;

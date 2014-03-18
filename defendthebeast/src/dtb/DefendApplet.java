@@ -3,15 +3,14 @@ package dtb;
 import java.awt.Color;
 
 import jgame.GRootContainer;
-import jgame.Game;
+import jgame.GameApplet;
 import jgame.ImageCache;
 import jgame.SoundManager;
 import Levels.Level1;
 import Levels.Level2;
 import Levels.Level3;
-import dtb.DefendApplet.Views;
 
-public class Defend extends Game {
+public class DefendApplet extends GameApplet {
 
 	public DefendGameView l1 = new Level1();
 	public DefendGameView l2 = new Level2();
@@ -22,16 +21,20 @@ public class Defend extends Game {
 	private static int levelunlocked = 1;
 	private static int carryovermoney = 100;
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
+		
+		DefendApplet d1 = new DefendApplet();
+		//d1.startGame("Defend the Beast A3.0");
+	}*/
+
+	public DefendApplet() {
+		
+		GRootContainer root = new GRootContainer(Color.BLACK);
+		core.setRootContainer(root);
+		//+++++++++++++  From Main
 		ImageCache.create(Defend.class, "/dtb/rsc/");
 		SoundManager.create(Defend.class, "/dtb/rsc/Sounds/");
-		Defend d1 = new Defend();
-		d1.startGame("Defend the Beast A3.0");
-	}
-
-	public Defend() {
-		GRootContainer root = new GRootContainer(Color.BLACK);
-		setRootContainer(root);
+		// +++++++++++
 		DefendMenuView dmv = new DefendMenuView();
 		GameOverView gov = new GameOverView();
 		DefendInstView dig = new DefendInstView();
@@ -50,38 +53,50 @@ public class Defend extends Game {
 		root.addView(Views.PAUSE, dpv);
 		root.addView(Views.CREDITS, dcv);
 
-		setTargetFPS(30);
+		core.setTargetFPS(30);
+		
+		
 	}
 
-	public static boolean isPaused() {
+	/*public enum Views {
+		// These are all of the views for this game
+		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE, WIN, CREDITS;
+	}*/
+
+	public  boolean isPaused() {
 		return paused;
 	}
 
-	public static void setPaused(boolean status) {
+	public  void setPaused(boolean status) {
 		paused = status;
 	}
 
-	public static int isLevel() {
+	public  int isLevel() {
 		return levelnum;
 	}
 
-	public static void setLevel(int level) {
+	public  void setLevel(int level) {
 		levelnum = level;
 	}
 
-	public static int isLevelUnlocked() {
+	public  int isLevelUnlocked() {
 		return levelunlocked;
 	}
 
-	public static void setLevelUnlocked(int level) {
+	public  void setLevelUnlocked(int level) {
 		levelunlocked = level;
 	}
 	
-	public static int getCarriedMoney() {
+	public  int getCarriedMoney() {
 		return carryovermoney;
 	}
 	
-	public static void setCarriedMoney(int money) {
+	public  void setCarriedMoney(int money) {
 		carryovermoney = money;
 	}
+	public enum Views {
+		// These are all of the views for this game
+		MENU, LEVEL1, LEVEL2, LEVEL3, LEVELMENU, GAME_OVER, INSTRUCTIONS, PAUSE, WIN, CREDITS;
+	}
 }
+

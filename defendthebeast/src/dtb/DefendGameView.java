@@ -30,7 +30,7 @@ import Turrets.Turret4;
 import Turrets.Turret5;
 import areas.MenuArea;
 import areas.PlayArea;
-import dtb.Defend.Views;
+import dtb.DefendApplet.Views;
 
 public class DefendGameView extends GContainer {
 	private PlayArea pa;

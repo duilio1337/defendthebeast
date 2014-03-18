@@ -14,8 +14,7 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 import jgame.listener.FrameListener;
-import dtb.Defend.Views;
-import dtb.Defend;
+import dtb.DefendApplet.Views;
 
 public class GameWinView extends GContainer {
 	public GameWinView() {
